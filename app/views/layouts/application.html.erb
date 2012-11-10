@@ -14,6 +14,16 @@
     <div id="main_navigation">
       <div id="header_logo"></div>
 
+      <div id="user_nav">
+        <% if user_signed_in? %>
+            Hello <%= current_user.email %>. Signout:
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </div>
+      <!--
+      Example Code: We need to impliment this in the header section.
       <div class="m-btn-group" id="header_profile">
         <a class="m-btn white dropdown-carrettoggle" data-toggle="dropdown" href="#">
           Profile <span class="caret white"></span>
@@ -26,11 +36,17 @@
           <li><a href="#"><i class="icon-off"></i> Logout</a></li>
         </ul>
       </div>
+      -->
 
     </div>
     <div id="category_navigation"></div>
   </div>
 </div>
+
+
+<p class="notice"><%= notice %></p>
+
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
