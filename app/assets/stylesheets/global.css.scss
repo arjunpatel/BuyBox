@@ -22,7 +22,7 @@ body{
             background: url('buybox_header_logo.png') no-repeat 0 0;
             float: left;
         }
-        #header_profile{
+        #header_profile, #user_nav{
             float: right;
         }
       }
@@ -31,4 +31,10 @@ body{
 
       }
   }
+}
+
+#content_container{
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px;
 }
