@@ -158,6 +158,7 @@ DEPENDENCIES
   devise
   jquery-rails
   json
+  meta_search (>= 1.1.0.pre)
   pg
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
