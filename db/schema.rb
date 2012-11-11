@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110233551) do
+ActiveRecord::Schema.define(:version => 20121111032111) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -62,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20121110233551) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "credit_cards", :force => true do |t|
+    t.integer  "address_id"
+    t.integer  "user_id"
+    t.integer  "credit_card_number"
+    t.integer  "exp_month"
+    t.integer  "exp_year"
+    t.integer  "cvc"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "credit_cards", ["address_id"], :name => "index_credit_cards_on_address_id"
+  add_index "credit_cards", ["user_id"], :name => "index_credit_cards_on_user_id"
+
   create_table "orders", :force => true do |t|
     t.integer  "product_id"
     t.integer  "user_id"
@@ -88,6 +103,18 @@ ActiveRecord::Schema.define(:version => 20121110233551) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  create_table "user_reviews", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reviewer_id"
+    t.text     "review"
+    t.integer  "rating"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "user_reviews", ["reviewer_id"], :name => "index_user_reviews_on_reviewer_id"
+  add_index "user_reviews", ["user_id"], :name => "index_user_reviews_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
