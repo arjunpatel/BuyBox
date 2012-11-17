@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(:version => 20121117201232) do
     t.text     "description"
     t.string   "brand"
     t.string   "digital_link"
-    t.integer  "popularity index"
+    t.integer  "popularity_index"
     t.float    "price"
     t.integer  "quantity"
     t.integer  "quantity_sold"

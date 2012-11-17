@@ -1,0 +1,26 @@
+<div class="product list">
+  <h2>Products</h2>
+  
+  <table border="1" class="listing" summary="Product list">
+    <tr class="header" style="font-size:20px;">
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Brand</th>
+      <th>Price</th>
+	  <th>Quantity</th>
+	  <th>Actions</th>
+    </tr>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.product_name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.brand %></td>
+      <td><%= product.price %></td>
+      <td><%= product.quantity %></td>
+	  <td>	
+        <%= link_to("Details", {:action => 'show', :id => product.id}, :class => 'action show') %>
+	  </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
