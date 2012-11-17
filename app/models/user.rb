@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :addresses
-  has_many :credit_cards
+  has_one :address
+  has_one :credit_card
   has_many :products
   has_many :orders
   has_one :wishlist
