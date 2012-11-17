@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :addresses
+  has_many :credit_cards
+  has_many :products
+  has_many :orders
+  has_one :wishlist
+  has_many :user_reviews
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
