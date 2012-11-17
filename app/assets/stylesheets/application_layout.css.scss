@@ -1,0 +1,25 @@
+body#application{
+    #header{
+        background: url('main_header_bg.png') repeat 0 0;
+        height: 158px;
+        width: auto;
+
+        #header_container{
+
+            #main_navigation{
+                height: 54px;
+
+                #header_logo{
+                    width: 55px;
+                    height: 55px;
+                    background: url('buybox_header_logo.png') no-repeat 0 0;
+                    float: left;
+                }
+            }
+
+            #category_navigation{
+
+            }
+        }
+    }
+}

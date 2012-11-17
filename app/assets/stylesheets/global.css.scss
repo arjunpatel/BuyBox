@@ -2,39 +2,63 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-#header{
-  background: url('main_header_bg.png') repeat 0 0;
-  height: 158px;
-  width: auto;
+#header_container{
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0px;
 
-  #header_container{
-      width: 960px;
-      margin: 0 auto;
-      padding: 20px 0px;
-
-      #main_navigation{
+    #main_navigation{
         background-color: #FFFFFF;
-        height: 54px;
         width: 960px;
-        #header_logo{
-            width: 55px;
-            height: 55px;
-            background: url('buybox_header_logo.png') no-repeat 0 0;
-            float: left;
-        }
+
         #header_profile, #user_nav{
             float: right;
         }
-      }
 
-      #category_navigation{
-
-      }
-  }
+    }
 }
 
-#content_container{
+a, a:link, a:visited, a:active, a:hover {
+    color: #0066CC;
+    text-decoration: none;
+}
+
+#content_wrapper{
     width: 960px;
     margin: 0 auto;
-    padding: 10px;
+    #content_container{
+        padding: 10px;
+    }
+}
+
+#footer{
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+    #left{
+        display: inline-block;
+        #rights{
+            font-size: 13px;
+            color: #878787;
+        }
+        #footer_links{
+            padding-left: 20px;
+            a, a:link, a:visited, a:active, a:hover {
+                padding: 0 5px;
+                font-size: 12px;
+                color: #999999;
+                text-decoration: none;
+            }
+        }
+        #support{
+            font-size: 12px;
+            color: #999999;
+        }
+    }
+    #right{
+        float: right;
+        background: url('twitter_follow.png') no-repeat 0 0;
+        width: 112px;
+        height: 20px;
+    }
 }
