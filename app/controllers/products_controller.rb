@@ -8,5 +8,23 @@ class ProductsController < ApplicationController
   
   def show
 	@product = Product.find(params[:id])
+	if @product.user_id != current_user.id
+	  redirect_to(:action => 'list')
+	end
   end
+  
+  def new
+	@product = Product.new
+  end
+  
+  def create
+	@product = Product.new(params[:product])
+	@product.user_id = current_user.id
+	if @product.save
+	  redirect_to(:action => 'list')
+	else
+	  render('new')
+	end
+  end
+
 end

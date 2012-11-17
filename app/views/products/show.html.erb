@@ -1,0 +1,22 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="product show">
+  <h2>Show Product</h2>
+
+  <table summary="Product detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @product.product_name %></td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><%= @product.price %></td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td><%= @product.quantity %></td>
+    </tr>
+
+  </table>
+  
+</div>
