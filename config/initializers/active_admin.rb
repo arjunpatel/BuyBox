@@ -36,7 +36,7 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.default_namespace = :admin
   #
-  # You can customize the settings for each namespace by using
+  # You can customize the account_settings for each namespace by using
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
@@ -71,7 +71,7 @@ ActiveAdmin.setup do |config|
   # == Logging Out
   #
   # Active Admin displays a logout link on each screen. These
-  # settings configure the location and method used for the link.
+  # account_settings configure the location and method used for the link.
   #
   # This setting changes the path where the link points to. If it's
   # a string, the strings is used as the path. If it's a Symbol, we

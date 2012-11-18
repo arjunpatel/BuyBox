@@ -9,27 +9,29 @@
 </head>
 <body id="background_header">
 
-  <div id="header" style="background-image: url('/assets/background/<%= 1+rand(7) %>.jpeg');">
-    <div id="header_container">
-      <div id="main_navigation">
-        <div id="header_logo"></div>
-      </div>
+<div id="header" style="background-image: url('/assets/background/<%= 1+rand(7) %>.jpeg');">
+  <div id="header_container">
+    <div id="main_navigation">
+      <div id="header_logo"></div>
+
+      <%= render "partials/user_navigation" %>
+
     </div>
   </div>
+</div>
+<div class="divider_shadow"></div>
+<div id="content_wrapper">
   <div class="divider_shadow"></div>
-  <div id="content_wrapper">
-    <div class="divider_shadow"></div>
   <div id="content_container">
     <%= render "partials/notice_alert" %>
 
     <%= yield %>
 
-    bg no header layout
   </div>
-  </div>
+</div>
 
 
-  <%= render "partials/footer" %>
+<%= render "partials/footer" %>
 
 </body>
 </html>
