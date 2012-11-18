@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+	layout "background_header"
   before_filter :authenticate_user!
   def list
     @user_id = current_user.id
