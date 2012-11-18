@@ -2,6 +2,23 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.login_form
+{   
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+
+.login_nav
+{   text-align: right;
+    padding-top: 7px;
+    padding-bottom: 20px;
+    padding-right: 15px;
+
+}
+
 #header_container{
     width: 960px;
     margin: 0 auto;
