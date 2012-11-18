@@ -17,14 +17,16 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require "omniauth-facebook"
 
-  if Rails.env == 'development'
-   config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada", :strategy_class => OmniAuth::Strategies::Facebook, :image_size => 'large'
-    #config.omniauth :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, {:scope => 'email, offline_access, user_activities, user_checkins, user_photos, friends_photos, friends_checkins, friends_location, user_events, user_location', :client_options => {:ssl => {:ca_file => "#{Rails.root}/config/ca-bundle.crt"}}}
-  else
-    config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada",
-          {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada", :strategy_class => OmniAuth::Strategies::Facebook, :image_size => 'large'
+
+  #if Rails.env == 'development'
+  # config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada", :strategy_class => OmniAuth::Strategies::Facebook, :image_size => 'large'
+    config.omniauth :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, {:scope => 'email, offline_access, user_activities, user_checkins, user_photos, friends_photos, friends_checkins, friends_location, user_events, user_location', :client_options => {:ssl => {:ca_file => "#{Rails.root}/config/ca-bundle.crt"}}}
+  #else
+  #  config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada",
+  #        {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
     #config.omniauth :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, {:scope => 'email, offline_access, user_activities, user_checkins, user_photos, friends_photos, friends_checkins, friends_location, user_events, user_location', :client_options => {:ssl => {:ca_file => "/usr/lib/ssl/certs/ca-certificates.crt"}}}
-  end
+  #end
 
 
   # ==> Configuration for any authentication mechanism
