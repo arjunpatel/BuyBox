@@ -2,6 +2,73 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.fade {
+   opacity: 1;
+   transition: opacity .35s ease-in-out;
+   -moz-transition: opacity .35s ease-in-out;
+   -webkit-transition: opacity .35s ease-in-out;
+   }
+
+   .fade:hover {
+      opacity: 0.2;
+      }
+
+.table_padding
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.guest_nav
+{   
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom:0px;
+    padding-top: 20px;
+}
+
+.left_nav
+{   
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom:0px;
+    padding-top: 7px;
+}
+.right_nav
+{   
+    text-align: right;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom:0px;
+    padding-top: 20px;
+
+}
+
+
+
+.login_nav
+{   
+    padding-top: 6px;
+}
+
+.content_padding
+{   
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+
+
 #header_container{
     width: 960px;
     margin: 0 auto;
