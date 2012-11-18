@@ -1,0 +1,41 @@
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="product edit">
+  <h2>Update Product</h2>
+
+  <%= form_for(:product, :url => {:action => 'update', :id => @product.id}) do |f| %>
+  
+    <table summary="Product form fields">
+      <tr>
+        <th>Product Name</th>
+        <td><%= f.text_field(:product_name) %></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><%= f.text_field(:description) %></td>
+      </tr>
+      <tr>
+        <th>Brand</th>
+        <td><%= f.text_field(:brand) %></td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%= f.text_field(:price) %></td>
+      </tr>
+      <tr>
+        <th>Quantity</th>
+        <td><%= f.text_field(:quantity) %></td>
+      </tr>
+      <tr>
+        <th>Zipcode</th>
+        <td><%= f.text_field(:zip) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Update Product") %>
+    </div>
+    
+  <% end %>
+</div>

@@ -26,5 +26,28 @@ class ProductsController < ApplicationController
 	  render('new')
 	end
   end
+  def delete
+	@product = Product.find(params[:id])
+	if @product.user_id != current_user.id
+		redirect_to(:action => 'list')
+	else
+		Product.find(params[:id]).destroy
+		redirect_to(:action => 'list')
+	end
+  end
+  def edit
+	@product = Product.find(params[:id])
+  end
+  
+  def update
+  	@product = Product.find(params[:id])
+	@product.user_id = current_user.id
+	if @product.update_attributes(params[:product])
+	  redirect_to(:action => 'list')
+	else
+	  render('edit')
+	end
+  
+  end
 
 end
