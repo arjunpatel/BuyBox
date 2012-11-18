@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
         user.last_name = data.last_name
         user.location = info.location
         user.fb_url = info.urls.Facebook
-        user.image = access_token.info.image
+        user.image = access_token.info.image.split("=")[0] << "=large"
       end
       user.fb_token = access_token.credentials.token
       user.save
