@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buybox - <%= @user.first_name %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body id="profile">
+
+<div id="header" style="background-image: url('/assets/background/7.jpeg');">
+  <div id="header_container">
+    <div id="main_navigation">
+      <div id="header_logo"></div>
+    </div>
+  </div>
+  <div id="profile_container">
+    <div id="profile_image" style="background-image: url('<%= @user.image %>');"></div>
+    <div id="name_links">
+      <span id="name"><%= @user.first_name %> <%= @user.last_name %></span><br>
+
+    </div>
+  </div>
+</div>
+
+<div id="content_wrapper">
+  <div class="divider_shadow"></div>
+  <div id="content_container">
+    <%= render "partials/notice_alert" %>
+
+
+  </div>
+</div>
+
+
+<%= render "partials/footer" %>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<div class="content_padding row">
+  <h2> User Profile </h2>
+
+
+  <div class="span8"><h4>
+    <b>First Name: </b> <%= @user.first_name %><br>
+    <b>Last Name: </b> <%= @user.last_name %><br>
+    <b>Join Date: </b> <%= @user.confirmed_at %><br>
+    <b>Location: </b> <%= @user.location %><br>
+    <b>Email: </b> <%= @user.email %><br>
+    <b>Email: </b> <%= @user.fb_url %><br></h4>
+  </div>
+
+</div>

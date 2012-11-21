@@ -1,0 +1,57 @@
+body#profile{
+    background: url('body_bg.png') repeat 0 0;
+
+    #header{
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 365px;
+        width: auto;
+        background-size: 100%;
+        background-size: cover;
+
+        #header_container{
+            #main_navigation{
+                height: 64px;
+                #header_logo{
+                    width: 191px;
+                    height: 77px;
+                    background: url('buybox_header_biglogo.png') no-repeat -3px -7px;
+                    float: left;
+                }
+            }
+        }
+
+        #profile_container{
+            width: 960px;
+            margin: 0 auto;
+            padding-top: 25px;
+            #profile_image{
+                float: left;
+                height: 130px;
+                width: 130px;
+                border: 20px solid #222222;
+                background-position: center center;
+            }
+            #name_links{
+                margin-top: 30px;
+                background: #222222;
+                font-weight: 300;
+                float: left;
+                #name{
+                    font-size: 30px;
+                    padding: 0 40px 0 10px;
+                    line-height: 60px;
+                    color: #DDDDDD;
+                }
+                #links{
+
+                }
+            }
+        }
+    }
+    #content_container{
+        background-color: #FAFAFA;
+        min-height: 300px;
+        padding-bottom: 30px;
+    }
+}

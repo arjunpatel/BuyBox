@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def profile
+    @user = User.find(params[:id])
+    render :layout => false
+  end
+
   def account_settings
 
   end
