@@ -1,32 +1,40 @@
-<div class="row content_padding">
-	<div class="span4">
-		<h2>Sign Up</h2>
+		<div class="page-header">	
+		<div class="signup_header">Sign Up</div>
+		<div class="no_account_header">Already Signed Up ?</div> 
+		<div class="sign_up_now"><%- if controller_name != 'sessions' %>
+  <%= link_to "Sign in !", new_session_path(resource_name) %><br /></div>
+<% end -%></div>
 
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-		  <%= devise_error_messages! %>
 
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email %></div>
+<div class="container-fluid content_padding">
+  <div class="row-fluid">
+		<div class="span4 user_signin">
 
-		  <div><%= f.label :password %><br />
-		  <%= f.password_field :password %></div>
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+				  <%= devise_error_messages! %>
 
-		  <div><%= f.label :password_confirmation %><br />
-		  <%= f.password_field :password_confirmation %></div>
 
-		  <div><%= f.submit "Sign up" %></div>
-		<% end %>
-	</div>
-	<div class="span5">
-		<h3>Have a facebook account ? <Br>Login without signing up.</h3>
+				  <%= f.text_field :first_name, :placeholder =>"First Name", :class => "input-small input-mysize" %>
+				  <%= f.text_field :last_name, :placeholder =>"Last Name", :class => "input-small input-mysize"  %>
+				  <%= f.email_field :email, :placeholder =>"Email Address"  %>
+				  <%= f.password_field :password , :placeholder =>"Password" %>
+				  <%= f.password_field :password_confirmation , :placeholder =>"Password Confirmation"  %>
+
+				  <div><%= f.submit "Sign up" ,:class=> "btn btn-primary pull-left"%></div>
+				<% end %>
+			</div>
+				<div class="span3"></br></br></br><center><div class="circle align_center"> OR </div></center>
+		</div>
+    <div class="span5 fb_signin">
+		<h3>Have a facebook account ?</h3><h4>Login without signing up.</h4>
 		<%- if devise_mapping.omniauthable? %>
   			<%- resource_class.omniauth_providers.each do |provider| %>
-		    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-		    <%= link_to image_tag("facebook-logo.png", :size=>"200x100"), omniauth_authorize_path(resource_name, provider) %>
+		    <%= link_to image_tag("facebook_logo.png", :size=>"200x100"), omniauth_authorize_path(resource_name, provider) %>
 
 		  <% end -%>
 		<% end -%>
 
 	</div>
-
+  </div>
 </div>
+

@@ -1,8 +1,19 @@
 <% if user_signed_in? %>
 
-	<div class="span4 left_nav">
-	<%= image_tag current_user.image, :size => '40x40', :class => 'img-polaroid' %> 
-    Welcome, <%= current_user.first_name %> <%= current_user.last_name %> 
+  <div class="span4 left_nav">
+
+  <% if current_user.image.nil? %>
+      <%= image_tag("user_default.png", :size => '40x40', :class => 'img-polaroid')%> 
+  <% else %>
+      <%= image_tag current_user.image, :size => '40x40', :class => 'img-polaroid'%> 
+  <% end %>
+    Welcome, 
+  <% if current_user.first_name.nil? && current_user.last_name.nil? %>
+      User
+  <% else %>
+      <%= current_user.first_name %> <%= current_user.last_name %> 
+  <% end %>
+
 </div>
 <div class="span4 right_nav">
 
@@ -12,7 +23,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="#">Something else here</a></li>
                   <li><a href="#">Something else here</a></li>
-                  	<li class="divider"></li>
+                    <li class="divider"></li>
                   <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>                  
                   <li class="divider"></li>
                   <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
