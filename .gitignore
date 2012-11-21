@@ -43,3 +43,5 @@ app/assets/images/.DS_Store
 Gemfile.lock
 
 db/schema.rb
+
+.idea/scopes/scope_settings.xml
