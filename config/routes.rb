@@ -8,7 +8,7 @@ BuyBox::Application.routes.draw do
   get '/users/:id', :to => "users#show", :as => :user
 
 
-  match "/users/profile/:id" => "users#profile"
+  match "/users/profile/:id" => "users#profile", :as => :public_profile
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,7 +16,9 @@
     </div>
   </div>
   <div id="profile_container">
-    <div id="profile_image" style="background-image: url('<%= @user.image %>');"></div>
+    <div id="profile_image_border">
+      <div id="profile_image" style="background-image: url('<%= @user.image %>');"></div>
+    </div>
     <div id="name_links">
       <span id="name"><%= @user.first_name %> <%= @user.last_name %></span><br>
 

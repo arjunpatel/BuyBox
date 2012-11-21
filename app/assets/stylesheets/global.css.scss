@@ -175,3 +175,56 @@ body#background_no_header, body#background_header{
         }
     }
 }
+
+#nav_signin{
+    float: right;
+    margin: 8px 10px 0 0;
+    .green{
+        background-color: #66C223;
+        background-image: none;
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+    .signin_btn{
+        a, a:link, a:visited, a:active, a:hover {
+            color: #666666;
+            text-decoration: none;
+        }
+    }
+}
+
+#nav_signedin{
+    background-color: #FFFFFF;
+    float: right;
+    padding-right: 10px;
+    .m-btn-group{
+        height: 35px;
+    }
+    .red{
+        background-color: #FFFFFF;
+        background-image: none;
+        height: 35px;
+    }
+    .icon{
+        margin: 11px 10px 0 10px;
+    }
+    .m-dropdown-menu{
+        margin-top: 20px;
+    }
+    #profile_img_wrap{
+        height: 35px;
+        width: 35px;
+        border-radius: 35px;
+        overflow: hidden;
+        background-size: auto 100%;
+        float: left;
+    }
+    #name{
+        margin-left: 10px;
+        color: #666666;
+        font-size: 16px;
+        float: left;
+        line-height: 35px;
+
+    }
+}

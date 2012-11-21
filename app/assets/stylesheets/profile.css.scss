@@ -25,16 +25,21 @@ body#profile{
             width: 960px;
             margin: 0 auto;
             padding-top: 25px;
-            #profile_image{
-                float: left;
+            #profile_image_border{
+                border: 20px solid rgba(0, 0, 0, 0.7);
                 height: 130px;
                 width: 130px;
-                border: 20px solid #222222;
-                background-position: center center;
+                float: left;
+                #profile_image{
+                    height: 130px;
+                    width: 130px;
+                    background-position: center center;
+                    background-size: auto 100%;
+                }
             }
             #name_links{
                 margin-top: 30px;
-                background: #222222;
+                background: rgba(0, 0, 0, 0.7);
                 font-weight: 300;
                 float: left;
                 #name{

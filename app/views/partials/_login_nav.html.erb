@@ -1,35 +1,32 @@
 <% if user_signed_in? %>
+    <div id="nav_signedin">
 
-	<div class="span4 left_nav">
-	<%= image_tag current_user.image, :size => '40x40', :class => 'img-polaroid' %> 
-    Welcome, <%= current_user.first_name %> <%= current_user.last_name %> 
-</div>
-<div class="span4 right_nav">
+    <div class="m-btn-group">
+      <a class="m-btn red dropdown-toggle" data-toggle="dropdown" href="#">
+          <div id="profile_img_wrap" style="background-image: url('<%= current_user.image %>');"></div>
+          <div id="name"><%= current_user.first_name %></div>
+        <i class="icon-cog icon"></i>
+      </a>
+      <ul class="m-dropdown-menu">
+        <li><%= link_to('Profile Settings', edit_user_registration_path) %></li>
+        <li><%= link_to('My Public Profile', public_profile_path(:id => current_user.id)) %></li>
+        <li><a href="#">Feedback</a></li>
+        <li class="divider"></li>
+        <li><%= link_to('Sign out', destroy_user_session_path, :method => 'delete') %></li>
+      </ul>
+    </div>
+    </div>
+<% else %>
+    <div id="nav_signin">
+    <% if params[:controller] == "devise/sessions" && params[:action] == "new" %>
+        <%= link_to "JOIN BUYBOX NOW", new_user_registration_path, :class => 'm-btn green rnd' %>
+    <% elsif params[:controller] == "devise/registrations" && params[:action] == "new" %>
+        <%= link_to "SIGN IN TO BUYBOX", new_user_session_path, :class => 'm-btn green rnd' %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path, :class => 'm-btn rnd signin_btn' %>
+    <% end %>
+    </div>
 
-
-<div class="btn-group">
-             <%= image_tag("arrow.png", :size => '25x25', :class => 'left_arrow fade', "data-toggle" => "dropdown", :href=> "#") %>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  	<li class="divider"></li>
-                  <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>                  
-                  <li class="divider"></li>
-                  <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
-</li>
-                </ul>
-              </div>
-
-
-
-</div>
-
-
-   <% else %>
-   <div class="guest_nav">
-    Welcome Guest, Please
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-</div>
 <% end %>
 
 
