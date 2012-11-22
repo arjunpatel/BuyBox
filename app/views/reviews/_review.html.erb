@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+
+
+<p>
+  <b>Reviewer ID:</b>
+  <%= review.reviewer %>
+</p>
+ <p>
+  <b>Rating:</b>
+  <%= review.rating %>
+</p>
+<p>
+  <b>Review:</b>
+  <%= review.comment %>
+</p>
+ 
+<p>
+  <%= link_to 'Destroy Review', [review.user, review],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>
+
+</table>

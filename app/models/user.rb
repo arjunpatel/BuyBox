@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_one :wishlist
   has_many :user_reviews
-
+  has_many :reviews, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

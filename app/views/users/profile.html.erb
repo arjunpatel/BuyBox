@@ -32,6 +32,12 @@
   <div class="divider_shadow"></div>
   <div id="content_container">
     <%= render "partials/notice_alert" %>
+  <h2>Reviews</h2>
+  <%= render @user.reviews %>
+
+
+    <h2>Add a review:</h2>
+      <%= render "reviews/form" %>
 
 
   </div>
