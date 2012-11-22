@@ -34,11 +34,10 @@
     <%= render "partials/notice_alert" %>
   <h2>Reviews</h2>
   <%= render @user.reviews %>
-
-
+    <% if @user.id != current_user.id %>
     <h2>Add a review:</h2>
       <%= render "reviews/form" %>
-
+    <% end %>
 
   </div>
 </div>
