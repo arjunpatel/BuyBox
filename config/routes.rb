@@ -5,7 +5,10 @@ BuyBox::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
-  get '/users/:id', :to => "users#show", :as => :user
+
+    devise_for :users do
+     get '/users/profile.html', :to => 'users#profile', :as => :user_root # Rails 3
+    end
 
 
   match "/users/profile/:id" => "users#profile", :as => :public_profile

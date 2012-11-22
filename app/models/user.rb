@@ -20,12 +20,6 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
 
-  #this method is for letting users authenticate both with emails and usernames
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    login = conditions.delete(:login)
-    where(conditions).where(["lower(username) = :value OR lower(email) = :value", {:value => login.strip.downcase}]).first
-  end
 
   #this method is for finding or creating a user after we get a callback from facebook
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
@@ -66,27 +60,24 @@ class User < ActiveRecord::Base
     end
   end
 
-  def update_with_password(fbtime, userid, params={})
-    created_date = User.find(userid).created_at
-    if fbtime
-      real = !((fbtime.to_time - 5.minutes) > created_date)
-    end
-    current_password = params.delete(:current_password)
+  def update_with_password(params={})
+        current_password = params.delete(:current_password)
 
-    if params[:password].blank?
-      params.delete(:password)
-    end
+        if params[:password].blank?
+          params.delete(:password)
+          params.delete(:password_confirmation) if params[:password_confirmation].blank?
+        end 
 
-    result = if !params[:password] || valid_password?(current_password) || real
-               update_attributes(params)
-             else
-               self.attributes = params
-               self.valid?
-               self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
-               false
-             end
+        result = if params[:password].blank? || valid_password?(current_password)     
+            update_attributes(params)
+        else
+          self.attributes = params
+          self.valid?
+          self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+          false
+        end 
 
-    clean_up_passwords
-    result
-  end
+        clean_up_passwords
+        result
+   end
 end

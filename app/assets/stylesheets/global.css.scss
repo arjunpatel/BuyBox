@@ -2,6 +2,71 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.user_profile_date_table
+{
+    width :380px; 
+    text-align: center;
+}
+
+.circle {
+    background:black;
+    height:20px;
+    width:20px;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+ 
+    padding:10px;
+    text-align:center;
+    color:white;
+
+}
+
+.input-mysize { 
+    width: 95px
+}
+
+.align_center
+{
+    text-align: center;
+}
+
+.user_signin
+{
+    text-align: left;
+
+}
+
+.fb_signin
+{
+    text-align: right;
+}
+
+.second_header
+{
+    font-size: 25px;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.no_account_header
+{
+    font-size: 17px;
+    color: #D8D8D8;
+        padding-right: 10px;
+
+    display: inline-block;
+}
+
+.sign_up_now
+{
+    font-size: 17px;
+    color: #045FB4;
+    padding-right: 10px;
+
+    display: inline-block;  
+}
+
 .fade {
    opacity: 1;
    transition: opacity .35s ease-in-out;
