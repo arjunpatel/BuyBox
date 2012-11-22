@@ -1,10 +1,6 @@
 BuyBox::Application.routes.draw do
   ActiveAdmin.routes(self)
 
-  resources :users do
-    resources :reviews
-  end
-
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -12,9 +8,12 @@ BuyBox::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations }
 
  
-
+  match "/users/show.html" => "users#show", :as => :user_root
   match "/users/profile/:id" => "users#profile", :as => :public_profile
 
+  resources :users do
+    resources :reviews
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
