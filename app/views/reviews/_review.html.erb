@@ -1,26 +1,35 @@
-<div class="content_padding pull-left">
-	<%= image_tag("user_default.png", :size => '70x70', :class => 'img-polaroid') %> </div>
 
-<table class="table table-bordered">
+<table class="table table-hover">
+   <tr>
+      <td>
+        <div class="user_review_leftside">
+          <% if(User.find(review.reviewer_id).image) %>
+              <%= image_tag User.find(review.reviewer_id).image, :size => '100x100', :class => 'img-polaroid' %>
+            <% else %>
+              <%= image_tag("user_default.png", :size => '100x100', :class => 'img-polaroid') %> 
+          <% end %><br>
+          <%  if myself?(review.reviewer_id) %>
+            <%= link_to 'Destroy Review', [review.user, review], :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </div>
+      </td>
+      <td>
+      <div class="user_review_rightside">
+        <div class="header">
+          <div class="pull-left">Review by <%= User.find(review.reviewer_id).first_name %> <%= User.find(review.reviewer_id).last_name %> on <%= review.created_at.strftime('%B %d, %Y')  %></div>
+           <div class="pull-right">Rating: <%= review.rating %></div>
 
-
-<p>
-  <b>Reviewer ID:</b>
-  <%= review.reviewer %>
-</p>
-<p>
-  <b>Rating:</b>
-  <%= review.rating %>
-</p>
-<p>
-  <b>Review:</b>
-  <%= review.comment %>
-</p>
- 
-<p>
-  <%= link_to 'Destroy Review', [review.user, review],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-</p>
+        </div>
+        <br>
+        <%= review.comment %>
+          
+        
+     
+      </td>
+    </tr>
 
 </table>
+
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122092600) do
+ActiveRecord::Schema.define(:version => 20121123230926) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -106,12 +106,12 @@ ActiveRecord::Schema.define(:version => 20121122092600) do
   end
 
   create_table "reviews", :force => true do |t|
-    t.string   "reviewer"
-    t.string   "rating"
+    t.integer  "reviewer_id", :limit => 255
+    t.integer  "rating",      :limit => 255
     t.text     "comment"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
