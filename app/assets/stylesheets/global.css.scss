@@ -2,6 +2,46 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+
+
+
+.header
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.divider
+{
+border-bottom: 1px solid #EEE;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: #EEE;
+}
+
+
+.review_table
+{
+    width: 850px;
+    margin-left: 15px;
+}
+
+.user_review_leftside
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    width:120px;
+    text-align: center;
+}
+
+.user_review_rightside
+{
+    width:700px;
+}
+
 .rating_form
 {
     width: 150px;

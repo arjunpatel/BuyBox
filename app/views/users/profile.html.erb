@@ -19,7 +19,11 @@
   </div>
   <div id="profile_container">
     <div id="profile_image_border">
-      <div id="profile_image" style="background-image: url('<%= @user.image %>');"></div>
+      <% if @user.image %>
+        <div id="profile_image" style="background-image: url('<%= @user.image %>');"></div>
+      <% else %>
+        <div id="profile_image" style="background-image: url('<%= image_path('user_default.png')%> ');"></div>
+      <% end %>
     </div>
     <div id="name_links">
       <span id="name"><%= @user.first_name %> <%= @user.last_name %></span><br>
@@ -32,13 +36,15 @@
   <div class="divider_shadow"></div>
   <div id="content_container">
     <%= render "partials/notice_alert" %>
-  <h2>Reviews</h2>
-  <%= render @user.reviews %>
-    <% if @user.id != current_user.id %>
-    <h2>Add a review:</h2>
-      <%= render "reviews/form" %>
-    <% end %>
-
+    <div class="content_padding">
+    <h2>Reviews</h2>
+      <%= render @user.reviews %>
+        <% if @user.id != current_user.id %>
+        <div class="divider"></div>
+        <h2>Add a review:</h2>
+        <%= render "reviews/form" %>
+      <% end %>
+    </div>
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 <%= form_for([@user, @user.reviews.build]) do |f| %>
 
-    <%= f.hidden_field :reviewer, :value => current_user.id %>
+    <%= f.hidden_field :reviewer_id, :value => current_user.id %>
 
     <div class="field">
   <%= f.label :rating %>

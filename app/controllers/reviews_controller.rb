@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   	end
 
 	def destroy
-	    @user = User.find(params[:id])
+	    @user = User.find(params[:user_id])
 	    @review = @user.reviews.find(params[:id])
 	    @review.destroy
 	    redirect_to public_profile_path(@user)
