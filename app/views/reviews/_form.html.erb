@@ -1,14 +1,35 @@
 <%= form_for([@user, @user.reviews.build]) do |f| %>
+
+    <%= f.hidden_field :reviewer, :value => current_user.id %>
+
     <div class="field">
-  <%= f.label :rating %><br />
-    <%= f.text_field :rating %>
-  </div>
+  <%= f.label :rating %>
+  <table class="rating_form">
+  <tbody>
+    <tr>
+      <td>  <%= f.radio_button :rating, "1" %></td>
+      <td>  <%= f.radio_button :rating, "2" %></td>
+      <td>  <%= f.radio_button :rating, "3" %></td>
+      <td>  <%= f.radio_button :rating, "4" %></td>
+      <td>  <%= f.radio_button :rating, "5" %></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+  </div><br>
   <div class="field">
-    <%= f.label :comment %><br />
+    <%= f.label :comment %>
     <%= f.text_area :comment, :rows=>6, :cols=>40%>
-  </div>
+  </div><br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+
   </div>
 <% end %>
