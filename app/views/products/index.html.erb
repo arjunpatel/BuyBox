@@ -1,0 +1,60 @@
+<table class="search_table">
+  <tbody>
+    <tr>
+      <td class="search_left_side_bar">
+        <%= form_for @search do |f| %>
+          <br>
+          <p>
+            <%= f.text_field :product_name_contains, :class =>"product_search_textfield", :placeholder =>"Product Search" %>
+          </p>
+          <p>  
+            <%= f.text_field :brand_contains, :class =>"product_search_textfield", :placeholder =>"Brand  Search"  %>
+           </p>
+          <p>
+            <%= f.text_field :description_contains, :class =>"product_search_textfield", :placeholder =>"Description Search"  %>
+          </p>
+          <p>
+            <%= f.label :price_gte, "Price ranges", :class=> "search_header" %>
+            <%= f.text_field :price_gte, :class => "price_search_textfield", :placeholder => "Min"%>
+            <%= f.text_field :price_lte, :class => "price_search_textfield", :placeholder => "Max" %>
+          </p>
+          <p class="button"><%= f.submit "Search" %></p>
+        <% end %>
+      </td>
+      <td class="search_right_side_bar">
+        <div class="pull-left"><h3>Search the Universe</h3></div><br>
+         <p>
+          Sort by:
+          <%= sort_link @search, :product_name %> |
+          <%= sort_link @search, :price %> |
+          <%= sort_link @search, :brand %> |
+          <%= sort_link @search, :created_at %>
+        </p>
+        <div class="divider"></div><br>
+
+        <% for product in @products %>
+
+        <table class="product_list">
+              <tr>
+                  <td colspan="2" class="product_image" style="background-image: url('<%= product.digital_link %>');"></td>
+              </tr>
+              <tr>
+                  <td class="product_information"><%= product.product_name %></td>
+                  <td class="product_price">$ <%= product.price %></td>
+              </tr>
+          </table>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+

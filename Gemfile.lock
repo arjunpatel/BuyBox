@@ -179,7 +179,7 @@ DEPENDENCIES
   devise
   jquery-rails
   json
-  meta_search (>= 1.1.0.pre)
+  meta_search
   omniauth
   omniauth-facebook
   pg
