@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller?
+    if params[:controller] == "devise/registrations" && params[:action] == "edit"
+       "background_header"
+    elsif devise_controller?
       "background_no_header"
     else
       "application"

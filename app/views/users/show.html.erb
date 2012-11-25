@@ -1,14 +1,16 @@
+<div id="sub_navigation_links">
+  <div class="navigation_item current_page"><a href="/users/edit">ACCOUNT SETTINGS</a></div>
+  <div class="navigation_item"><a href="/users/buyer_information">BUYER INFORMATION</a></div>
 
-    <div class="page-header"> 
-      <div class="second_header"> <%= current_user.first_name%> 's Profile</div>
-    </div>
+  <div class="navigation_item"><a href="/users/connection">CONNECTION</a></div>
+</div>
 
   <div class="container-fluid content_padding">
     <div class="row-fluid">
 
 
       <div class="span6 content_padding">
-        <table class="table table-bordered user_profile_date_table">
+        <table class="table user_profile_date_table">
             <tbody>
               <tr>
                 <td><b>First Name</b></td>
@@ -34,7 +36,7 @@
             </tbody>
           </table>
           	<br><br>
-          	<h3> <%= link_to('Go to Edit Profile', edit_user_registration_path) %></h3>
+          	<%= link_to('Go to Edit Profile', edit_user_registration_path, :class => "m-btn purple-stripe") %>
       </div>
       <div class="span4">
         <% if current_user.image.nil? %>
@@ -43,12 +45,10 @@
             <%= image_tag current_user.image, :size => '300x300', :class => 'img-polaroid' %> 
         <% end %><br>
 
-        <h4>Joined at: </h4> <%= current_user.created_at.strftime('%B %d, %Y') %> <br>
-        <h4>Last Signed in at: </h4> <%= current_user.last_sign_in_at.strftime('%B %d, %Y') %> 
-
+        <h5>Joined at: </h5> <%= current_user.created_at.strftime('%B %d, %Y') %> <br>
+          <h5>Last Signed in at: </h5> <%= current_user.last_sign_in_at.strftime('%B %d, %Y') %><br>
+          IP: <%= current_user.last_sign_in_ip %>
+          <br>
       </div>
 </div>
 </div>
-
-
-<%= link_to "Back", :back %>

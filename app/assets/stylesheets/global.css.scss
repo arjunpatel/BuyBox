@@ -242,6 +242,7 @@ border-bottom-color: #EEE;
     padding-left: 20px;
 }
 
+
 .float_left
 {
     float: left;
@@ -489,4 +490,36 @@ body#background_no_header, body#background_header{
         line-height: 35px;
 
     }
+}
+
+#error_explanation {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  h2{
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+
+.notice {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
 }

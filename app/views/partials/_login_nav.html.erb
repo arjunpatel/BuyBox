@@ -18,10 +18,10 @@
     </div>
 <% else %>
     <div id="nav_signin">
-    <% if params[:controller] == "devise/sessions" && params[:action] == "new" %>
-        <%= link_to "JOIN BUYBOX NOW", new_user_registration_path, :class => 'm-btn green rnd' %>
-    <% elsif params[:controller] == "devise/registrations" && params[:action] == "new" %>
+    <% if params[:controller] == "devise/registrations" %>
         <%= link_to "SIGN IN TO BUYBOX", new_user_session_path, :class => 'm-btn green rnd' %>
+    <% elsif params[:controller][0..6] == "devise/" %>
+        <%= link_to "JOIN BUYBOX NOW", new_user_registration_path, :class => 'm-btn green rnd' %>
     <% else %>
       <%= link_to "Sign in", new_user_session_path, :class => 'm-btn rnd signin_btn' %>
     <% end %>
