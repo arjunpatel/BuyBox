@@ -10,8 +10,7 @@ BuyBox::Application.routes.draw do
  
   match "/users/show.html" => "users#show", :as => :user_root
   match "/users/profile/:id" => "users#profile", :as => :public_profile
-  match "/product/" => "products#index", :as => :product
-  match "/product/new/" => "products#new", :as => :new_product
+  match "/product/" => "products#index", :as => :products
 
 
   resources :users do
