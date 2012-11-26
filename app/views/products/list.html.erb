@@ -3,23 +3,22 @@
   
   <%= link_to("List a Product", {:action => 'new'}, :class => 'action new') %>
   <table border="1" class="listing" summary="Product list">
-    <tr class="header" style="font-size:20px;">
-      <th>Product Name</th>
-      <th>Description</th>
-      <th>Brand</th>
-      <th>Price</th>
-	  <th>Quantity</th>
-	  <th>Actions</th>
+    <tr class="header" style="font-size:16px;">
+      <th>Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>	
+      <th>Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Brand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	  <th>Qty.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	  <th>Actions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
     <% @products.each do |product| %>
     <tr>
-      <td><%= product.product_name %></td>
+      <td><%= link_to(product.product_name, {:action => 'show', :id => product.id}, :class => 'action show') %></td>
       <td><%= product.description %></td>
       <td><%= product.brand %></td>
       <td><%= product.price %></td>
       <td><%= product.quantity %></td>
 	  <td>	
-        <%= link_to("Details", {:action => 'show', :id => product.id}, :class => 'action show') %>
 		<%= link_to("Update", {:action => 'edit', :id => product.id}, :class => 'action delete') %>
 		<%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %>
 	  </td>
