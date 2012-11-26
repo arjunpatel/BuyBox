@@ -1,31 +1,31 @@
 <div class="product new">
-  <h2>Add Product</h2>
+  <h2>List a Product</h2>
 
   <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
   
     <table summary="Product form fields">
       <tr>
-        <th>Product Name</th>
+        <td align = right>Product&nbsp;&nbsp;</td>
         <td><%= f.text_field(:product_name) %></td>
       </tr>
       <tr>
-        <th>Description</th>
+        <td align = right>Description&nbsp;&nbsp;</td>
         <td><%= f.text_field(:description) %></td>
       </tr>
       <tr>
-        <th>Brand</th>
+        <td align = right>Brand&nbsp;&nbsp;</td>
         <td><%= f.text_field(:brand) %></td>
       </tr>
       <tr>
-        <th>Price</th>
+        <td align = right>Price&nbsp;&nbsp;</td>
         <td><%= f.text_field(:price) %></td>
       </tr>
       <tr>
-        <th>Quantity</th>
+        <td align = right>Quantity&nbsp;&nbsp;</td>
         <td><%= f.text_field(:quantity) %></td>
       </tr>
       <tr>
-        <th>Zipcode</th>
+        <td align = right>Zipcode&nbsp;&nbsp;</td>
         <td><%= f.text_field(:zip) %></td>
       </tr>
     </table>
