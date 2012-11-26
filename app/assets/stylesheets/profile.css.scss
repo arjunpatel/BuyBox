@@ -37,6 +37,30 @@ body#profile{
                     background-size: auto 100%;
                 }
             }
+
+
+
+        #public_rating_display
+        {
+                margin-top: 10px;
+                font-weight: 100;
+                width: 200px;
+                float: right;
+                text-align: right;
+
+                #name1{
+                    background: rgba(0, 0, 0, 0.7);
+                    font-size: 15px;
+                    padding: 5px 10px 5px 15px;
+                    line-height: 50px;
+                    color: #DDDDDD;
+
+                }
+
+        }
+       
+
+
             #name_links{
                 margin-top: 30px;
                 background: rgba(0, 0, 0, 0.7);

@@ -27,8 +27,15 @@
     </div>
     <div id="name_links">
       <span id="name"><%= @user.first_name %> <%= @user.last_name %></span><br>
+    </div>
+
+    <div id="public_rating_display">
+      <span id="name1"> 4.6 from 864 ratings</span><br>
+      <span id="name1"> Yours's rating:<%= image_tag("star_rating.png", :size => '15x15') %> <%= image_tag("star_rating.png", :size => '15x15') %> <%= image_tag("star_rating.png", :size => '15x15') %> <%= image_tag("star_rating.png", :size => '15x15') %> </span>
 
     </div>
+
+
   </div>
 </div>
 
@@ -37,13 +44,52 @@
   <div id="content_container">
     <%= render "partials/notice_alert" %>
     <div class="content_padding">
-    <h2>Reviews</h2>
-      <%= render @user.reviews %>
-        <% if @user.id != current_user.id %>
-        <div class="divider"></div>
-        <h2>Add a review:</h2>
-        <%= render "reviews/form" %>
-      <% end %>
+
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active profile_tab_padding"><a href="#review" data-toggle="tab">REVIEWS</a></li>
+              <li class="profile_tab_padding"><a href="#selling" data-toggle="tab">SELLING</a></li>
+              <li class="profile_tab_padding"><a href="#wishlist" data-toggle="tab">WISH LIST</a></li>
+              <li class="profile_tab_padding"><a href="#contact" data-toggle="tab">CONTACT</a></li>
+
+            </ul>
+
+
+
+            <div id="myTabContent" class="tab-content">
+              
+              <div class="tab-pane active" id="review">
+                <%= render @user.reviews %>
+                  <% if @user.id != current_user.id %>
+                  <div class="divider"></div>
+                  <h2>Add a review:</h2>
+                  <%= render "reviews/form" %>
+                <% end %>
+              </div>
+
+
+            <div class="tab-pane fade" id="selling">
+                <p> SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING </p>
+            </div>
+
+
+
+
+              <div class="tab-pane fade" id="wishlist">
+                <p> My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is  My wishlist is </p>
+              </div>
+
+              <div class="tab-pane fade" id="contact">
+                <p> CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  CONTACT USER  </p>
+              </div>
+
+            </div>
+
+
+
+
+
+
+
     </div>
   </div>
 </div>
