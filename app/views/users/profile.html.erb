@@ -29,9 +29,15 @@
       <span id="name"><%= @user.first_name %> <%= @user.last_name %></span>
       <br>
       <span id="social">
-        <%= image_tag "social_icon/facebook.png" %> 
-        <%= image_tag "social_icon/twitter.png" %> 
-        <%= image_tag "social_icon/mail.png" %> 
+        <% if @user.fb_url %>
+          <%= link_to image_tag('social_icon/facebook.png'), @user.fb_url%>
+        <% end %>
+        <% if @user.twitter_link %>
+          <%= link_to image_tag('social_icon/twitter.png'), @user.twitter_link%>
+        <% end %>
+        <% if @user.email %> 
+          <%= link_to image_tag('social_icon/mail.png'), "mailto:" + @user.email%>
+        <% end %>
 
 
       </span><br>
@@ -47,7 +53,7 @@
       <% else %>
         <% sum_rating = Review.sum(:rating, :conditions => { :user_id => params[:id]}) %>
         <% average_rating = sum_rating.to_f/total_rating.to_f %>
-        <%= average_rating.round(2) %> of out <%= total_rating %> ratings
+        <%= average_rating.round(2) %> out of <%= total_rating %> ratings
       <% end %>
       </span>
       <br>

@@ -5,6 +5,9 @@
         <%= form_for @search do |f| %>
           <br>
           <p>
+            <%= f.text_field :product_name_or_brand_or_description_contains, :class =>"product_search_textfield", :placeholder =>"Search Everthing" %>
+          </p>
+          <p>
             <%= f.text_field :product_name_contains, :class =>"product_search_textfield", :placeholder =>"Product Search" %>
           </p>
           <p>  
@@ -32,6 +35,11 @@
         </p>
         <div class="divider"></div><br>
 
+
+
+
+
+
         <% for product in @products %>
 
         <table class="product_list">
@@ -39,7 +47,7 @@
                   <td colspan="2" class="product_image" style="background-image: url('<%= product.digital_link %>');"></td>
               </tr>
               <tr>
-                  <td class="product_information"><%= product.product_name %></td>
+                  <td class="product_information"><%= link_to(product.product_name, {:action => 'show', :id => product.id}, :class => 'action show') %></td>
                   <td class="product_price">$ <%= product.price %></td>
               </tr>
           </table>
