@@ -1,6 +1,17 @@
 body#profile{
     background: url('body_bg.png') repeat 0 0;
 
+    span.stars, span.stars span {
+        display: block;
+        background: url(bigger_star.png) 0 -31px repeat-x;
+        width: 155px;
+        height: 31px;
+    }
+
+    span.stars span {
+        background-position: 0 0;
+    }
+
     #header{
         background-repeat: no-repeat;
         background-position: center center;
@@ -43,7 +54,7 @@ body#profile{
         #public_rating_display
         {
                 margin-top: 10px;
-                font-weight: 100;
+                font-weight: 300;
                 width: 200px;
                 float: right;
                 text-align: right;
@@ -63,14 +74,22 @@ body#profile{
 
             #name_links{
                 margin-top: 30px;
-                background: rgba(0, 0, 0, 0.7);
                 font-weight: 300;
                 float: left;
                 #name{
                     font-size: 30px;
-                    padding: 0 40px 0 10px;
+                    padding: 0 20px 0 10px;
                     line-height: 60px;
                     color: #DDDDDD;
+                    background: rgba(0, 0, 0, 0.7);
+
+                }
+                #social{
+                    font-size: 30px;
+                    padding: 0 40px 0 10px;
+                    line-height: 30px;
+                    color: #DDDDDD;
+
                 }
                 #links{
 

@@ -6,8 +6,9 @@
           <% if(User.find(review.reviewer_id).image) %>
               <%= image_tag User.find(review.reviewer_id).image, :size => '100x100', :class => 'img-polaroid' %>
             <% else %>
-              <%= image_tag("user_default.png", :size => '100x100', :class => 'img-polaroid') %> 
+              <%= link_to image_tag("user_default.png", :size => '100x100', :class => 'img-polaroid'), public_profile_path(:id => review.reviewer_id) %> 
           <% end %><br>
+          <%= link_to('View Profile', public_profile_path(:id => review.reviewer_id)) %><br>
           <%  if myself?(review.reviewer_id) %>
             <%= link_to 'Delete Review', [review.user, review], :confirm => 'Are you sure?', :method => :delete %>
           <% end %>
