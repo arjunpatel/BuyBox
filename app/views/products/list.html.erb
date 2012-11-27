@@ -21,6 +21,7 @@
       <td><%= product.quantity %></td>
 	  <td>	
 		<%= link_to("Update", {:action => 'edit', :id => product.id}, :class => 'action delete') %>
+		|
 		<%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %>
 	  </td>
     </tr>
