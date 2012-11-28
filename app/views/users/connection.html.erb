@@ -5,3 +5,10 @@
   <div class="navigation_item current_page"><a href="/users/connection">CONNECTION</a></div>
 </div>
 
+<form name="input" action="connection" method="get">
+    Facebook: <input type="text" name="facebook" placeholder="Please enter your Facebook URL" value="<%= @current_facebook %>"> <br>
+    Twitter: <input type="text" name="twitter" placeholder="Please enter your Twitter URL" value="<%= @current_twitter %>"> <br>
+    <input type="submit" value="Submit">
+    <%= params.inspect %>
+    <%= @user.inspect %>
+</form>

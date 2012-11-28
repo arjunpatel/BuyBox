@@ -22,4 +22,18 @@ class UsersController < ApplicationController
 
   end
 
+  def connection
+    if (params[:facebook].present? && params[:twitter].present?)
+      user = User.find(current_user.id)
+      user.facebook_link = params[:facebook]
+      user.twitter_link = params[:twitter]
+      user.save
+      @current_facebook = User.find(current_user.id).facebook_link
+      @current_twitter = User.find(current_user.id).twitter_link
+    else
+      @current_facebook = User.find(current_user.id).facebook_link
+      @current_twitter = User.find(current_user.id).twitter_link
+    end
+  end
+
 end

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	layout "background_header"
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => {:index, :show}
   def list
     @user_id = current_user.id
 	@products = Product.where(:user_id => @user_id).order("products.product_name ASC")
