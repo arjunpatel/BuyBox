@@ -68,7 +68,7 @@ BuyBox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index_old.html.
-  root :to => 'products#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -5,6 +5,10 @@ class WelcomeController < ApplicationController
     #this is for applicaiton layout
   end
 
+  def search
+    render :layout => false
+  end
+
   def background_header
 
   end

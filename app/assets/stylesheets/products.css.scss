@@ -1,3 +1,159 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search_product_list {
+    width: 700px;
+    margin: -10px 0 0 -5px;
+}
+
+.product_list {
+    .product {
+        width: 210px;
+        height: 225px;
+        display: inline-block;
+        margin: 10px;
+        border: 1px solid #CCCCCC;
+        position: relative;
+        .category{
+            color: #FFFFFF;
+            font-size: 11px;
+            line-height: 14px;
+            padding: 3px 7px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .image{
+            height: 170px;
+            width: 210px;
+        }
+        .name_price{
+            width: 100%;
+            height: 55px;
+            background-color: #F3F1F1;
+            .information{
+                display: inline-block;
+                width: 140px;
+                padding-left: 10px;
+                a {
+                    color: #333333;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+            }
+            .price{
+                color: #006C98;
+                font-size: 22px;
+                line-height: 55px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.search_title {
+    display: inline-block;
+    font-size: 21px;
+    line-height: 50px;
+}
+
+.product_sort {
+    margin-top: 10px;
+    float: right;
+}
+
+.search_left_title{
+    font-size: 16px;
+    line-height: 20px;
+    color: #CCCCCC;
+}
+
+.product_categories{
+    .category {
+        color: #999999;
+        font-size: 14px;
+        line-height: 16px;
+        display: inline-block;
+        padding: 3px 7px;
+        margin: 3px 1px;
+        background-color: #666666;
+        cursor: pointer;
+        &:hover{
+            color: #999999;
+            background-color: #333333;
+        }
+    }
+    .cat_active {
+        color: #FFFFFF;
+        background-color: #0090EA;
+    }
+}
+
+
+.product_search_textfield
+{
+width: 190px;
+}
+.search_header
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: top;
+    color: #FFFFFF
+}
+
+.search_table
+{
+    border: 1px;
+    margin-left: 10px;
+    margin-right: 10px
+
+}
+.search_left_side_bar
+{
+    background-color: #51514C;
+    width: 200px;
+    height: 100%;
+    vertical-align: top;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: -40px 0 0 -20px;
+    display: inline-block;
+}
+
+.search_right_side_bar
+{
+    padding-left: 10px;
+    width: 685px;
+    display: inline-block;
+}
+
+.product_image
+{
+    height:130px;
+}
+
+.product_information
+{
+    height:40px;
+    border-top: 1px solid #BDBDBA;
+    background-color: #E0E0E0;
+    vertical-align: middle;
+}
+
+.product_name
+{
+    font-size: 17px;
+    background-color: #E0E0E0;
+    vertical-align: middle;
+}
+
+.product_price
+{
+    font-size: 17px;
+    color: red;
+    background-color: #E0E0E0;
+    vertical-align: middle;
+}
