@@ -60,5 +60,19 @@ module BuyBox
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+	
+	config.action_mailer.smtp_settings = {
+  :address              => "smtp.ucsd.edu",
+  :port                 => 20,
+  :domain               => "ucsd.edu",
+  :user_name            => "hsp009@ucsd.edu",
+  :password             => "Mjhs..89",
+  :authentication       => :plain,
+  :enable_starttls_auto => true
+}
+
+config.action_mailer.default_url_options = {
+  :host => "ucsd.edu"
+}
   end
 end
