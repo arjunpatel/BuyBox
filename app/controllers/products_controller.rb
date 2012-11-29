@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	layout "background_header"
-  before_filter :authenticate_user!, :except => {:index, :show}
+  before_filter :authenticate_user!
   def list
     @user_id = current_user.id
 	@products = Product.where(:user_id => @user_id).order("products.product_name ASC")
@@ -49,11 +49,23 @@ class ProductsController < ApplicationController
 	end
   
   end
+  
+  def change_active
+	product = Product.find(params[:id])
+	if product.active == false
+		product.active = true
+	else
+		product.active = false
+	end
+	product.save
+	redirect_to(:action => 'list')
+  end
 
   def index
     @search = Product.search(params[:search])
     @products = @search.all   # or @search.relation to lazy load in view
   end
+  
   
 
 

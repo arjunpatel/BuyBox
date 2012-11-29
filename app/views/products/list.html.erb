@@ -1,3 +1,5 @@
+
+
 <div class="product list">
   <h2>Products</h2>
   
@@ -10,6 +12,7 @@
       <th>Brand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 	  <th>Qty.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	  <th>Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 	  <th>Actions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
     <% @products.each do |product| %>
@@ -17,12 +20,25 @@
       <td><%= link_to(product.product_name, {:action => 'show', :id => product.id}, :class => 'action show') %></td>
       <td><%= product.description %></td>
       <td><%= product.brand %></td>
-      <td><%= product.price %></td>
+      <td><%= number_to_currency(product.price) %></td>
       <td><%= product.quantity %></td>
+	  <td>
+	  	<% if product.active == false %>
+			Not Active
+		<% else %>
+			Active
+		<% end %>
+	  </td>
 	  <td>	
 		<%= link_to("Update", {:action => 'edit', :id => product.id}, :class => 'action delete') %>
 		|
 		<%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %>
+		|
+		<% if product.active == false %>
+			<%= link_to("Activate", {:action => "change_active", :id => product.id}) %>
+		<% else %>
+			<%= link_to("Deactivate", {:action => "change_active", :id => product.id}) %>
+		<% end %>
 	  </td>
     </tr>
     <% end %>

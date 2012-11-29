@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <td align = right>Price:&nbsp;&nbsp;</td>
-      <td><%= @product.price %></td>
+      <td><%= number_to_currency(@product.price) %></td>
     </tr>
     <tr>
       <td align = right>Quantity:&nbsp;&nbsp;</td>
@@ -24,5 +24,7 @@
     </tr>
 
   </table>
+  
+  <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %>
   
 </div>
