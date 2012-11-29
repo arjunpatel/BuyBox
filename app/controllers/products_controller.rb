@@ -49,11 +49,23 @@ class ProductsController < ApplicationController
 	end
   
   end
+  
+  def change_active
+	product = Product.find(params[:id])
+	if product.active == false
+		product.active = true
+	else
+		product.active = false
+	end
+	product.save
+	redirect_to(:action => 'list')
+  end
 
   def index
     @search = Product.search(params[:search])
-    @products = @search.all   # or @search.relation to lazy load in view
+    @products = @search.where(:active => true)   # or @search.relation to lazy load in view
   end
+  
   
 
 

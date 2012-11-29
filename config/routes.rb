@@ -14,7 +14,7 @@ BuyBox::Application.routes.draw do
 
   match "/users/profile/:id" => "users#profile", :as => :public_profile
   match "/product/" => "products#index", :as => :products
-
+  match "/Contact/" => "Contact#contact", :as => :contact
 
   resources :users do
     resources :reviews
