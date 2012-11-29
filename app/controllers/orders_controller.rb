@@ -13,6 +13,9 @@ class OrdersController < ApplicationController
 	if order.save && product.quantity >= Integer(params[:quantity])
 	  flash[:notice] = "Your order was successful!"
 	  product.quantity = product.quantity - Integer(params[:quantity])
+	  if product.quantity == 0
+		product.active = false
+	  end
 	  product.save
 	  redirect_to(:controller => "products", :action => "list")
 	else

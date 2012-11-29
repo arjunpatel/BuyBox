@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
 
   def index
     @search = Product.search(params[:search])
-    @products = @search.all   # or @search.relation to lazy load in view
+    @products = @search.where(:active => true)   # or @search.relation to lazy load in view
   end
   
   

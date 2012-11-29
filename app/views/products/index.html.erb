@@ -48,7 +48,7 @@
               </tr>
               <tr>
                   <td class="product_information"><%= link_to(product.product_name, {:action => 'show', :id => product.id}, :class => 'action show') %></td>
-                  <td class="product_price">$ <%= product.price %></td>
+                  <td class="product_price"><%= number_to_currency(product.price) %></td>
               </tr>
           </table>
         <% end %>
