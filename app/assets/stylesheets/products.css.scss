@@ -157,3 +157,88 @@ width: 190px;
     background-color: #E0E0E0;
     vertical-align: middle;
 }
+
+body#product_layout{
+    background: url('bedge_grunge.png') repeat 0 0;
+
+    #header{
+        background-repeat: repeat;
+        background-position: 0 0;
+        height: 200px;
+        width: auto;
+
+        #header_container{
+            #main_navigation{
+                height: 64px;
+                #header_logo{
+                    width: 59px;
+                    height: 55px;
+                    background: url('logo_small.png') no-repeat 0 0;
+                    float: left;
+                }
+            }
+        }
+    }
+    #content_container{
+        background-color: #FAFAFA;
+        min-height: 300px;
+        padding: 0;
+
+        #product_header{
+            height: 90px;
+            margin-top: -90px;
+            width: 100%;
+            background-color: #FFFFFF;
+            text-align: center;
+            line-height: 90px;
+            font-size: 30px;
+            color: #333333;
+            .category{
+                color: #0066CC;
+                font-size: 21px;
+                font-weight: 300;
+            }
+        }
+
+        #product_left{
+            display: inline-block;
+            width: 615px;
+            .image{
+                height: 350px;
+                background-color: #2D2B2B;
+            }
+            .description{
+                padding: 30px;
+                font-size: 26px;
+                line-height: 35px;
+                font-weight: 300;
+            }
+        }
+        #product_right{
+            display: inline-block;
+            width: 341px;
+            vertical-align: top;
+            #user_banner {
+                background: #333333;
+                padding: 10px;
+            }
+            #purchase{
+                .stripes{
+                    background: url('stripes.png') no-repeat 0 0;
+                    height: 12px;
+                }
+            }
+        }
+        .product_footer{
+            width: 100%;
+            line-height: 35px;
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 300;
+            background-color: #999999;
+            span{
+                padding-left: 30px;
+            }
+        }
+    }
+}
