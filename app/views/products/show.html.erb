@@ -1,30 +1,48 @@
-<div class="product show">
-  <h2>Show Product</h2>
 
-  <table summary="Product detail view">
-    <tr>
-      <td align = right>Name:&nbsp;&nbsp;</td>
-      <td><%= @product.product_name %></td>
-    </tr>
-    <tr>
-      <td align = right>Description:&nbsp;&nbsp;</td>
-      <td><%= @product.description %></td>
-    </tr>
-    <tr>
-      <td align = right>Brand:&nbsp;&nbsp;</td>
-      <td><%= @product.brand %></td>
-    </tr>
-    <tr>
-      <td align = right>Price:&nbsp;&nbsp;</td>
-      <td><%= number_to_currency(@product.price) %></td>
-    </tr>
-    <tr>
-      <td align = right>Quantity:&nbsp;&nbsp;</td>
-      <td><%= @product.quantity %></td>
-    </tr>
 
-  </table>
-  
-  <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %>
-  
+
+
+
+<div class="container-fluid content_padding">
+  <div class="row-fluid">
+    <div class="span8">
+       <img src="http://placehold.it/500x400" class="img-polaroid">
+    </div>
+    <div class="span4"> 
+      <div class="product_right_side_dark"><%= image_tag @seller.image, :size => '60x60', :class => 'img-polaroid' %>
+        <span class="help-inline user_display_name">
+          <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
+          
+       </span>
+      
+
+
+
+      </div>
+      <div class="user_divider"></div>
+      <div class="product_right_side_dark"><div class="product_price_display"><%= number_to_currency(@product.price) %></div><br>
+            <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1, :class=>"btn-primary"%>
 </div>
+      <div class="user_divider"></div>
+
+      <div class="product_title"><%= @product.product_name %></div>
+      <div class="divider"></div>
+      Availability : 
+      <%if @product.quantity == 0 %>
+        <div class="product_unavailable"> Unavailable</div>
+      <% else %>
+        <div class="product_available"> Available</div>
+      <% end %> <p><br>
+      <%= select_tag :quantity, options_for_select([["1",1],["2",2],["3",3],["4",4],["5",5]]), :class=>"span3" %>
+       
+
+       <span class="help-inline">Quantity</span><br><br>
+
+
+      <div class="divider"></div>
+
+
+    </div>
+  </div>
+<div>
+
