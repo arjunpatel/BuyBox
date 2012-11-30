@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @products = Product.limit(4)
+
     @seller= User.find(@product.user_id)
     render :layout => false
   end
