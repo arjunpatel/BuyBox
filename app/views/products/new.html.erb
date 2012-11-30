@@ -30,9 +30,14 @@
       </tr>
     </table>
     
+	<%#= form_for @user do |f| %>
+	  <div>
+	    <%= f.label :digital_link, "Upload Your Avatar:" %>
+	    <%= f.filepicker_field :digital_link %> <!-- User#avatar_url is a regular string column -->
+	  </div>
     <div class="form-buttons">
       <%= submit_tag("Create Product") %>
     </div>
-    
+    <%# end %>
   <% end %>
 </div>

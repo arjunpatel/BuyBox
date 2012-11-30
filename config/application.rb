@@ -74,5 +74,9 @@ module BuyBox
 config.action_mailer.default_url_options = {
   :host => "ucsd.edu"
 }
+
+config.filepicker_rails.api_key = "ANhsOWqXSBqeLVHaHbnwGz"
+#file picker api key
+
   end
 end
