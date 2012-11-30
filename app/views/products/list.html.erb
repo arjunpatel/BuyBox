@@ -17,7 +17,7 @@
     <% @products.each do |product| %>
     <table class="inventory_table">
     <tr>
-        <td class="inventory_left"><img src="http://placehold.it/230x150" class="img-polaroid"></td>
+        <td class="inventory_left"><%= filepicker_image_tag product.digital_link, w: 160, h: 160, fit: 'clip' %></td>
         <td class="inventory_middle">
         	<p class="inventory_product_name"><%= product.product_name %></p>
         	Category : Online Goods<br>

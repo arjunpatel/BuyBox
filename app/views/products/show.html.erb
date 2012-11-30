@@ -29,9 +29,10 @@
       <span class="name"><%= @product.product_name %></span>
       <span class="category"><%= @product.category.category %></span>
     </div>
+	
 
     <div id="product_left">
-      <div class="image"></div>
+      <div class="image"><%= filepicker_image_tag @product.digital_link, w: 160, h: 160, fit: 'clip' %></div>
       <div class="description"><%= @product.description %></div>
     </div>
     <div id="product_right">
