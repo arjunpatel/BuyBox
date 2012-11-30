@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 		product.active = false
 	  end
 	  product.save
-	  redirect_to(:controller => "products", :action => "list")
+	  redirect_to(:controller => "products", :action => "index")
 	else
 	  render :file => File.join(Rails.root, 'public', '500.html')
 	end

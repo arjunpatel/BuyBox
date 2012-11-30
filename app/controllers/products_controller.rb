@@ -8,9 +8,8 @@ class ProductsController < ApplicationController
   
   def show
 	@product = Product.find(params[:id])
-	if @product.user_id != current_user.id
-	  redirect_to(:action => 'list')
-	end
+
+
   end
   
   def new
@@ -58,7 +57,7 @@ class ProductsController < ApplicationController
 		product.active = false
 	end
 	product.save
-	redirect_to(:action => 'list')
+	redirect_to(:action => 'index')
   end
 
   def index
