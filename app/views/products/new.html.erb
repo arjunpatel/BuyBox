@@ -28,6 +28,16 @@
         <td align = right>Zipcode&nbsp;&nbsp;</td>
         <td><%= f.text_field(:zip) %></td>
       </tr>
+	  <tr>
+	    <td align = right>Category&nbsp;&nbsp;</td>
+
+			<td>
+			<%= f.select :category_id, [['Books', 1],['Online', 2],['Electronics', 3],['Sports & Fitness', 4],
+			                            ['Home & Garden', 5],['Clothing', 6], ['Movies & Music', 7],['Home', 8],
+										['Other', 9]
+										] %>
+		</td>
+		</tr>
     </table>
     
 	<%#= form_for @user do |f| %>
