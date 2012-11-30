@@ -1,30 +1,88 @@
-<div class="product show">
-  <h2>Show Product</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BuyBox</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body id="product_layout">
 
-  <table summary="Product detail view">
-    <tr>
-      <td align = right>Name:&nbsp;&nbsp;</td>
-      <td><%= @product.product_name %></td>
-    </tr>
-    <tr>
-      <td align = right>Description:&nbsp;&nbsp;</td>
-      <td><%= @product.description %></td>
-    </tr>
-    <tr>
-      <td align = right>Brand:&nbsp;&nbsp;</td>
-      <td><%= @product.brand %></td>
-    </tr>
-    <tr>
-      <td align = right>Price:&nbsp;&nbsp;</td>
-      <td><%= number_to_currency(@product.price) %></td>
-    </tr>
-    <tr>
-      <td align = right>Quantity:&nbsp;&nbsp;</td>
-      <td><%= @product.quantity %></td>
-    </tr>
 
-  </table>
-  
-  <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %>
-  
+<div id="header" style="background-image: url('/assets/top_bg.png');">
+  <div id="header_container">
+    <div id="main_navigation">
+      <a href="/">
+        <div id="header_logo"></div>
+      </a>
+      <%= render "partials/login_nav" %>
+    </div>
+  </div>
 </div>
+
+<div id="content_wrapper">
+  <div class="divider_shadow"></div>
+  <div id="content_container">
+    <%= render "partials/notice_alert" %>
+
+    <div id="product_header">
+      <span class="name"><%= @product.product_name %></span>
+      <span class="category"><%= @product.category.category %></span>
+    </div>
+
+    <div id="product_left">
+      <div class="image"></div>
+      <div class="description"><%= @product.description %></div>
+    </div>
+    <div id="product_right">
+      <div id="user_banner">
+        <div class="product_right_side_dark"><%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+        <span class="help-inline user_display_name">
+          <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
+       </span>
+      </div>
+
+
+      </div>
+      <div id="purchase">
+        <div class="stripes"></div>
+        <div class="stripes"></div>
+      </div>
+      <div id="more_info"></div>
+    </div>
+
+
+    <div class="product show">
+
+      <table summary="Product detail view">
+        <tr>
+          <td align=right>Brand:&nbsp;&nbsp;</td>
+          <td><%= @product.brand %></td>
+        </tr>
+        <tr>
+          <td align=right>Price:&nbsp;&nbsp;</td>
+          <td><%= number_to_currency(@product.price) %></td>
+        </tr>
+        <tr>
+          <td align=right>Quantity:&nbsp;&nbsp;</td>
+          <td><%= @product.quantity %></td>
+        </tr>
+
+      </table>
+
+      <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %>
+
+    </div>
+
+    <div class="product_footer"><span>Find Similar Products</span></div>
+
+  </div>
+
+</div>
+
+
+<%= render "partials/footer" %>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>

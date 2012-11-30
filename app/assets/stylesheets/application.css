@@ -15,4 +15,5 @@
  *= require_tree ./m-styles
  *= require global
  *= require_tree .
+ *= require products
  */

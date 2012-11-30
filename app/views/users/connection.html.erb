@@ -5,10 +5,29 @@
   <div class="navigation_item current_page"><a href="/users/connection">CONNECTION</a></div>
 </div>
 
-<form name="input" action="connection" method="get">
-    Facebook: <input type="text" name="facebook" placeholder="Please enter your Facebook URL" value="<%= @current_facebook %>"> <br>
-    Twitter: <input type="text" name="twitter" placeholder="Please enter your Twitter URL" value="<%= @current_twitter %>"> <br>
-    <input type="submit" value="Submit">
-    <%= params.inspect %>
-    <%= @user.inspect %>
-</form>
+<div class="container-fluid content_padding">
+  <div class="row-fluid">
+
+<p><br><p>
+		<form name="input" action="connection" method="get">
+
+		<div class="input-prepend">
+		  <span class="add-on "><div class="connection_title">Facebook</div></span>
+		  <input type="text" name="facebook" class="connection_textfield" placeholder="Please enter your Facebook URL" value="<%= @current_facebook %>">
+		</div><p><br>
+		<div class="input-prepend">
+		  <span class="add-on"><div class="connection_title">Twitter</div></span>
+		  <input type="text" name="twitter" class="connection_textfield" placeholder="Please enter your Twitter URL" value="<%= @current_twitter %>">
+		</div>
+
+<br><p>
+
+
+
+		    <input type="submit" class="btn btn-primary" value="Submit">
+
+		</form>
+	</div>
+</div>
+
+

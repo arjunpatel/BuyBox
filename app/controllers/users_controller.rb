@@ -28,10 +28,10 @@ class UsersController < ApplicationController
       user.facebook_link = params[:facebook]
       user.twitter_link = params[:twitter]
       user.save
-      @current_facebook = User.find(current_user.id).facebook_link
+      @current_facebook = User.find(current_user.id).fb_url
       @current_twitter = User.find(current_user.id).twitter_link
     else
-      @current_facebook = User.find(current_user.id).facebook_link
+      @current_facebook = User.find(current_user.id).fb_url
       @current_twitter = User.find(current_user.id).twitter_link
     end
   end
