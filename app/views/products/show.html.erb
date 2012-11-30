@@ -32,7 +32,7 @@
   
 
     <div id="product_left">
-      <div class="image"><br><%= filepicker_image_tag @product.digital_link, w: 450, h: 300, fit: 'clip' %></div>
+      <div class="image"><br><%= image_tag(filepicker_image_url(@product.digital_link, w: 450, h: 300, fit: 'clip'), :class=>"img-polaroid") %></div>
       <div class="description"><%= @product.description %></div>
     </div>
     <div id="product_right">
