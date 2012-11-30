@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   def show
 	@product = Product.find(params[:id])
 	@seller=User.find(@product.user_id)
-
   end
   
   def new
