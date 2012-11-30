@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 	order.price = params[:price]
 	order.quantity = params[:quantity]
 	order.date_of_purchase = Time.now
+	order.order_status = "Not Shipped"
 	product = Product.find(params[:product_id])
 	if order.save && product.quantity >= Integer(params[:quantity])
 	  flash[:notice] = "Your order was successful!"
@@ -22,6 +23,18 @@ class OrdersController < ApplicationController
 	  render :file => File.join(Rails.root, 'public', '500.html')
 	end
 
+  end
+  
+  def sold
+	user = User.find(current_user.id)
+	@orders = user.orders
+  end
+  
+  def changeStatus
+    @order = Order.find(params[:id])
+	@order.order_status = "Shipped"
+	@order.save
+    redirect_to(:action => "sold")
   end
   
 end

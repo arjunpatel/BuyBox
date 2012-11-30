@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
 		product.active = false
 	end
 	product.save
-	redirect_to(:action => 'index')
+	redirect_to(:action => 'list')
   end
 
   def index
