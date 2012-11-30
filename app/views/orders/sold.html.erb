@@ -27,7 +27,7 @@
     <% @orders.each do |order| %>
     <tr>
 	  <% product = order.product %>
-	  <% buyer = product.user %>
+	  <% buyer = User.find(order.user_id) %>
 	  <% if product != nil && buyer != nil %>
 	    <td><%= product.product_name %></td>
 		<td><%= filepicker_image_tag product.digital_link, w: 160, h: 160, fit: 'clip' %></td>

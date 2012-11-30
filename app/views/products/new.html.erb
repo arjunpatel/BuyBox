@@ -42,9 +42,10 @@
     
 	<%#= form_for @user do |f| %>
 	  <div>
-	    <%= f.label :digital_link, "Upload Your Avatar:" %>
+	    <%= f.label :digital_link, "Upload a picture for your product:" %>
 	    <%= f.filepicker_field :digital_link %> <!-- User#avatar_url is a regular string column -->
 	  </div>
+    <hr/>
     <div class="form-buttons">
       <%= submit_tag("Create Product") %>
     </div>

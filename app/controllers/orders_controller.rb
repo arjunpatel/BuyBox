@@ -26,8 +26,11 @@ class OrdersController < ApplicationController
   end
   
   def sold
-	user = User.find(current_user.id)
-	@orders = user.orders
+    products = User.find(current_user.id).products
+	@orders = []
+	products.each do |product|
+		@orders = @orders + product.orders
+	end
   end
   
   def changeStatus
