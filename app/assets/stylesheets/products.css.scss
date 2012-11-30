@@ -2,6 +2,190 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.status_price
+{
+    font-size: 20px;
+    font-weight: 200px;
+    background-color: #C6C6B8;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    padding-left: 5px; 
+    text-align: center;
+    color: #0066CC;
+}
+
+.status_instock
+{
+    font-size: 20px;
+    font-weight: 200px;
+    background-color: #00E600;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    padding-left: 5px; 
+    text-align: center;
+
+}
+
+.user_list_button
+{
+    font-size: 15px;
+    font-weight: 200px;
+    background-color: #CAD0D0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+}
+
+.inventory_status_right_table
+{
+    width: 200px;
+}
+.inventory_status_left
+{
+    max-width: 150px;
+    display: inline-table;
+}
+
+.inventory_status_right
+{
+     width: 100px;
+    display: inline-table;
+
+
+}
+.inventory_product_name
+{
+    font-size: 25px;
+    font-weight: 300px;
+}
+
+.inventory_table
+{
+    width: 920px;
+    vertical-align: top;
+    border-style:solid;
+    border: 1px; 
+    background-color: #F2F2F2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.inventory_left
+{
+    width: 250px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    vertical-align: top;
+
+}
+.inventory_middle
+{
+    width: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+
+}
+.inventory_right
+{
+    width: 210px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+
+}
+
+.product_display_table
+{
+    width: 920px;
+    min-height: 600px;
+}
+
+.user_display_name
+{
+    font-size: 30px;
+    font-weight: 300px;
+    color: #FFFFFF;
+}
+
+.user_divider
+{
+    height:10px;
+    background-color: #4775FF;
+}
+.product_right_side_dark
+{
+    background-color: #494941;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.product_padding
+{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.product_available
+{
+    color:#00CC00;
+    display: inline;
+}
+.product_unavailable
+{
+    color:#E60000;
+    display: inline;
+}
+.product_price_display
+{
+    font-size: 30px;
+    font-weight: 300px;
+    color: #0066FF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.product_rightside
+{
+    padding-left:10px;
+    font-size: 18px;
+    font-weight: 200px;
+    display: inline;
+    width: 300px;
+}
+.product_title
+{
+    font-weight: 300;
+    font-size: 30px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+.product_image_display
+{
+
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 550px;
+    height: 450px;
+    background-color: #494941;
+    text-align: center;
+    display: inline;
+    vertical-align: middle;
+
+}
 .search_product_list {
     width: 700px;
     margin: -10px 0 0 -5px;

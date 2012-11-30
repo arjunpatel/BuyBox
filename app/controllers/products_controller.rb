@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 	layout "background_header"
-  before_filter :authenticate_user!, :except => [:index, :show]
   def list
     @user_id = current_user.id
 	@products = Product.where(:user_id => @user_id).order("products.product_name ASC")
@@ -8,8 +7,7 @@ class ProductsController < ApplicationController
   
   def show
 	@product = Product.find(params[:id])
-
-
+	@seller=User.find(@product.user_id)
   end
   
   def new
@@ -57,7 +55,7 @@ class ProductsController < ApplicationController
 		product.active = false
 	end
 	product.save
-	redirect_to(:action => 'index')
+	redirect_to(:action => 'list')
   end
 
   def index
