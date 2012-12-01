@@ -14,17 +14,17 @@
 
     <% @orders.each do |order| %>
  	<% product = order.product %>
-	  <% buyer = User.find(order.user_id) %>
-	  <% if product != nil && buyer != nil %>    
+	  <% seller = product.user %>
+	  <% if product != nil && seller != nil %>    
 		<table class="inventory_table">
 		    <tr>
 		        <td class="inventory_left"><%= filepicker_image_tag product.digital_link, w: 200, h: 150, fit: 'clip' %></td>
 		        <td class="inventory_middle">
 		        	<p class="inventory_product_name"><%= product.product_name %> </p>
-		        	Category : Online Goods<br>
-		        	Order Number: <%= order.id + 11392 %><br>
-		        	Seller: Unknown<br>
-		        	Description:  <%= product.description.truncate(100)  %><br>
+		        	Category : Online Goods<br/>
+		        	Order Number: <%= order.id + 11392 %><br/>
+		        	Seller: <%= seller.first_name + " " + seller.last_name %><br/>
+		        	Description:  <%= product.description.truncate(100)  %><br/>
 
 		        </td>
 		        <td class="inventory_right">
