@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
   end
   
   def purchased
-	@orders = Orders.where[:user_id => current_user.id]
+	@orders = Order.where(:user_id => current_user.id)
   end
   
   def changeStatus

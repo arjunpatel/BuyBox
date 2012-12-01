@@ -22,7 +22,6 @@
 	  <th>Order Number</th>
 	  <th>Date Purchased</th>
 	  <th>Order Status</th>
-	  <th>Change Order Status</th>
     </tr>
     <% @orders.each do |order| %>
     <tr>
@@ -36,11 +35,6 @@
 	    <td><%= order.id + 11392 %></td>
 	    <td><%= order.date_of_purchase %></td>
 		<td><%= order.order_status %></td>
-		<td> 
-		  <% if order.order_status != "Shipped" %>
-		    <%= button_to "Mark as Shipped", :controller => "orders", :action => "changeStatus", :id => order.id %>
-		  <% end %>
-		</td>
 	  <% end %>
     </tr>
     <% end %>
