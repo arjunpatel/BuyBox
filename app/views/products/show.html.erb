@@ -37,7 +37,12 @@
     </div>
     <div id="product_right">
       <div id="user_banner">
-        <div class="product_right_side_dark"><%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+        <div class="product_right_side_dark">
+          <% if @seller.image %>
+            <%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+          <% else %>
+            <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
+          <% end %>
         <span class="help-inline user_display_name">
           <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
           <p class="user_rating_display">
@@ -50,7 +55,6 @@
               <% average_rating = sum_rating.to_f/total_rating.to_f %>
               <%= average_rating.round(2) %> out of <%= total_rating %> ratings
             <% end %>
-              <span class="stars"><%= average_rating.round(2) %></span>
           </p>
        </span>
         
