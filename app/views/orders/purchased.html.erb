@@ -1,0 +1,48 @@
+<div id="sub_navigation_links">
+  <div class="navigation_item"><a href="#">OVERVIEW</a></div>
+  <div class="navigation_item"><a href="/products/list">INVENTORY</a></div>
+  <div class="navigation_item current_pag"><a href="/orders/sold">SALES</a></div>
+
+  <div class="navigation_item"><a href="/products/new/">POST NEW PRODUCT</a></div>
+</div>
+
+
+
+<div class="product list">
+  <h2>Products Sold</h2>
+  
+  <%= link_to("List a Product", {:controller => 'products', :action => 'new'}, :class => 'action new') %>
+  <br></br>
+  <table border="1" class="listing" summary="Product sold">
+    <tr class="header" style="font-size:16px;">
+      <th>Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>	
+	  <th>Picture</th>
+	  <th>Price</th>
+	  <th>Buyer</th>
+	  <th>Order Number</th>
+	  <th>Date Purchased</th>
+	  <th>Order Status</th>
+	  <th>Change Order Status</th>
+    </tr>
+    <% @orders.each do |order| %>
+    <tr>
+	  <% product = order.product %>
+	  <% buyer = User.find(order.user_id) %>
+	  <% if product != nil && buyer != nil %>
+	    <td><%= product.product_name %></td>
+		<td><%= filepicker_image_tag product.digital_link, w: 160, h: 160, fit: 'clip' %></td>
+	    <td><%= order.price %></td>
+	    <td><%= buyer.first_name + " " + buyer.last_name %></td>
+	    <td><%= order.id + 11392 %></td>
+	    <td><%= order.date_of_purchase %></td>
+		<td><%= order.order_status %></td>
+		<td> 
+		  <% if order.order_status != "Shipped" %>
+		    <%= button_to "Mark as Shipped", :controller => "orders", :action => "changeStatus", :id => order.id %>
+		  <% end %>
+		</td>
+	  <% end %>
+    </tr>
+    <% end %>
+  </table>
+</div>
