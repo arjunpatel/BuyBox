@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
-    <%= filepicker_js_include_tag %>
+  <%= filepicker_js_include_tag %>
 
 </head>
 <body id="product_layout">
@@ -17,7 +17,7 @@
         <div id="header_logo"></div>
       </a>
       <%= render "partials/login_nav" %>
-    </div>  
+    </div>
   </div>
 </div>
 
@@ -27,91 +27,93 @@
     <%= render "partials/notice_alert" %>
     <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
 
-<div class="product new">
+        <div class="product new">
 
-   <div id="price_estimate">
-    <div id="pe_header">Let <span class="bold">Buybox Price Genie</span> help you pick the right price.</div>
-    <div id="pe_content">
-      <input id="pe_price" type="text" placeholder="Enter product name">
+          <div id="price_estimate">
+            <div id="pe_header">Let <span class="bold">Buybox Price Genie</span> help you pick the right price.</div>
+            <div id="pe_content">
+              <input id="pe_price" type="text" placeholder="Enter product name">
 
-      <div id="price_container">
-      <div id="price_estimate_price">0</div>
-      <div id="price_estimate_text">Buybox Price Genie Estimate</div>
-        </div>
-    </div>
-  </div>
+              <div id="price_container">
+                <div id="price_estimate_price">0</div>
+                <div id="price_estimate_text">Buybox Price Genie Estimate</div>
+              </div>
+            </div>
+          </div>
 
-   <div id="product_header">
-      <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
-      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1],['Online', 2],['Electronics', 3],['Sports', 4],
-                                  ['Home', 5],['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
-                    ['Other', 10]
-                    ] %></span>
-    </div>
-  
+          <div id="product_header">
+            <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
+      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
+                                                                                ['Home', 5], ['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
+                                                                                ['Other', 10]
+      ] %></span>
+          </div>
 
-    <div id="product_left">
-      <div class="image"><br><br><br><br><br><p class="post_upload_description">Upload Picture for your product</p><br>
-      <%= f.filepicker_field :digital_link %></div>
-      <div class="description"> <%= f.text_area(:description, :class=>"product_description_input",:placeholder=>"Enter the product description here") %></div><p>
-    </div>
-    <div id="product_right">
-      <div id="user_banner">
-        <div class="product_right_side_dark">
-          <% if @user.image %>
-            <%= image_tag @user.image, :size => '80x80', :class => 'img-polaroid' %>
-          <% else %>
-            <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
-          <% end %>
-        <span class="help-inline user_display_name">
-          <p class="user_display_name"> <%= @user.first_name + " " + @user.last_name%></p>
-          <p class="user_rating_display"> 
-            <% total_rating = Review.count(:conditions => { :user_id => @user.id }) %>
+
+          <div id="product_left">
+            <div class="image"><br><br><br><br><br>
+
+              <p class="post_upload_description">Upload Picture for your product</p><br>
+              <%= f.filepicker_field :digital_link %></div>
+            <div class="description"> <%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
+            <p>
+          </div>
+          <div id="product_right">
+            <div id="user_banner">
+              <div class="product_right_side_dark">
+                <% if @user.image %>
+                    <%= image_tag @user.image, :size => '80x80', :class => 'img-polaroid' %>
+                <% else %>
+                    <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
+                <% end %>
+                <span class="help-inline user_display_name">
+          <p class="user_display_name"> <%= @user.first_name + " " + @user.last_name %></p>
+          <p class="user_rating_display">
+            <% total_rating = Review.count(:conditions => {:user_id => @user.id}) %>
 
             <% if total_rating == 0 %>
-              <a href="#review">Be the first one to rate!</a>
+                <a href="#review">Be the first one to rate!</a>
             <% else %>
-              <% sum_rating = Review.sum(:rating, :conditions => { :user_id => @user.id}) %>
-              <% average_rating = sum_rating.to_f/total_rating.to_f %>
-              <%= average_rating.round(2) %> out of <%= total_rating %> ratings
+                <% sum_rating = Review.sum(:rating, :conditions => {:user_id => @user.id}) %>
+                <% average_rating = sum_rating.to_f/total_rating.to_f %>
+                <%= average_rating.round(2) %> out of <%= total_rating %> ratings
             <% end %>
 
           </p>
        </span>
-      </div>
-      </div>
-      <div id="purchase">
-        <div class="stripes"></div>
-        <div class="product_price_display">Price:  <%= f.text_field(:price, :placeholder=>"Enter price", :class=>"input-small") %></div>
-        <span class="pull-right"><br><br><%= submit_tag("Post Product", :class=>"btn btn-small btn-primary") %></span>
+              </div>
+            </div>
+            <div id="purchase">
+              <div class="stripes"></div>
+              <div class="product_price_display">Price:  <%= f.text_field(:price, :placeholder=>"Enter price", :class=>"input-small") %></div>
+              <span class="pull-right"><br><br><%= submit_tag("Post Product", :class=>"btn btn-small btn-primary") %></span>
 
 
-        <div class="stripes"></div>
-      </div>
-      <div id="more_info">
+              <div class="stripes"></div>
+            </div>
+            <div id="more_info">
 
-        <div class="product_details"> PRODUCT DETAILS</div>
-        <div class="product_divider"></div>
-        <div class="product_additional_information"> Zipcode : <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
-        <div class="product_divider"></div>
-        <div class="product_additional_information"> Quantity: <%= f.text_field(:quantity, :class=>"input-medium", :placeholder=>"Enter Quantity") %> </div>
-        <div class="product_divider"></div>
-        <div class="product_additional_information"> Brand: <%= f.text_field(:brand, :class=>"input-medium", :placeholder=>"Enter Brand") %> </div>
-        <div class="product_divider"></div>
-        <div class="product_additional_information"> Current Time </div>
-      </div>
-    </div>
+              <div class="product_details"> PRODUCT DETAILS</div>
+              <div class="product_divider"></div>
+              <div class="product_additional_information"> Zipcode
+                : <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
+              <div class="product_divider"></div>
+              <div class="product_additional_information">
+                Quantity: <%= f.text_field(:quantity, :class=>"input-medium", :placeholder=>"Enter Quantity") %> </div>
+              <div class="product_divider"></div>
+              <div class="product_additional_information">
+                Brand: <%= f.text_field(:brand, :class=>"input-medium", :placeholder=>"Enter Brand") %> </div>
+              <div class="product_divider"></div>
+              <div class="product_additional_information"> Current Time</div>
+            </div>
+          </div>
 
-</div>
+        </div>
 
-<% end %>
-
-
-    
+    <% end %>
 
 
-
-</div>
+  </div>
 </div>
 
 
@@ -122,7 +124,3 @@
 <%= javascript_include_tag "application" %>
 </body>
 </html>
-
-
-
->>>>>>> 0fb33a518486971c2dc63af38ad218cb6ef884e7
