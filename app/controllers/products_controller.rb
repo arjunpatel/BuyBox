@@ -10,8 +10,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @products = Product.limit(4)
-    @seller= User.find(@product.user_id)
+    @products = Product.where(:category_id => @product.category_id)
+    @seller= User.find(@product.user_id)   
+
     render :layout => false
   end
 
