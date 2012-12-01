@@ -63,6 +63,17 @@ class ProductsController < ApplicationController
     redirect_to(:action => 'list')
   end
 
+  def buybox_genie
+    require 'net/http'
+    result = Net::HTTP.get(URI.parse("http://priceonomics.com/api/v1/search/?query=#{Rack::Utils.escape(params[:query_params])}"))
+    parsed_json = ActiveSupport::JSON.decode(result)
+    total = 0
+    parsed_json["results"].each do |product|
+      total += product["price_estimate"]
+    end
+    render :text => (total/parsed_json["results"].size).ceil
+  end
+
   def index
     @search = Product.search(params[:search])
     @products = @search.where(:active => true) # or @search.relation to lazy load in view

@@ -1,6 +1,18 @@
 <div class="product new">
   <h2>List a Product</h2>
 
+  <div id="price_estimate">
+    <div id="pe_header">Let <span class="bold">Buybox Price Genie</span> help you pick the right price.</div>
+    <div id="pe_content">
+      <input id="pe_price" type="text" placeholder="Enter product name">
+
+      <div id="price_container">
+      <div id="price_estimate_price">0</div>
+      <div id="price_estimate_text">Buybox Price Genie Estimate</div>
+        </div>
+    </div>
+  </div>
+
   <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
   
     <table summary="Product form fields">
