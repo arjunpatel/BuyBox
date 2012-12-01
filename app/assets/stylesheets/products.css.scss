@@ -10,7 +10,7 @@
 }
 .product_description_input
 {
-    min-width:500px;
+    min-width:550px;
     max-height: 200px;
 }
 .product_list_display
@@ -74,7 +74,7 @@
             background-color: #F3F1F1;
             .information{
                 display: inline-block;
-                width: 140px;
+                width: 105px;
                 padding-left: 10px;
                 a {
                     color: #333333;
@@ -84,7 +84,7 @@
             }
             .price{
                 color: #006C98;
-                font-size: 22px;
+                font-size: 18px;
                 line-height: 55px;
                 display: inline-block;
             }
@@ -149,13 +149,14 @@
 
 .status_price
 {
-    font-size: 20px;
+    font-size: 19px;
     height: 30px;
     font-weight: 200px;
     background-color: #C6C6B8;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 0px;
+    margin-right: 0px;
     text-align: center;
     color: #0066CC;
     margin-bottom: 10px;
@@ -165,6 +166,7 @@
 .status_instock
 {   margin-top: 10px;
     height: 30px;
+    margin-right: 0px;
     font-size: 20px;
     font-weight: 200px;
     background-color: #00E600;
@@ -189,7 +191,7 @@
 
 .inventory_status_right_table
 {
-    width: 200px;
+    width: 130px;
 }
 .inventory_status_left
 {

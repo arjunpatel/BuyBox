@@ -37,7 +37,7 @@
   <% product_url = fb_link %>
   <% product_caption = "This is a test" %>
 
-  <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link" + fb_link + "& picture=" +  product_img + "& caption=" + product_caption + "& name=" + product_title + "& description" + product_description +"& redirect_uri=" + product_url%>
+  <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link=" + fb_link + "& picture=" +  product_img + "& caption=" + product_caption + "& name=" + product_title + "& description" + product_description +"& redirect_uri=" + product_url%>
   
 
     <div id="product_left">
@@ -73,7 +73,7 @@
       </div>
       <div id="purchase">
         <div class="stripes"></div>
-        <div class="product_price_display"><%= number_to_currency(@product.price) %></div>
+        <div class="product_price_display">$ <%= '%.0f' % @product.price %></div>
         <span class="pull-right m-btn green rnd product_buy_button"> <%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1%> </span>
 
 

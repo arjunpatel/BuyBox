@@ -17,7 +17,7 @@
 	 	<% if product != nil && buyer != nil %>
   		<table class="inventory_table">
     	<tr>
-        <td class="inventory_left"><%= filepicker_image_tag product.digital_link, w: 160, h: 160, fit: 'clip' %></td>
+        <td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link, w:150, h: 150, fit: 'clip'), :class=>"img-polaroid") %></td>
         <td class="inventory_middle">
         	<p class="inventory_product_name"><%= product.product_name %></p>
         	Category : Online Goods<br>
@@ -37,7 +37,7 @@
 			</div> 
 			<div class="inventory_status_right">
 				<div class="status_instock"> <%= order.order_status %> </div>
-				<div class="status_price"><%= number_to_currency(product.price) %></div>
+				<div class="status_price">$ <%= '%.0f' % product.price %></div>
 
 
 			</div>
