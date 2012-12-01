@@ -1,6 +1,18 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post_upload_description
+{
+    color:white;
+    font-size: 30px;
+    font-weight: 300px;
+}
+.product_description_input
+{
+    min-width:500px;
+    max-height: 200px;
+}
 .product_list_display
 {
     padding-left: 10px;

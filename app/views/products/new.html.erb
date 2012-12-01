@@ -1,54 +1,117 @@
-<div class="product new">
-  <h2>List a Product</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BuyBox</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+    <%= filepicker_js_include_tag %>
 
-  <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
-  
-    <table summary="Product form fields">
-      <tr>
-        <td align = right>Product&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:product_name) %></td>
-      </tr>
-      <tr>
-        <td align = right>Description&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:description) %></td>
-      </tr>
-      <tr>
-        <td align = right>Brand&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:brand) %></td>
-      </tr>
-      <tr>
-        <td align = right>Price&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:price) %></td>
-      </tr>
-      <tr>
-        <td align = right>Quantity&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:quantity) %></td>
-      </tr>
-      <tr>
-        <td align = right>Zipcode&nbsp;&nbsp;</td>
-        <td><%= f.text_field(:zip) %></td>
-      </tr>
-	  <tr>
-	    <td align = right>Category&nbsp;&nbsp;</td>
+</head>
+<body id="product_layout">
 
-			<td>
-			<%= f.select :category_id, [['Books', 1],['Online', 2],['Electronics', 3],['Sports', 4],
-			                            ['Home', 5],['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
-										['Other', 10]
-										] %>
-		</td>
-		</tr>
-    </table>
-    
-	<%#= form_for @user do |f| %>
-	  <div>
-	    <%= f.label :digital_link, "Upload a picture for your product:" %>
-	    <%= f.filepicker_field :digital_link %> <!-- User#avatar_url is a regular string column -->
-	  </div>
-    <hr/>
-    <div class="form-buttons">
-      <%= submit_tag("Create Product") %>
-    </div>
-    <%# end %>
-  <% end %>
+<div id="header" style="background-image: url('/assets/top_bg.png');">
+  <div id="header_container">
+    <div id="main_navigation">
+      <a href="/">
+        <div id="header_logo"></div>
+      </a>
+      <%= render "partials/login_nav" %>
+    </div>  
+  </div>
 </div>
+
+<div id="content_wrapper">
+  <div class="divider_shadow"></div>
+  <div id="content_container">
+    <%= render "partials/notice_alert" %>
+    <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
+
+<div class="product new">
+
+
+
+   <div id="product_header">
+      <span class="name">Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name",) %></span>
+      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1],['Online', 2],['Electronics', 3],['Sports', 4],
+                                  ['Home', 5],['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
+                    ['Other', 10]
+                    ] %></span>
+    </div>
+  
+
+    <div id="product_left">
+      <div class="image"><br><br><br><br><br><p class="post_upload_description">Upload Picture for your product</p><br>
+      <%= f.filepicker_field :digital_link %></div>
+      <div class="description"> <%= f.text_area(:description, :class=>"product_description_input",:placeholder=>"Enter the product description here") %></div><p>
+    </div>
+    <div id="product_right">
+      <div id="user_banner">
+        <div class="product_right_side_dark">
+          <% if @user.image %>
+            <%= image_tag @user.image, :size => '80x80', :class => 'img-polaroid' %>
+          <% else %>
+            <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
+          <% end %>
+        <span class="help-inline user_display_name">
+          <p class="user_display_name"> <%= @user.first_name + " " + @user.last_name%></p>
+          <p class="user_rating_display"> 
+            <% total_rating = Review.count(:conditions => { :user_id => @user.id }) %>
+
+            <% if total_rating == 0 %>
+              <a href="#review">Be the first one to rate!</a>
+            <% else %>
+              <% sum_rating = Review.sum(:rating, :conditions => { :user_id => @user.id}) %>
+              <% average_rating = sum_rating.to_f/total_rating.to_f %>
+              <%= average_rating.round(2) %> out of <%= total_rating %> ratings
+            <% end %>
+
+          </p>
+       </span>
+      </div>
+      </div>
+      <div id="purchase">
+        <div class="stripes"></div>
+        <div class="product_price_display">Price:  <%= f.text_field(:price, :placeholder=>"Enter price", :class=>"input-small") %></div>
+        <span class="pull-right"><br><br><%= submit_tag("Post Product", :class=>"btn btn-small btn-primary") %></span>
+
+
+        <div class="stripes"></div>
+      </div>
+      <div id="more_info">
+
+        <div class="product_details"> PRODUCT DETAILS</div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Zipcode : <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Quantity: <%= f.text_field(:quantity, :class=>"input-medium", :placeholder=>"Enter Quantity") %> </div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Brand: <%= f.text_field(:brand, :class=>"input-medium", :placeholder=>"Enter Brand") %> </div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Current Time </div>
+      </div>
+    </div>
+
+</div>
+
+<% end %>
+
+
+    
+
+
+
+</div>
+</div>
+
+
+
+
+<%= render "partials/footer" %>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>
+
+
+

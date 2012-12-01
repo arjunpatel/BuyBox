@@ -17,6 +17,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @user = current_user
+    render :layout => false
+
   end
 
   def create
