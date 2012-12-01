@@ -1,1 +1,0 @@
-class EmailerController < ApplicationController   #def sendmail   #   email = @params["contact"]	  #sender = email["sender"]	  #subject = email["subject"]	  #message = email["message"]     # Emailer.deliver_contact(sender, subject, message)     # return if request.xhr?     #render :text => 'Message sent successfully'   #endend
