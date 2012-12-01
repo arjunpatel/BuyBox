@@ -1,7 +1,15 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.product_list_display
+{
+    padding-left: 10px;
+}
+.custom_header
+{
+    font-size: 15px;
+    font-weight: 300px;
+}
 .user_rating_display
 {
     font-size: 17px;
@@ -130,25 +138,27 @@
 .status_price
 {
     font-size: 20px;
+    height: 30px;
     font-weight: 200px;
     background-color: #C6C6B8;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-right: 5px;
-    padding-left: 5px; 
+    padding-right: 0px;
     text-align: center;
     color: #0066CC;
+    margin-bottom: 10px;
+
 }
 
 .status_instock
-{
+{   margin-top: 10px;
+    height: 30px;
     font-size: 20px;
     font-weight: 200px;
     background-color: #00E600;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-right: 5px;
-    padding-left: 5px; 
+    padding-right: 0px;
     text-align: center;
 
 }
@@ -160,8 +170,8 @@
     background-color: #CAD0D0;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-right: 5px;
     padding-left: 5px;
+    padding-right: 5px;
     text-align: center;
 }
 
@@ -173,12 +183,14 @@
 {
     max-width: 150px;
     display: inline-table;
+    margin: 0px;
 }
 
 .inventory_status_right
 {
      width: 100px;
     display: inline-table;
+    margin: 0px;
 
 
 }
@@ -192,27 +204,24 @@
 {
     width: 920px;
     vertical-align: top;
-    border-style:solid;
-    border: 1px; 
+    border-top: solid 1px #E7E7E7;
+    border-bottom: solid 1px #E7E7E7;
     background-color: #F2F2F2;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 .inventory_left
 {
-    width: 250px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 200px;
     padding-left: 10px;
     padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     vertical-align: top;
 
 }
 .inventory_middle
 {
     width: 500px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top:10px;
     padding-left: 10px;
     padding-right: 10px;
     vertical-align: top;
@@ -220,9 +229,7 @@
 }
 .inventory_right
 {
-    width: 210px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 250px;
     padding-left: 10px;
     padding-right: 10px;
     vertical-align: top;
