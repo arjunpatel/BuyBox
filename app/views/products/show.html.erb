@@ -27,8 +27,17 @@
     <div id="product_header">
       <span class="name"><%= @product.product_name %>         
 </span>
-      <span class="category"><%= @product.category.category %></span>
+      <span class="category pull-right"><%= @product.category.category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
+
+  <% fb_link = "http://buybox.herokuapp.com/" %>
+  <% product_img = @product.digital_link %>
+  <% product_title = "Check out " + @product.product_name + " at BuyBox"%>
+  <% product_description = @product.description %>
+  <% product_url = fb_link %>
+  <% product_caption = "This is a test" %>
+
+  <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link" + fb_link + "& picture=" +  product_img + "& caption=" + product_caption + "& name=" + product_title + "& description" + product_description +"& redirect_uri=" + product_url%>
   
 
     <div id="product_left">
