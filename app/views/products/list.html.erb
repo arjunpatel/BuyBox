@@ -1,27 +1,25 @@
 <div id="sub_navigation_links">
-  <div class="navigation_item"><a href="#">OVERVIEW</a></div>
-  <div class="navigation_item current_page"><a href="/users/edit">INVENTORY</a></div>
-  <div class="navigation_item"><a href="/users/buyer_information">SALES</a></div>
-
+  <div class="navigation_item"><a href="/orders/overview">OVERVIEW</a></div>
+  <div class="navigation_item current_page"><a href="/products/list">INVENTORY</a></div>
+  <div class="navigation_item"><a href="/orders/sold">SALES</a></div>
+  <div class="navigation_item"><a href="/orders/purchased">PURCHASES</a></div>
   <div class="navigation_item"><a href="/products/new/">POST NEW PRODUCT</a></div>
 </div>
 
 
-
-
-
-<div class="product list">
-  <h2>Products</h2>
+<div class="product_list_display">
+  <h2>Product Inventory</h2>
   
   
     <% @products.each do |product| %>
     <table class="inventory_table">
     <tr>
-        <td class="inventory_left"><img src="http://placehold.it/230x150" class="img-polaroid"></td>
+        <td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link, w:150, h: 150, fit: 'clip'), :class=>"img-polaroid") %>
+</td>
         <td class="inventory_middle">
         	<p class="inventory_product_name"><%= product.product_name %></p>
         	Category : Online Goods<br>
-        	Description:  <%= product.description %><br>
+        	Description:  <%= product.description.truncate(100) %><br>
 
         </td>
         <td class="inventory_right">

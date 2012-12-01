@@ -2,6 +2,136 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+
+#contact_form_frame {
+
+    height: 500px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    height: 100%;
+    
+
+border-style:none;
+}
+
+#contact_forms {
+    margin: 30px;
+    text-align: center;
+      font-size: 14px;
+  font-weight: 200;
+  line-height: 27px;
+  text-align:left;
+}
+
+#contact_forms label{
+    text-align: left;
+}
+
+#contact_forms input {
+    width: 100%;
+}
+
+#contact_forms textarea{
+    text-align: left;
+}
+
+#contact_forms textarea {
+    height: 157px;
+    width: 100%;
+    max-width: 100%;
+}
+
+#contact_info_frame {
+
+    height: 500px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    height: 100%;
+      font-size: 14px;
+    font-weight: 200;
+    line-height: 27px;
+    text-align:left;
+    border-style:none;
+    //border-color: rgba(177,177,177,0.45);
+}
+
+#contact_info_frame div {
+    margin: 20px;
+    
+}
+
+#contact_info_frame p {
+    font-size: medium;
+}
+
+#contact_form_frame form button {
+    width: 100px;
+}
+
+#contact_consultation button {
+    width: 100%;
+}
+
+
+.contant_frame
+{
+    padding-left: 20px;
+}
+.profile_table
+{
+
+    padding-left: 30px;
+}
+.team_picture
+{
+    text-align: center;
+}
+
+#thumb_effect {
+    width: 80px;
+    height: 80;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline;
+}
+ 
+#thumb_effect img {
+    margin: 0px;
+    opacity: 0.8;
+    border: 0px solid #eee;
+   padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /*Transition*/
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+ 
+    /*Reflection*/
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.1)));
+}
+ 
+ 
+#thumb_effect img:hover {  
+   opacity: 1;
+ 
+   /*Reflection*/
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ 
+   /*Glow*/
+  -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+}
+
 .connection_title
 {
     min-width: 100px;

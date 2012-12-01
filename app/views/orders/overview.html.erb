@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buybox - Overview</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body id="profile">
+
+
+
+<div id="sub_navigation_links">
+  <div class="navigation_item current_page"><a href="/orders/overview">OVERVIEW</a></div>
+  <div class="navigation_item"><a href="/products/list">INVENTORY</a></div>
+  <div class="navigation_item"><a href="/orders/sold">SALES</a></div>
+  <div class="navigation_item"><a href="/orders/purchased">PURCHASES</a></div>
+  <div class="navigation_item"><a href="/products/new/">POST NEW PRODUCT</a></div>
+</div>
+
+
+    <div id="orders_chart" style="width: 800px; height: 500px;"></div>
+    <div id="orders_chart2" style="width: 800px; height: 500px;"></div>
+
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'orders_chart' },
+    title: { text: 'Orders by Day' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Dollars' }
+    },
+    series: [{
+      pointInterval: <%= 1.day * 1000 %>,
+      pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+      data: [1, 2, 5, 7, 3, 5, 7, 4, 3, 5]
+    }]
+  });
+});
+</script>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'orders_chart2' },
+    title: { text: 'Orders by Day' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Dollars' }
+    },
+    series: [{
+      pointInterval: <%= 1.day * 1000 %>,
+      pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+      data: [4, 2, 5, 7, 2, 3, 3, 4, 7, 3]
+    }]
+  });
+});
+</script>
+
+</body>
+</head>
+</html>
+

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   layout "background_header"
   before_filter :authenticate_user!, :except => [:index, :show]
 
+  @categories = Category.all
   def list
     @user_id = current_user.id
     @products = Product.where(:user_id => @user_id).order("products.product_name ASC")
@@ -9,12 +10,17 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @seller= User.find(@product.user_id)
+    @products = Product.where(:category_id => @product.category_id)
+    @seller= User.find(@product.user_id)   
+
     render :layout => false
   end
 
   def new
     @product = Product.new
+    @user = current_user
+    render :layout => false
+
   end
 
   def create

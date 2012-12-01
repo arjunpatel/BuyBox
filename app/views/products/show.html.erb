@@ -8,7 +8,6 @@
 </head>
 <body id="product_layout">
 
-
 <div id="header" style="background-image: url('/assets/top_bg.png');">
   <div id="header_container">
     <div id="main_navigation">
@@ -26,59 +25,95 @@
     <%= render "partials/notice_alert" %>
 
     <div id="product_header">
-      <span class="name"><%= @product.product_name %></span>
-      <span class="category"><%= @product.category.category %></span>
+      <span class="name"><%= @product.product_name %>         
+</span>
+      <span class="category pull-right"><%= @product.category.category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
 
+  <% fb_link = "http://buybox.herokuapp.com/" %>
+  <% product_img = @product.digital_link %>
+  <% product_title = "Check out " + @product.product_name + " at BuyBox"%>
+  <% product_description = @product.description %>
+  <% product_url = fb_link %>
+  <% product_caption = "This is a test" %>
+
+  <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link=" + fb_link + "& picture=" +  product_img + "& caption=" + product_caption + "& name=" + product_title + "& description" + product_description +"& redirect_uri=" + product_url%>
+  
+
     <div id="product_left">
-      <div class="image"></div>
+      <div class="image"><br><%= image_tag(filepicker_image_url(@product.digital_link, w: 450, h: 300, fit: 'clip'), :class=>"img-polaroid") %></div>
       <div class="description"><%= @product.description %></div>
     </div>
     <div id="product_right">
       <div id="user_banner">
-        <div class="product_right_side_dark"><%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+        <div class="product_right_side_dark">
+          <% if @seller.image %>
+            <%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+          <% else %>
+            <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
+          <% end %>
         <span class="help-inline user_display_name">
           <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
+          <p class="user_rating_display">
+            <% total_rating = Review.count(:conditions => { :user_id => @seller.id }) %>
+
+            <% if total_rating == 0 %>
+              <a href="#review">Be the first one to rate!</a>
+            <% else %>
+              <% sum_rating = Review.sum(:rating, :conditions => { :user_id => @seller.id}) %>
+              <% average_rating = sum_rating.to_f/total_rating.to_f %>
+              <%= average_rating.round(2) %> out of <%= total_rating %> ratings
+            <% end %>
+          </p>
        </span>
+        
       </div>
 
 
       </div>
       <div id="purchase">
         <div class="stripes"></div>
+        <div class="product_price_display">$ <%= '%.0f' % @product.price %></div>
+        <span class="pull-right m-btn green rnd product_buy_button"> <%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1%> </span>
+
+
         <div class="stripes"></div>
       </div>
-      <div id="more_info"></div>
+      <div id="more_info">
+
+        <div class="product_details"> PRODUCT DETAILS</div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information">Zipcode: <%= @product.zip %></div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> <%= @product.quantity %> in stock</div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Made by <%= @product.brand %></div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Listed on  <%= @product.created_at.strftime('%B %d, %Y')  %></div>
+      </div>
     </div>
 
 
-    <div class="product show">
 
-      <table summary="Product detail view">
-        <tr>
-          <td align=right>Brand:&nbsp;&nbsp;</td>
-          <td><%= @product.brand %></td>
-        </tr>
-        <tr>
-          <td align=right>Price:&nbsp;&nbsp;</td>
-          <td><%= number_to_currency(@product.price) %></td>
-        </tr>
-        <tr>
-          <td align=right>Quantity:&nbsp;&nbsp;</td>
-          <td><%= @product.quantity %></td>
-        </tr>
-
-      </table>
-
-      <%= button_to "Buy Now", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %>
-
-    </div>
-
-    <div class="product_footer"><span>Find Similar Products</span></div>
-
+    <div class="product_footer"><span>Similar Products</span></div>
+       <div class="similar_product_list_contain"> <ul id="products" class="similiar_product_list similar_product_list_display">
+          <%= render :partial => "partials/product", :collection => @products %>
+        </ul></div>
   </div>
 
 </div>
+
+
+
+
+    
+
+
+
+</div>
+
+
+
 
 
 <%= render "partials/footer" %>
@@ -86,3 +121,6 @@
 <%= javascript_include_tag "application" %>
 </body>
 </html>
+
+
+

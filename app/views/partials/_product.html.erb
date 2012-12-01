@@ -1,8 +1,13 @@
 <li class="product" data-id="id-<%= product_counter + 1 %>" data-type="<%= product.category.category %>">
-  <div class="image" style="background-image: url('/assets/product_no_image.png');"></div>
+  <% if product.digital_link == "" or product.digital_link.nil? %>
+   <div class="image" style="background-image: url(/assets/product_no_image.png)"></div>
+  <% else %>
+  <div class="image" style="background-image: url(<%= product.digital_link %>)"></div>
+  <% end %>
   <div class="name_price">
-    <div data-type="name" class="information"><%= link_to(product.product_name, {:action => 'show', :id => product.id}, :class => 'action show') %></div>
-    $<div data-type="price" class="price"><%= '%.0f' % product.price %></div>
+    
+    <div data-type="name" class="information"><%= link_to(product.product_name.truncate(15), {:action => 'show', :id => product.id}, :class => 'action show') %></div>
+    $ <div data-type="price" class="price">  <%= '%.0f' % product.price %></div>
   </div>
   <div class="category"><%= product.category.category %></div>
 </li>

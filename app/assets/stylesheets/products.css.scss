@@ -2,29 +2,177 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.post_upload_description
+{
+    color:white;
+    font-size: 30px;
+    font-weight: 300px;
+}
+.product_description_input
+{
+    min-width:550px;
+    max-height: 200px;
+}
+.product_list_display
+{
+    padding-left: 10px;
+}
+.custom_header
+{
+    font-size: 15px;
+    font-weight: 300px;
+}
+.user_rating_display
+{
+    font-size: 17px;
+    font-weight: 200px;
+    padding-top: 5px;
+    padding-left: 5px;
+
+}
+.similar_product_list_contain
+{
+    width: 960px;
+    margin-left: 0px;
+
+}
+
+.similar_product_list_display
+{
+    background-color: #535353;
+    margin-left: 0px;
+    text-align: center;
+
+}
+
+
+.similiar_product_list {
+    .product {
+        width: 210px;
+        height: 225px;
+        display: inline-block;
+        margin: 10px;
+        border: 1px solid #CCCCCC;
+        position: relative;
+        .category{
+            color: #FFFFFF;
+            font-size: 11px;
+            line-height: 14px;
+            padding: 3px 7px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .image{
+            height: 170px;
+            width: 210px;
+        }
+        .name_price{
+            width: 100%;
+            height: 55px;
+            background-color: #F3F1F1;
+            .information{
+                display: inline-block;
+                width: 105px;
+                padding-left: 10px;
+                a {
+                    color: #333333;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+            }
+            .price{
+                color: #006C98;
+                font-size: 18px;
+                line-height: 55px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.seller_zipcode
+{
+
+}
+
+.product_additional_information
+{
+    font-size: 20px;
+    font-weight: 300px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.product_divider
+{
+    border-bottom:1px solid #9D9D9B;
+    height:1px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.product_details
+{
+    font-size: 25px;
+    font-weight: 300px;
+    color: #01698C;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+
+}
+.product_buy_button
+{
+    font-size: 25px;
+    font-weight: 300px;
+    vertical-align: 15px;
+    margin-top: 33px;
+    margin-right: 40px;
+}
+.product_price_display
+{
+    line-height: 100px;
+    font-size: 35px;
+    font-weight: 100px;
+    color: #006B9A;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    display: inline;
+
+}
 
 .status_price
 {
-    font-size: 20px;
+    font-size: 19px;
+    height: 30px;
     font-weight: 200px;
     background-color: #C6C6B8;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-right: 5px;
-    padding-left: 5px; 
+    padding-right: 0px;
+    margin-right: 0px;
     text-align: center;
     color: #0066CC;
+    margin-bottom: 10px;
+
 }
 
 .status_instock
-{
+{   margin-top: 10px;
+    height: 30px;
+    margin-right: 0px;
     font-size: 20px;
     font-weight: 200px;
     background-color: #00E600;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-right: 5px;
-    padding-left: 5px; 
+    padding-right: 0px;
     text-align: center;
 
 }
@@ -36,25 +184,27 @@
     background-color: #CAD0D0;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-right: 5px;
     padding-left: 5px;
+    padding-right: 5px;
     text-align: center;
 }
 
 .inventory_status_right_table
 {
-    width: 200px;
+    width: 130px;
 }
 .inventory_status_left
 {
     max-width: 150px;
     display: inline-table;
+    margin: 0px;
 }
 
 .inventory_status_right
 {
      width: 100px;
     display: inline-table;
+    margin: 0px;
 
 
 }
@@ -68,27 +218,24 @@
 {
     width: 920px;
     vertical-align: top;
-    border-style:solid;
-    border: 1px; 
+    border-top: solid 1px #E7E7E7;
+    border-bottom: solid 1px #E7E7E7;
     background-color: #F2F2F2;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 .inventory_left
 {
-    width: 250px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 200px;
     padding-left: 10px;
     padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     vertical-align: top;
 
 }
 .inventory_middle
 {
     width: 500px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top:10px;
     padding-left: 10px;
     padding-right: 10px;
     vertical-align: top;
@@ -96,9 +243,7 @@
 }
 .inventory_right
 {
-    width: 210px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 250px;
     padding-left: 10px;
     padding-right: 10px;
     vertical-align: top;
@@ -113,9 +258,10 @@
 
 .user_display_name
 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 300px;
     color: #FFFFFF;
+    padding-left: 5px;
 }
 
 .user_divider
@@ -147,14 +293,6 @@
 {
     color:#E60000;
     display: inline;
-}
-.product_price_display
-{
-    font-size: 30px;
-    font-weight: 300px;
-    color: #0066FF;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 .product_rightside
 {
@@ -219,7 +357,8 @@
             background-color: #F3F1F1;
             .information{
                 display: inline-block;
-                width: 140px;
+                width: 110px;
+
                 padding-left: 10px;
                 a {
                     color: #333333;
@@ -229,9 +368,11 @@
             }
             .price{
                 color: #006C98;
-                font-size: 22px;
+                text-align: right;
+                font-size: 19px;
                 line-height: 55px;
                 display: inline-block;
+
             }
         }
     }
@@ -298,12 +439,12 @@ width: 190px;
 .search_left_side_bar
 {
     background-color: #51514C;
-    width: 200px;
+    width: 210px;
     height: 100%;
     vertical-align: top;
     padding-left: 15px;
     padding-right: 15px;
-    margin: -40px 0 0 -20px;
+    margin: -10px 0 0 -20px;
     display: inline-block;
 }
 
@@ -390,6 +531,8 @@ body#product_layout{
             .image{
                 height: 350px;
                 background-color: #2D2B2B;
+                text-align: center;
+                vertical-align: 60px;
             }
             .description{
                 padding: 30px;
@@ -408,7 +551,7 @@ body#product_layout{
             }
             #purchase{
                 .stripes{
-                    background: url('stripes.png') no-repeat 0 0;
+                    background: url("stripes.png") no-repeat -15px 0;
                     height: 12px;
                 }
             }

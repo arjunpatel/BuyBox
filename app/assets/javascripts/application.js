@@ -15,4 +15,6 @@
 //= require jquery.easing.1.3
 //= require jquery.quicksand
 //= require search
+//= require rails
+//= require highcharts
 //= require_tree .
