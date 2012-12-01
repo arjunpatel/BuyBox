@@ -7,8 +7,14 @@ BuyBox::Application.routes.draw do
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   devise_for :users, :controllers => { :registrations => :registrations }
 
- 
-  match "/users/show.html" => "users#show", :as => :user_root
+  match "about" => "welcome#about", :as => :about_us
+  match "ocd" => "welcome#ocd", :as => :team_ocd
+  match "faq" => "welcome#faq", :as => :faq
+  match "termofuse" => "welcome#termofuse", :as => :term_of_use
+  match "privacypolicy" => "welcome#privacypolicy", :as => :privacy_policy
+  match "contact" => "welcome#contact", :as => :contact_us
+
+  match "/users/show" => "users#show", :as => :user_root
   match "/users/buyer_information" => "users#buyer_information", :as => :buyer_information
   match "/users/connection" => "users#connection", :as => :connection
 
