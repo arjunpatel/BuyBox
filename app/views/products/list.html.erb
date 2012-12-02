@@ -17,7 +17,7 @@
         <td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link)) %>
 </td>
         <td class="inventory_middle">
-        	<p class="inventory_product_name"><%= product.product_name %></p>
+        	<p class="inventory_product_name"><%= link_to(product.product_name, {:action => 'show', :id => product.id}) %></p>
         	Category : Online Goods<br>
         	Description:  <%= product.description.truncate(100) %><br>
 
