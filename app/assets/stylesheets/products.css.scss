@@ -369,7 +369,7 @@
         width: 210px;
         height: 225px;
         display: inline-block;
-        margin: 10px;
+        margin: 9px;
         border: 1px solid #CCCCCC;
         position: relative;
         .category{
@@ -483,7 +483,7 @@ width: 190px;
 .search_left_side_bar
 {
     background-color: #51514C;
-    width: 210px;
+    width: 205px;
     height: 100%;
     vertical-align: top;
     padding-left: 15px;
@@ -494,9 +494,10 @@ width: 190px;
 
 .search_right_side_bar
 {
-    padding-left: 10px;
-    width: 685px;
+    padding-left: 15px;
+    width: 680px;
     display: inline-block;
+    padding-right: 5px;
 }
 
 .product_image
