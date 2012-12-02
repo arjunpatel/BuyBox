@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 	@user_id = current_user.id
     @products = Product.where(:user_id => @user_id, :active => true).order("products.product_name ASC")
+	@wishlists = Wishlist.where(:user_id => params[:id])
     render :layout => false
   end
 

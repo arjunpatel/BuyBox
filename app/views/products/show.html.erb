@@ -29,6 +29,9 @@
       <%= link_to "QR Page", :controller => "products", :action => "show_qr", :id => @product.id%>
 
     </div>
+    <div class="m-btn purple rnd qr_btn" style="margin: 25px 20px 0 0;">
+      <%= link_to "Add to Wishlist", :controller => "wishlists", :action => "add", :id => @product.id%>
+    </div>
   </div>
 </div>
 
