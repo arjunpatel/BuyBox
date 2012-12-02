@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+
     @product = Product.new(params[:product])
     @product.user_id = current_user.id
     if @product.save

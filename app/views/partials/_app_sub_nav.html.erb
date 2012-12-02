@@ -1,12 +1,6 @@
 <div id="sub_nav_links">
   <div class="navigation_item"><a href="/products/"><%= image_tag('location.png') %></a></div>
-  <div class="navigation_item"><a href="/products/">Books</a></div>
-  <div class="navigation_item"><a href="/products/">Online</a></div>
-  <div class="navigation_item"><a href="/products/">Electronics</a></div>
-  <div class="navigation_item"><a href="/products/">Sports</a></div>
-  <div class="navigation_item"><a href="/products/">Home</a></div>
-  <div class="navigation_item"><a href="/products/">Clothing</a></div>
-  <div class="navigation_item"><a href="/products/">Movies</a></div>
-  <div class="navigation_item"><a href="/products/">Music</a></div>
-  <div class="navigation_item"><a href="/products/">Other</a></div>
+   <% Category.all.each do |cat| %>
+      <div class="navigation_item"><a href="/products/"><%= cat.category %></a></div>
+  <% end %>
 </div>

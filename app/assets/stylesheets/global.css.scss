@@ -39,8 +39,14 @@ border-style:none;
     width: 170px;
     background-position: center center;
     background-size: 100%;
-    background-size: cover;
+    background-size: cover !important;
     margin: 15px;
+}
+.product{
+    .image{
+        background-size: 100%;
+        background-size: cover;
+    }
 }
 #contact_forms textarea {
     height: 157px;

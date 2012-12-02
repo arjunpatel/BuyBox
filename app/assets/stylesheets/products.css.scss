@@ -457,8 +457,8 @@
 
 .product_btn_container{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -100px;
+    right: 130px;
 }
 
 .product_search_textfield
@@ -542,7 +542,6 @@ width: 190px;
         outline: none;
     }
 }
-
 body#product_layout{
     background: url('bedge_grunge.png') repeat 0 0;
 

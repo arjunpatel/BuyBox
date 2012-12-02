@@ -129,10 +129,12 @@ $(document).ready(function() {
 <div class="product_head_wrap">
 <div id="product_header">
   <span class="name"><%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
-      <span class="category pull-right" style="padding-right: 20px; font-size: 14px;"><%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
-                                                                                ['Home', 5], ['Clothing', 6], ['Movies', 7], ['Music', 8], 
-                                                                                ['Other', 9]
-      ] %></span>
+      <span class="category pull-right" style="padding-right: 20px; font-size: 14px;">
+        <% categroy_agg = [] %>
+        <% Category.all.each do |cat| %>
+            <% categroy_agg << [cat.category, cat.id] %>
+        <% end %>
+        <%= f.select :category_id, categroy_agg %></span>
 </div>
   </div>
 
