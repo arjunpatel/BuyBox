@@ -143,6 +143,9 @@
 								<p class="inventory_product_name"><%= link_to(product.product_name, {:controller => 'products', :action => 'show', :id => product.id}) %></p>
 								Category : Online Goods<br>
 								Description:  <%= product.description.truncate(100) %><br>
+								<% if @ownProfile %>
+									<%= link_to "Delete from my Wishlist", :controller => "wishlists", :action => "delete", :id => wishlist.id %>
+								<% end %>
 							</td>
 							<td class="inventory_right">
 								<div class="inventory_status_right">

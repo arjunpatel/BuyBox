@@ -16,4 +16,7 @@ class WishlistsController < ApplicationController
 	end
 
   end
+  def delete
+	
+  end
 end
