@@ -10,9 +10,13 @@ class ProductsController < ApplicationController
   end
 
   def show
+	if current_user != nil
+		@user_id = current_user.id
+	end
     @product = Product.find(params[:id])
     @products = Product.where(:category_id => @product.category_id)
     @seller= User.find(@product.user_id)   
+	@seller_id = @seller.id
 
     render :layout => false
   end

@@ -84,7 +84,11 @@
       <div id="purchase">
         <div class="stripes stripes_top"></div>
         <div class="product_price_display">$ <span class="p_price"><%= '%.0f' % @product.price %></span></div>
-        <span class="pull-right m-btn green rnd product_buy_button"> <%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> </span>
+		<% if @user_id != @seller_id %>
+			<span class="pull-right m-btn green rnd product_buy_button"> 
+				<%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> 
+			</span>
+		<% end %>
 
 
         <div class="stripes"></div>
