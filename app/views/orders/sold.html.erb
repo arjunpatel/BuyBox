@@ -28,15 +28,21 @@
         <td class="inventory_right">
 			<div class="inventory_status_left">
 				<p class="user_list_button">Contact Buyer</p><br>
-				<p class="user_list_button"> 
-					<% if order.order_status != "Shipped" %>
-		    <%= link_to "Mark as Shipped", :controller => "orders", :action => "changeStatus", :id => order.id %>
-		  <% end %>
-				</p>
+				<% if order.order_status != "Shipped" %>
+					<p class="user_list_button"> 
+						<%= link_to "Mark as Shipped", :controller => "orders", :action => "changeStatus", :id => order.id %>
+					</p>
+				<% end %>
 				
 			</div> 
 			<div class="inventory_status_right">
-				<div class="status_instock"> <%= order.order_status %> </div>
+				<% if order.order_status != "Shipped" %>
+					<div class="status_notinstock"> 
+				<% else %>
+					<div class="status_instock"> 
+				<% end %>
+				<%= order.order_status %> 
+				</div>
 				<div class="status_price">$ <%= '%.0f' % product.price %></div>
 
 
