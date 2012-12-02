@@ -113,7 +113,7 @@ $(document).ready(function() {
 
 </script>
 </head>
-<body id="product_layout">
+<body id="product_layout" class="product_page_layout">
 
 <div id="header" style="background-image: url('/assets/top_bg.png');">
   <div id="header_container">
@@ -128,8 +128,8 @@ $(document).ready(function() {
   <%= form_for(:product, :url => {:action => 'update', :id => @product.id}) do |f| %>
 <div class="product_head_wrap">
 <div id="product_header">
-  <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
-      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
+  <span class="name"><%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
+      <span class="category pull-right" style="padding-right: 20px; font-size: 14px;"><%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
                                                                                 ['Home', 5], ['Clothing', 6], ['Movies', 7], ['Music', 8], 
                                                                                 ['Other', 9]
       ] %></span>
@@ -164,9 +164,9 @@ $(document).ready(function() {
             <div class="image"><br><br><br><br><br>
 
               <p class="post_upload_description">Upload Picture for your product</p><br>
-              <%= f.filepicker_field :digital_link %></div>
-            <div class="description"><h3>Description : </h3> <%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
-            <span class="pull-right"><%= submit_tag("Update Product", :class=>"btn btn-primary") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <%= f.filepicker_field :digital_link, :class => "btn"%></div>
+            <div class="description"><%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
+            <span class="pull-right"><%= submit_tag("Post Product", :class=>"btn btn-primary") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <p>
           </div>
           <div id="product_right">
@@ -197,7 +197,7 @@ $(document).ready(function() {
             <div id="purchase">
               <div class="stripes stripes_top"></div>
               <div class="price_estimate"><a href="#dialog" name="modal">Genie Price Estimate</a></div>
-              <div class="product_price_display">Price : <%= f.text_field(:price, :class=>"input-medium", :placeholder=>"Enter price") %></div>
+              <div class="product_additional_information"><%= f.text_field(:price, :class=>"input-medium", :placeholder=>"Enter price") %></div>
               
 
 
@@ -207,16 +207,15 @@ $(document).ready(function() {
 
               <div class="product_details">Product Details</div>
               <div class="product_divider"></div>
-              <div class="product_additional_information"> Zipcode
-                : <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
+              <div class="product_additional_information">
+              <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
               <div class="product_divider"></div>
               <div class="product_additional_information">
-                Quantity: <%= f.text_field(:quantity, :class=>"input-medium", :placeholder=>"Enter Quantity") %> </div>
+              <%= f.text_field(:quantity, :class=>"input-medium", :placeholder=>"Enter Quantity") %> </div>
               <div class="product_divider"></div>
               <div class="product_additional_information">
-                Brand: <%= f.text_field(:brand, :class=>"input-medium", :placeholder=>"Enter Brand") %> </div>
+              <%= f.text_field(:brand, :class=>"input-medium", :placeholder=>"Enter Brand") %> </div>
               <div class="product_divider"></div>
-              <div class="product_additional_information"> Current Time</div>
             </div>
           </div>
 
@@ -237,4 +236,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-  
+
