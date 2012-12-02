@@ -92,7 +92,7 @@
               <% if @user.reviews.blank? %>
                 <p>No review yet for this user <p><br>
               <% else %>
-
+				<h2>Seller Reviews</h2>
                 <%= render @user.reviews %>
               <% end %>
                   <% if !@ownProfile %>  
