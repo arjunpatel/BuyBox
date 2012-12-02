@@ -104,7 +104,28 @@
 
 
             <div class="tab-pane fade" id="selling">
-                <p> SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING  SELLING </p>
+                <div class="product_list_display">
+					<h2>Product Inventory</h2>
+					<% @products.each do |product| %>
+						<table class="inventory_table">
+						<tr>
+							<td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link)) %></td>
+							<td class="inventory_middle">
+								<p class="inventory_product_name"><%= link_to(product.product_name, {:controller => 'products', :action => 'show', :id => product.id}) %></p>
+								Category : Online Goods<br>
+								Description:  <%= product.description.truncate(100) %><br>
+							</td>
+							<td class="inventory_right">
+								<div class="inventory_status_right">
+									<div class="status_instock"> QTY : <%= product.quantity %> </div>
+									<div class="status_price"><%= number_to_currency(product.price) %></div>
+								</div>
+							</td>
+						</tr>
+						</table>
+						<br/>
+					<% end %>
+				</div>
             </div>
 
 

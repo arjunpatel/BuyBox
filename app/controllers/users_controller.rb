@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+	@user_id = current_user.id
+    @products = Product.where(:user_id => @user_id, :active => true).order("products.product_name ASC")
     render :layout => false
   end
 
