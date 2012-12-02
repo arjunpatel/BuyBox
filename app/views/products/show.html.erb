@@ -88,7 +88,7 @@
 			<% if @user_id != @seller_id %>
 				<%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> 
 			<% else %>
-			<%= link_to "Edit", :controller => "products", :action => "update", :id => @product.id %>
+			<%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
 			<% end %>
 			</span>
 
