@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   layout :layout_by_resource
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :show_qr]
 
   @categories = Category.all
   def list
