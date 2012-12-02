@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
   def delete
     @product = Product.find(params[:id])
     if @product.user_id != current_user.id
-      redirect_to(:action => 'list')
+	  render :file => File.join(Rails.root, 'public', '500.html')
     else
       Product.find(params[:id]).destroy
       redirect_to(:action => 'list')
@@ -57,11 +57,16 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+	if @product.user_id != current_user.id
+	  render :file => File.join(Rails.root, 'public', '500.html')
+	end
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.user_id = current_user.id
+    if @product.user_id != current_user.id
+	  render :file => File.join(Rails.root, 'public', '500.html')
+    end
     if @product.update_attributes(params[:product])
       redirect_to(:action => 'list')
     else
@@ -72,13 +77,17 @@ class ProductsController < ApplicationController
 
   def change_active
     product = Product.find(params[:id])
-    if product.active == false
-      product.active = true
+	if product.user_id != current_user.id
+	  render :file => File.join(Rails.root, 'public', '500.html')
     else
-      product.active = false
-    end
-    product.save
-    redirect_to(:action => 'list')
+		if product.active == false
+			product.active = true
+		else
+			product.active = false
+		end
+		product.save
+		redirect_to(:action => 'list')
+	end
   end
 
   def buybox_genie
