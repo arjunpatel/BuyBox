@@ -511,6 +511,20 @@ body#background_no_header, body#background_header{
     }
 }
 
+#sub_nav_links{
+    float: left;
+    div{
+        display: inline-block;
+        padding-right: 35px;
+        a, a:link, a:visited, a:active, a:hover {
+            color: #999999;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 30px;
+        }
+    }
+}
+
 #nav_signin{
     float: right;
     margin: 8px 10px 0 0;

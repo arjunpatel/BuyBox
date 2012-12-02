@@ -20,7 +20,7 @@
     </div>
   </div>
 </div>
-
+             <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
 <div class="product_head_wrap">
 <div id="product_header">
   <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
@@ -35,7 +35,7 @@
   <div class="divider_shadow"></div>
   <div id="content_container">
     <%= render "partials/notice_alert" %>
-    <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
+
 
         <div class="product new">
 

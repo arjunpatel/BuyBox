@@ -11,11 +11,14 @@
 
 
 
-<div id="header" style="background-image: url('/assets/background/<%= 1+rand(13) %>.jpeg');">
+<div id="header" style="background-image: url('/assets/app_bg.png'); background-repeat:repeat; background-size:auto;">
   <div id="header_container">
     <div id="main_navigation">
       <a href="/"><div id="header_logo"></div></a>
         <%= render "partials/login_nav" %>
+      <%= render "partials/app_nav" %>
+      <%= render "partials/app_sub_nav" %>
+
     </div>
   </div>
 </div>

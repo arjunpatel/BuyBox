@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   layout :resolve_layout
 
   def index
-    #this is for applicaiton layout
+    @products = Product.all
   end
 
   def search

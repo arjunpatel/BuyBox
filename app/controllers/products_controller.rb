@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
-  layout "background_header"
+  layout :layout_by_resource
   before_filter :authenticate_user!, :except => [:index, :show]
 
   @categories = Category.all
   def list
     @user_id = current_user.id
     @products = Product.where(:user_id => @user_id).order("products.product_name ASC")
+
   end
 
   def show
@@ -90,6 +91,18 @@ class ProductsController < ApplicationController
   def index
     @search = Product.search(params[:search])
     @products = @search.where(:active => true) # or @search.relation to lazy load in view
+
+  end
+
+  protected
+
+
+  def layout_by_resource
+    if params[:action] == "index"
+       "application"
+    else
+      "background_header"
+    end
   end
 
 
