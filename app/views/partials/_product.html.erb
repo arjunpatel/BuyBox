@@ -1,3 +1,4 @@
+<a href="products/show/<%= product.id %>">
 <li class="product" data-id="id-<%= product_counter + 1 %>" data-type="<%= product.category.category %>">
   <% if product.digital_link == "" or product.digital_link.nil? %>
    <div class="image" style="background-image: url(/assets/product_no_image.png)"></div>
@@ -11,3 +12,4 @@
   </div>
   <div class="category"><%= product.category.category %></div>
 </li>
+    </a>
