@@ -34,7 +34,14 @@ border-style:none;
 #contact_forms textarea{
     text-align: left;
 }
-
+.inv_pic_left{
+    height: 150px;
+    width: 170px;
+    background-position: center center;
+    background-size: 100%;
+    background-size: cover;
+    margin: 15px;
+}
 #contact_forms textarea {
     height: 157px;
     width: 100%;

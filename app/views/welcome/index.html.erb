@@ -1,6 +1,7 @@
-<%= image_tag('buy_sell_banner.png') %>
-<ul id="products" class="product_list search_product_list">
-<%= render :partial => "partials/product", :collection => @products %>
-    </ul>
+<%= image_tag('buy_sell_banner.png', :height => 225) %>
+<%= image_tag('top_banner.png', :class => "pull-right") %>
+<ul id="products" class="product_list search_product_list list_on_index" style="width: auto; padding-left: 5px; margin-top: 10px">
+    <%= render :partial => "partials/product", :collection => @products %>
+</ul>
 
 <%= image_tag('qr_info.png') %>

@@ -8,43 +8,48 @@
 
 
 <div class="product_list_display">
-  <h2>Product Inventory</h2>
-  
-  
-    <% @products.each do |product| %>
-    <table class="inventory_table">
-    <tr>
-        <td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link)) %>
-</td>
-        <td class="inventory_middle">
-        	<p class="inventory_product_name"><%= link_to(product.product_name, {:action => 'show', :id => product.id}) %></p>
-        	Category : Online Goods<br>
-        	Description:  <%= product.description.truncate(100) %><br>
 
-        </td>
-        <td class="inventory_right">
-			<div class="inventory_status_left">
-				<p class="user_list_button"> 		<%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %> </p>
-				<p class="user_list_button"> 
-					<% if product.active == false %>
-						<%= link_to("Activate", {:action => "change_active", :id => product.id}) %>
-					<% else %>
-						<%= link_to("Deactivate", {:action => "change_active", :id => product.id}) %>
-					<% end %>
-				</p>
-				<p class="user_list_button"> <%= link_to("Edit Listing", {:action => 'edit', :id => product.id}, :class => 'action delete') %> </p>
-
-			</div> 
-			<div class="inventory_status_right">
-				<div class="status_instock"> QTY : <%= product.quantity %> </div>
-				<div class="status_price"><%= number_to_currency(product.price) %></div>
+  <% @products.each do |product| %>
 
 
-			</div>
-        </td>
-    </tr>
-</table><br>
+      <table class="inventory_table">
+        <tr>
+          <td class="inventory_left">
+            <div class="inv_pic_left" style="background: url('<%= product.digital_link %>')"></div>
+          </td>
+          <td class="inventory_middle">
+            <p class="inventory_product_name"><%= link_to(product.product_name, {:action => 'show', :id => product.id}) %></p>
+            Category : Online Goods<br>
+            Description:  <%= product.description.truncate(100) %>
+            <br>
+
+          </td>
+          <td class="inventory_right">
+            <div class="inventory_status_left">
+              <p class="user_list_button">         <%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %> </p>
+
+              <p class="user_list_button">
+                <% if product.active == false %>
+                    <%= link_to("Activate", {:action => "change_active", :id => product.id}) %>
+                <% else %>
+                    <%= link_to("Deactivate", {:action => "change_active", :id => product.id}) %>
+                <% end %>
+              </p>
+
+              <p class="user_list_button"> <%= link_to("Edit Listing", {:action => 'edit', :id => product.id}, :class => 'action delete') %> </p>
+
+            </div>
+            <div class="inventory_status_right">
+              <div class="status_instock"> QTY : <%= product.quantity %> </div>
+              <div class="status_price"><%= number_to_currency(product.price) %></div>
 
 
-    <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+
+
+  <% end %>
 </div>

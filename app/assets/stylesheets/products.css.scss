@@ -246,6 +246,10 @@
 {
     font-size: 25px;
     font-weight: 300px;
+    a, a:link, a:visited, a:active, a:hover {
+        color: #333333;
+        text-decoration: none;
+    }
 }
 
 .inventory_table
@@ -259,11 +263,8 @@
 .inventory_left
 {
     width: 200px;
-    padding-left: 10px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     vertical-align: top;
+    background-color: #333333;
 
 }
 .inventory_middle
@@ -359,7 +360,7 @@
 
 }
 .search_product_list {
-    width: 700px;
+    width: 705px;
     margin: -10px 0 0 -5px;
 }
 
@@ -384,6 +385,9 @@
         .image{
             height: 170px;
             width: 210px;
+            background-position: center center;
+            background-size: 100%;
+            background-size: cover;
         }
         .name_price{
             width: 100%;
