@@ -19,6 +19,8 @@
 }
 .product_description_input
 {
+    line-height: 30px;
+    font-weight: 300;
     min-width:550px;
     max-height: 200px;
 }
@@ -521,6 +523,21 @@ width: 190px;
     vertical-align: middle;
 }
 
+.product_page_layout{
+    input[type=text]{
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0px 0px 1px 0px;
+        border-color: darkred;
+        outline-width: 0;
+        outline: none;
+    }
+    input:focus,
+    {
+        outline: none;
+    }
+}
+
 body#product_layout{
     background: url('bedge_grunge.png') repeat 0 0;
 
@@ -710,6 +727,7 @@ body#product_layout{
             float: right;
         }
         #price_estimate_price{
+            padding-top: 30px;
             color: #FFFFFF;
             font-size: 40px;
             line-height: 50px;
