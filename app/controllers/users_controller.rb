@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-	@ownProfile = @user.id == current_user.id
+	if(current_user)
+		@ownProfile = @user.id == current_user.id
+	else
+		@ownProfile = false
+	end
     @products = Product.where(:user_id => params[:id], :active => true).order("products.product_name ASC")
 	@wishlists = Wishlist.where(:user_id => params[:id])
     render :layout => false
