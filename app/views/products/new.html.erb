@@ -7,6 +7,111 @@
   <%= csrf_meta_tags %>
   <%= filepicker_js_include_tag %>
 
+
+<style>
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  width:650px; 
+  height:270px;
+  padding:10px;
+  background-color:#ffffff;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script>
+
+$(document).ready(function() {  
+
+  //select all the a tag with name equal to modal
+  $('a[name=modal]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
+    
+    //Get the A tag
+    var id = $(this).attr('href');
+  
+    //Get the screen height and width
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+  
+    //Set heigth and width to mask to fill up the whole screen
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    
+    //transition effect   
+    $('#mask').fadeIn(1000);  
+    $('#mask').fadeTo("slow",0.8);  
+  
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+              
+    //Set the popup window to center
+    $(id).css('top',  winH/2-$(id).height()/2);
+    $(id).css('left', winW/2-$(id).width()/2);
+  
+    //transition effect
+    $(id).fadeIn(2000); 
+  
+  });
+  
+  //if close button is clicked
+  $('.window .close').click(function (e) {
+    //Cancel the link behavior
+    e.preventDefault();
+    
+    $('#mask').hide();
+    $('.window').hide();
+  });   
+  
+  //if mask is clicked
+  $('#mask').click(function () {
+    $(this).hide();
+    $('.window').hide();
+  });     
+
+  $(window).resize(function () {
+   
+    var box = $('#boxes .window');
+ 
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+      
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+               
+        //Get the window height and width
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        box.css('top',  winH/2 - box.height()/2);
+        box.css('left', winW/2 - box.width()/2);
+   
+  });
+  
+});
+
+</script>
 </head>
 <body id="product_layout">
 
@@ -35,11 +140,9 @@
   <div class="divider_shadow"></div>
   <div id="content_container">
     <%= render "partials/notice_alert" %>
-
-
-        <div class="product new">
-
-          <div id="price_estimate">
+<div id="boxes">
+<div id="dialog" class="window">
+  <div id="price_estimate">
             <div id="pe_header">Let <span class="bold">Buybox Price Genie</span> help you pick the right price.</div>
             <div id="pe_content">
               <input id="pe_price" type="text" placeholder="Enter product name">
@@ -49,14 +152,21 @@
                 <div id="price_estimate_text">Buybox Price Genie Estimate</div>
               </div>
             </div>
-          </div>
+  </div><br>
+<a href="#"class="close"/>Close it</a>
+</div>
+</div>
+        <div class="product new">
+
+          
 
           <div id="product_left">
             <div class="image"><br><br><br><br><br>
 
               <p class="post_upload_description">Upload Picture for your product</p><br>
               <%= f.filepicker_field :digital_link %></div>
-            <div class="description"> <%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
+            <div class="description"><h3>Description : </h3> <%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
+            <span class="pull-right"><%= submit_tag("Post Product", :class=>"btn btn-primary") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <p>
           </div>
           <div id="product_right">
@@ -73,7 +183,7 @@
             <% total_rating = Review.count(:conditions => {:user_id => @user.id}) %>
 
             <% if total_rating == 0 %>
-                <a class="no_user_rating" href="#review">Be the first one to rate!</a>
+                <a class="no_user_rating" href="/users/profile/<%=@user.id%>#review">Be the first one to rate!</a>
             <% else %>
                 <% sum_rating = Review.sum(:rating, :conditions => {:user_id => @user.id}) %>
                 <% average_rating = sum_rating.to_f/total_rating.to_f %>
@@ -86,8 +196,9 @@
             </div>
             <div id="purchase">
               <div class="stripes stripes_top"></div>
-              <div class="product_price_display">Price:  <%= f.text_field(:price, :placeholder=>"Enter price", :class=>"input-small") %></div>
-              <span class="pull-right"><br><br><%= submit_tag("Post Product", :class=>"btn btn-small btn-primary") %></span>
+              <div class="price_estimate"><a href="#dialog" name="modal">Genie Price Estimate</a></div>
+              <div class="product_price_display">Price : <%= f.text_field(:price, :class=>"input-medium", :placeholder=>"Enter price") %></div>
+              
 
 
               <div class="stripes"></div>
@@ -118,7 +229,7 @@
 </div>
 
 
-
+  <div id="mask"></div>
 
 <%= render "partials/footer" %>
 
