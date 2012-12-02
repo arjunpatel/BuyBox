@@ -78,7 +78,7 @@
             <% total_rating = Review.count(:conditions => {:user_id => @seller.id}) %>
 
             <% if total_rating == 0 %>
-                <a class="no_user_rating" href="#review">Be the first one to rate!</a>
+                <a class="no_user_rating" href="/users/profile/<%= @seller.id %>#review">No ratings for this user yet.</a>
             <% else %>
                 <% sum_rating = Review.sum(:rating, :conditions => {:user_id => @seller.id}) %>
                 <% average_rating = sum_rating.to_f/total_rating.to_f %>

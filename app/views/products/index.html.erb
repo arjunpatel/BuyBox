@@ -27,6 +27,10 @@
               <%= f.text_field :price_gte, :class => "price_search_textfield", :placeholder => "Min" %>
               <%= f.text_field :price_lte, :class => "price_search_textfield", :placeholder => "Max" %>
             </p>
+            <%= f.label :zip_equals, "Location", :class=> "search_header" %>
+            <p><%= f.text_field :zip_equals, :class =>"product_search_textfield", :placeholder =>"Zip Code" %></p>
+
+
 
             <p class="button"><%= f.submit "Search" %></p>
         <% end %>

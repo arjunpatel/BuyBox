@@ -107,7 +107,6 @@ class ProductsController < ApplicationController
   def index
     @search = Product.search(params[:search])
     @products = @search.where(:active => true) # or @search.relation to lazy load in view
-
   end
 
   protected
