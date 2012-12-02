@@ -49,7 +49,7 @@
         <% total_rating = Review.count(:conditions => { :user_id => params[:id] }) %>
 
       <% if total_rating == 0 %>
-        <a href="#review">Be the first one to rate!</a>
+        <a class="no_user_rating" href="#review">Be the first one to rate!</a>
       <% else %>
         <% sum_rating = Review.sum(:rating, :conditions => { :user_id => params[:id]}) %>
         <% average_rating = sum_rating.to_f/total_rating.to_f %>

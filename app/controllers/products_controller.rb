@@ -15,6 +15,13 @@ class ProductsController < ApplicationController
 
     render :layout => false
   end
+  def show_qr
+    @product = Product.find(params[:id])
+    @products = Product.where(:category_id => @product.category_id)
+    @seller= User.find(@product.user_id)
+
+    render :layout => false
+  end
 
   def new
     @product = Product.new

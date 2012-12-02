@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BuyBox</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body id="product_layout">
+
+<div id="header" style="background-image: url('/assets/top_bg.png');">
+  <div id="header_container">
+    <div id="main_navigation">
+      <a href="/">
+        <div id="header_logo"></div>
+      </a>
+      <%= render "partials/login_nav" %>
+    </div>
+  </div>
+</div>
+
+<div class="product_notice_wrap">
+<div class="page_notice">click print for QR code enabled product page</div>
+</span>
+
+<div class="product_head_wrap">
+  <div id="product_header">
+      <span class="name"><%= @product.product_name %>
+</span>
+    <span class="category"><%= @product.category.category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<div id="content_wrapper">
+  <div class="divider_shadow"></div>
+  <div id="content_container">
+    <%= render "partials/notice_alert" %>
+
+    <% fb_link = "http://buybox.herokuapp.com/" %>
+    <% product_img = @product.digital_link %>
+    <% product_title = "Check out " + @product.product_name + " at BuyBox" %>
+    <% product_description = @product.description %>
+    <% product_url = fb_link %>
+    <% product_caption = "This is a test" %>
+
+    <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link=" + fb_link + "& picture=" + product_img + "& caption=" + product_caption + "& name=" + product_title + "& description" + product_description +"& redirect_uri=" + product_url %>
+
+
+    <div id="product_left">
+      <div class="image"><br><%= image_tag(filepicker_image_url(@product.digital_link)) %></div>
+      <div class="description"><%= @product.description %></div>
+    </div>
+    <div id="product_right">
+      <div id="user_banner">
+        <div class="product_right_side_dark">
+          <% if @seller.image %>
+              <%= image_tag @seller.image, :size => '80x80', :class => 'img-polaroid' %>
+          <% else %>
+              <%= image_tag ("user_default.png"), :size => '80x80', :class => 'img-polaroid' %>
+          <% end %>
+          <span class="help-inline user_display_name">
+          <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
+          <p class="user_rating_display">
+            <% total_rating = Review.count(:conditions => {:user_id => @seller.id}) %>
+
+            <% if total_rating == 0 %>
+                <a class="no_user_rating" href="#review">Be the first one to rate!</a>
+            <% else %>
+                <% sum_rating = Review.sum(:rating, :conditions => {:user_id => @seller.id}) %>
+                <% average_rating = sum_rating.to_f/total_rating.to_f %>
+                <%= average_rating.round(2) %> out of <%= total_rating %> ratings
+            <% end %>
+          </p>
+       </span>
+
+        </div>
+
+
+      </div>
+      <div id="purchase">
+        <div class="stripes stripes_top"></div>
+        <div class="product_price_display">$ <span class="p_price"><%= '%.0f' % @product.price %></span></div>
+        <span class="pull-right m-btn green rnd product_buy_button"> <%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> </span>
+
+
+        <div class="stripes"></div>
+      </div>
+      <div id="more_info">
+
+        <div class="product_details"> Product Details</div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information">Zipcode: <%= @product.zip %></div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> <%= @product.quantity %> in stock</div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Made by <%= @product.brand %></div>
+        <div class="product_divider"></div>
+        <div class="product_additional_information"> Listed on  <%= @product.created_at.strftime('%B %d, %Y') %></div>
+      </div>
+    </div>
+
+    <div class="qr_footer"><span>Buy it now on Buybox!</span></div>
+    <div class="qr_footer_content">
+      <div class="img_block"><%= image_tag("http://chart.googleapis.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=H&chl=http://buybox.herokuapp.com/products/show/#{@product.id}") %>
+      </div>
+      <div class="qr_cont_block">
+        <span class="qr_des">For product details, seller rating, seller contact information and other great products visit Buybox. Signup today, list your products and start making money from your trash.</span><br>
+        <br>
+      </div>
+    </div>
+    <div class="qr_footer_small">For technical support, email help@buybox.com.</div>
+
+
+</div>
+
+
+</div>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>
+
+
+

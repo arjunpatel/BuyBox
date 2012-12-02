@@ -21,6 +21,16 @@
   </div>
 </div>
 
+<div class="product_head_wrap">
+<div id="product_header">
+  <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
+      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
+                                                                                ['Home', 5], ['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
+                                                                                ['Other', 10]
+      ] %></span>
+</div>
+  </div>
+
 <div id="content_wrapper">
   <div class="divider_shadow"></div>
   <div id="content_container">
@@ -40,15 +50,6 @@
               </div>
             </div>
           </div>
-
-          <div id="product_header">
-            <span class="name">New Product Name: <%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
-      <span class="category pull-right"> CATEGORY : <%= f.select :category_id, [['Books', 1], ['Online', 2], ['Electronics', 3], ['Sports', 4],
-                                                                                ['Home', 5], ['Clothing', 6], ['Movies', 7], ['Music', 8], ['Home', 9],
-                                                                                ['Other', 10]
-      ] %></span>
-          </div>
-
 
           <div id="product_left">
             <div class="image"><br><br><br><br><br>
@@ -72,7 +73,7 @@
             <% total_rating = Review.count(:conditions => {:user_id => @user.id}) %>
 
             <% if total_rating == 0 %>
-                <a href="#review">Be the first one to rate!</a>
+                <a class="no_user_rating" href="#review">Be the first one to rate!</a>
             <% else %>
                 <% sum_rating = Review.sum(:rating, :conditions => {:user_id => @user.id}) %>
                 <% average_rating = sum_rating.to_f/total_rating.to_f %>
@@ -84,7 +85,7 @@
               </div>
             </div>
             <div id="purchase">
-              <div class="stripes"></div>
+              <div class="stripes stripes_top"></div>
               <div class="product_price_display">Price:  <%= f.text_field(:price, :placeholder=>"Enter price", :class=>"input-small") %></div>
               <span class="pull-right"><br><br><%= submit_tag("Post Product", :class=>"btn btn-small btn-primary") %></span>
 
@@ -93,7 +94,7 @@
             </div>
             <div id="more_info">
 
-              <div class="product_details"> PRODUCT DETAILS</div>
+              <div class="product_details">Product Details</div>
               <div class="product_divider"></div>
               <div class="product_additional_information"> Zipcode
                 : <%= f.text_field(:zip, :class=>"input-medium", :placeholder=>"Enter Zipcode") %></div>
