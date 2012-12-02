@@ -449,6 +449,11 @@
     }
 }
 
+.product_btn_container{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 .product_search_textfield
 {
@@ -564,6 +569,7 @@ body#product_layout{
         background-image: url('/assets/top_bg.png');
     }
      #product_header{
+        position: relative;
         height: 90px;
         width: 960px;
         margin: 0 auto;

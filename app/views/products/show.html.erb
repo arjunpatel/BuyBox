@@ -25,12 +25,14 @@
 </span>
     <span class="category"><%= @product.category.category %></span>
 
-    <div class="m-btn purple rnd qr_btn" style="margin: 25px 20px 0 0;">
-      <%= link_to "QR Page", :controller => "products", :action => "show_qr", :id => @product.id%>
+    <div class="product_btn_container">
+      <div class="m-btn purple rnd qr_btn" style="margin: 25px 20px 0 0;">
+        <%= link_to "QR Page", :controller => "products", :action => "show_qr", :id => @product.id %>
 
-    </div>
-    <div class="m-btn purple rnd qr_btn" style="margin: 25px 20px 0 0;">
-      <%= link_to "Add to Wishlist", :controller => "wishlists", :action => "add", :id => @product.id%>
+      </div>
+      <div class="m-btn purple rnd qr_btn" style="margin: 25px 20px 0 0;">
+        <%= link_to "Add to Wishlist", :controller => "wishlists", :action => "add", :id => @product.id %>
+      </div>
     </div>
   </div>
 </div>
@@ -65,9 +67,10 @@
           <% end %>
           <span class="help-inline user_display_name">
           <a href="/users/profile/<%= @seller.id %>">
-          <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
-          <p class="user_rating_display">
-            </a>
+            <p class="user_display_name"><%= @seller.first_name %> <%= @seller.last_name %></p>
+
+            <p class="user_rating_display">
+          </a>
             <% total_rating = Review.count(:conditions => {:user_id => @seller.id}) %>
 
             <% if total_rating == 0 %>
@@ -77,7 +80,7 @@
                 <% average_rating = sum_rating.to_f/total_rating.to_f %>
                 <%= average_rating.round(2) %> out of <%= total_rating %> ratings
             <% end %>
-          </p>
+            </p>
        </span>
 
         </div>
@@ -94,7 +97,6 @@
 			<%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
 			<% end %>
 			</span>
-
 
 
         <div class="stripes"></div>
