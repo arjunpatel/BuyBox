@@ -17,6 +17,12 @@ class WishlistsController < ApplicationController
 
   end
   def delete
-	
+    @wishlist = Wishlist.find(params[:id])
+    if @wishlist.user_id != current_user.id
+	  render :file => File.join(Rails.root, 'public', '500.html')
+    else
+      Wishlist.find(params[:id]).destroy
+      redirect_to(:controller => 'users', :action => 'profile', :id => current_user.id)
+    end
   end
 end
