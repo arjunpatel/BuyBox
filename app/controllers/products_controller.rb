@@ -57,6 +57,8 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @user = current_user
+	render :layout => false
 	if @product.user_id != current_user.id
 	  render :file => File.join(Rails.root, 'public', '500.html')
 	end
