@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   layout :resolve_layout
 
   def index
-    @products = Product.where(:active => true).find(:all, :limit => 16)
+    @products = Product.where(:active => true).where("quantity > 0").find(:all, :limit => 16)
   end
 
   def search
