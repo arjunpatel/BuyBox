@@ -84,7 +84,9 @@ class ProductsController < ApplicationController
 	  render :file => File.join(Rails.root, 'public', '500.html')
     else
 		if product.active == false
-			product.active = true
+			if product.quantity != 0
+				product.active = true
+			end
 		else
 			product.active = false
 		end
