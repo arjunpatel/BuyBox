@@ -7,7 +7,7 @@
   <% end %>
   <div class="name_price">
     
-    <div data-type="name" class="information"><%= link_to(product.product_name.truncate(15), {:action => 'show', :id => product.id}, :class => 'action show') %></div>
+    <div data-type="name" class="information"><%= link_to(product.product_name.truncate(15), "/products/show/#{product.id}", :class => 'action show') %></div>
     $ <div data-type="price" class="price">  <%= '%.0f' % product.price %></div>
   </div>
   <div class="category"><%= product.category.category %></div>
