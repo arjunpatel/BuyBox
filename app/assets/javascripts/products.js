@@ -12,4 +12,27 @@ $(document).ready(function() {
         }
     });
 
+
+    $('#product_add').submit(function(e) {
+        if (isNaN($('#product_price').val() / 1) == true ||
+            isNaN($('#product_zip').val() / 1) == true ||
+            isNaN($('#product_quantity').val() / 1) == true
+            ) {
+            $('#error_modal').modal('show');
+            e.preventDefault();
+        }
+
+        if ($('#product_product_name').val() == "" ||
+            $('#product_description').val() == "" ||
+            $('#product_price').val() == "" ||
+            $('#product_zip').val() == "" ||
+            $('#product_quantity').val() == "" ||
+            $('#product_quantity').val() == "0") {
+            $('#error_modal').modal('show');
+            e.preventDefault();
+        }
+
+
+    });
+
 });

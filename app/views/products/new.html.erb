@@ -125,7 +125,21 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-             <%= form_for(:product, :url => {:action => 'create'}) do |f| %>
+
+<div class="modal hide" id="error_modal" style="margin-top: 0px;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Error</h3>
+  </div>
+  <div class="modal-body">
+    <p>To add product following fields are required: Title, Description, Price, Quantity (1 or more) and ZipCode.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>
+
+<%= form_for(:product, :html => {:id => "product_add"}, :url => {:action => 'create'}) do |f| %>
 <div class="product_head_wrap">
 <div id="product_header">
   <span class="name"><%= f.text_field(:product_name, :placeholder=>"Enter Product Name") %></span>
