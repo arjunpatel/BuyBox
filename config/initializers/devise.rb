@@ -15,7 +15,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  require "omniauth-facebook"
+  #require "omniauth-facebook"
 
   config.omniauth :facebook, "389269574483702", "6efaf9a2182d68f9a9df273a0071eada", :strategy_class => OmniAuth::Strategies::Facebook, :image_size => 'large'
 
@@ -104,7 +104,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming his account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming his account.
-  config.allow_unconfirmed_access_for = 365.days
+  config.allow_unconfirmed_access_for = 2.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
