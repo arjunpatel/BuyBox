@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 	order.user_id = current_user.id
 	order.price = params[:price]
 	order.quantity = params[:quantity]
-	order.date_of_purchase = Time.now
+	order.date_of_purchase = Time.now - 8.hours
 	order.order_status = "Not Shipped"
 	product = Product.find(params[:product_id])
 	if order.save && product.quantity >= Integer(params[:quantity])
