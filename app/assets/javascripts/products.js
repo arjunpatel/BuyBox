@@ -26,8 +26,7 @@ $(document).ready(function() {
             $('#product_description').val() == "" ||
             $('#product_price').val() == "" ||
             $('#product_zip').val() == "" ||
-            $('#product_quantity').val() == "" ||
-            $('#product_quantity').val() == "0") {
+            $('#product_quantity').val() == "") {
             $('#error_modal').modal('show');
             e.preventDefault();
         }
