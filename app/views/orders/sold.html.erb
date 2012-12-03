@@ -15,7 +15,7 @@
 	 	<% if product != nil && buyer != nil %>
   		<table class="inventory_table">
     	<tr>
-        <td class="inventory_left">          <div class="inv_pic_left" style="background-image: url(<%= image_tag(filepicker_image_url(product.digital_link)) %>)"></div>
+        <td class="inventory_left"><div class="inv_pic_left" style="background: url('<%= product.digital_link %>')"></div></div>
 </td>
         <td class="inventory_middle">
         	<p class="inventory_product_name"><%= product.product_name %></p>
