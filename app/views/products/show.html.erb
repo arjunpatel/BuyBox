@@ -94,13 +94,19 @@
       <div id="purchase">
         <div class="stripes stripes_top"></div>
         <div class="product_price_display">$ <span class="p_price"><%= '%.0f' % @product.price %></span></div>
-			<span class="pull-right m-btn green rnd product_buy_button"> 
-			<% if @user_id != @seller_id %>
+			
+			
+			<% if @user_id != @seller_id && @product.active = true && @product.quantity > 0 %>
+				<span class="pull-right m-btn green rnd product_buy_button"> 
 				<%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> 
-			<% else %>
-			<%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
+				</span>
+			<% elsif @user_id == @seller_id %>
+				<span class="pull-right m-btn green rnd product_buy_button"> 
+				<%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
+				</span>
+			
 			<% end %>
-			</span>
+			
 
 
         <div class="stripes"></div>
@@ -111,7 +117,11 @@
         <div class="product_divider"></div>
         <div class="product_additional_information"><span class="space_right"><%= image_tag('zip.png') %></span><%= @product.zip %></div>
         <div class="product_divider"></div>
-        <div class="product_additional_information"> <%= @product.quantity %> in stock</div>
+		<% if @product.quantity > 0 %>
+			<div class="product_additional_information"> <%= @product.quantity %> in stock</div>
+		<% else %>
+			<div class="product_additional_information">Sold Out</div>
+		<% end %>
         <div class="product_divider"></div>
         <div class="product_additional_information"> Made by <%= @product.brand %></div>
         <div class="product_divider"></div>
