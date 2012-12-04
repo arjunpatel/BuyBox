@@ -166,10 +166,12 @@ $(document).ready(function() {
               <div id="price_container">
                 <div id="price_estimate_price">0</div>
                 <div id="price_estimate_text">Buybox Price Genie Estimate</div>
+                <div id="price_estimate_brand" class="hidden"></div>
               </div>
             </div>
   </div><br>
-<a href="#"class="close"/>Close it</a>
+  <div id="populate_genie" class="m-btn green">Update My Listing</div>
+<a href="#"class="close m-btn black close_btn"/>Close it</a>
 </div>
 </div>
         <div class="product new">
@@ -180,9 +182,9 @@ $(document).ready(function() {
             <div class="image"><br><br><br><br><br>
 
               <p class="post_upload_description">Upload Picture for your product</p><br>
-              <%= f.filepicker_field :digital_link, :class => "btn"%></div>
+              <%= f.filepicker_field :digital_link, :button_class => "m-btn purple"%></div>
             <div class="description"><%= f.text_area(:description, :class=>"product_description_input", :placeholder=>"Enter the product description here") %></div>
-            <span class="pull-right"><%= submit_tag("Post Product", :class=>"btn btn-primary") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="pull-right"><%= submit_tag("Post Product", :class=>"m-btn green") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <p>
           </div>
           <div id="product_right">

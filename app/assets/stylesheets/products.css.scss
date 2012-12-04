@@ -11,6 +11,18 @@
     padding-bottom: 0px;
 }
 
+#populate_genie{
+    float: right;
+    top: -20px;
+}
+
+.close_btn{
+    opacity: 1 !important;
+    float: right;
+    top: -20px;
+    margin-right: 15px;
+}
+
 .post_upload_description
 {
     color:white;
@@ -725,6 +737,7 @@ body#product_layout{
         input#pe_price{
             margin: 60px 0 0 40px;
             float: left;
+            color: #FFFFFF;
         }
         #price_container{
             width: 300px;

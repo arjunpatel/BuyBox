@@ -103,7 +103,8 @@ class ProductsController < ApplicationController
     parsed_json["results"].each do |product|
       total += product["price_estimate"]
     end
-    render :text => "$ #{(total/parsed_json["results"].size).ceil}"
+    #render :text => "$ #{(total/parsed_json["results"].size).ceil}"
+    render :json => {:price => "$ #{(total/parsed_json["results"].size).ceil}", :brand => parsed_json["results"][0]["make"]}
   end
 
   def index

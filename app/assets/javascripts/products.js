@@ -5,11 +5,20 @@ $(document).ready(function() {
         if ($(this).val() != "") {
             $.ajax({
                 url: "/products/buybox_genie?query_params=" + $(this).val(),
+                dataType: 'json',
                 success: function(results) {
-                    $('#price_estimate_price').text(results);
+                    $('#price_estimate_price').text(results.price);
+                    $('#price_estimate_brand').text(results.brand);
+                },error: function(e){
+                    $('#price_estimate_price').text("No Estimate");
                 }
             });
         }
+    });
+
+    $('#populate_genie').click(function(){
+        $('#product_price').val($('#price_estimate_price').text().substring(2,$('#price_estimate_price').text().size));
+        $('#product_brand').val($('#price_estimate_brand').text());
     });
 
 
