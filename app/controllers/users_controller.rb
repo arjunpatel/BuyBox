@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout "background_header"
-
+  before_filter :authenticate_user!, :except => [:profile]
   def profile
     @user = User.find(params[:id])
 	if(current_user)

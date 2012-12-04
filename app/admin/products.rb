@@ -33,6 +33,8 @@ ActiveAdmin.register Product do
       f.input :quantity_sold
       f.input :zip 
       f.input :active
+          default_actions                   
+
     end                               
     f.buttons                         
   end          

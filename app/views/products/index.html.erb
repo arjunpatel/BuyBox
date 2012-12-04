@@ -11,18 +11,6 @@
             </p>
 
             <p>
-              <%= f.text_field :product_name_contains, :class =>"product_search_textfield", :placeholder =>"Product Search" %>
-            </p>
-
-            <p>
-              <%= f.text_field :brand_contains, :class =>"product_search_textfield", :placeholder =>"Brand  Search" %>
-            </p>
-
-            <p>
-              <%= f.text_field :description_contains, :class =>"product_search_textfield", :placeholder =>"Description Search" %>
-            </p>
-
-            <p>
               <%= f.label :price_gte, "Price ranges", :class=> "search_header" %>
               <%= f.text_field :price_gte, :class => "price_search_textfield", :placeholder => "Min" %>
               <%= f.text_field :price_lte, :class => "price_search_textfield", :placeholder => "Max" %>

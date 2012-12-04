@@ -1,6 +1,6 @@
 <div id="sub_nav_links">
   <div class="navigation_item"><a href="/products/"><%= image_tag('location.png') %></a></div>
    <% Category.all.each do |cat| %>
-      <div class="navigation_item"><a href="/products/"><%= cat.category %></a></div>
+      <div class="navigation_item"><a href="/product?utf8=✓&search%5Bcategory_id_equals%5D=<%= cat.id %>"><%= cat.category %></a></div>
   <% end %>
 </div>
