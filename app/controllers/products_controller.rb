@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 		@user_id = current_user.id
 	end
     @product = Product.find(params[:id])
-    @products = Product.where(:category_id => @product.category_id)
+    @products = Product.where(:category_id => @product.category_id).limit(4)
     @seller= User.find(@product.user_id)   
 	@seller_id = @seller.id
 

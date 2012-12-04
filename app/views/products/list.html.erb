@@ -19,7 +19,7 @@
           </td>
           <td class="inventory_middle">
             <p class="inventory_product_name"><%= link_to(product.product_name, {:action => 'show', :id => product.id}) %></p>
-            Category : Online Goods<br>
+            Category : <%= product.category.category %><br/>
             Description:  <%= product.description.truncate(100) %>
             <br>
 
