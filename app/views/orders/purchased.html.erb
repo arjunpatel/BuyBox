@@ -29,9 +29,8 @@
 		        	Description :  <%= product.description.truncate(100)  %><br/>
 
 
-<%= email_subject = "?subject=Question about " + product.product_name %>
-<%= email_body = "&body=Hey " + seller.first_name + " " + seller.last_name + ", " %>
-<% email_link = "mailto:" + seller.email + email_subject + email_body %>
+<% email_subject = "?subject=Question about " + product.product_name %>
+<% email_link = "mailto:" + seller.email + email_subject %>
 
 
 		        </td>
