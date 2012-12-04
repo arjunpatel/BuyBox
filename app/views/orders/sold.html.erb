@@ -21,7 +21,7 @@
         <td class="inventory_left"><div class="inv_pic_left" style="background: url('<%= product.digital_link %>')"></div></div>
 </td>
         <td class="inventory_middle">
-        	<p class="inventory_product_name"><%= product.product_name %></p>
+		    <p class="inventory_product_name"><%= link_to(product.product_name, {:controller => 'products', :action => 'show', :id => product.id}) %></p>
         	Category : <%= product.category.category %><br/>
         	Order ID : <%= order.id + 11392 %><br/>
         	Buyer: <%= buyer.first_name + " " + buyer.last_name %><br/>
