@@ -146,6 +146,7 @@
 						<h2>Wishlist</h2>
 						<% @wishlists.each do |wishlist| %>
 							<% product = wishlist.product %>
+							<% if product != nil %>
 							<table class="inventory_table">
 							<tr>
 								<td class="inventory_left"><%= image_tag(filepicker_image_url(product.digital_link)) %></td>
@@ -170,6 +171,7 @@
 							</tr>
 							</table>
 							<br/>
+							<% end %>
 						<% end %>
 					<% else %>
 						This user does not have a wishlist
