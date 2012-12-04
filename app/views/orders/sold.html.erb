@@ -9,6 +9,9 @@
 
 
 <div class="product_list_display">
+  <% if @orders == [] %>
+	<p>You are not selling any products</p>
+  <% else %>
     <% @orders.each do |order| %>
     	<% product = order.product %>
 	  	<% buyer = User.find(order.user_id) %>
@@ -51,6 +54,6 @@
 		</table><br>
     	<% end %>
     <% end %>
-
+	<% end %>
 </div>
 

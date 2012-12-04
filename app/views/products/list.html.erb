@@ -9,6 +9,9 @@
 
 <div class="product_list_display">
 
+  <% if @products == [] %>
+	<p>You are not selling any products</p>
+  <% else %>
   <% @products.each do |product| %>
 
 
@@ -55,5 +58,6 @@
       <br>
 
 
+  <% end %>
   <% end %>
 </div>
