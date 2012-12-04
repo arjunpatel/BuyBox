@@ -1,3 +1,5 @@
+
+
 <div id="sub_navigation_links">
   <div class="navigation_item"><a href="/users/show">ACCOUNT INFORMATION</a></div>
   <div class="navigation_item"><a href="/users/edit">ACCOUNT SETTINGS</a></div>
@@ -7,47 +9,11 @@
 
 <div class="container-fluid content_padding">
   <div class="row-fluid">
-        <script type="text/javascript">
-            // this identifies your website in the createToken call below
-            Stripe.setPublishableKey(pk_test_3Nzq9o87Yw7NoYqVl6yB7I3U);
-
-            function stripeResponseHandler(status, response) {
-                if (response.error) {
-                    // re-enable the submit button
-                    $('.submit-button').removeAttr("disabled");
-                    // show the errors on the form
-                    $(".payment-errors").html(response.error.message);
-                } else {
-                    var form$ = $("#payment-form");
-                    // token contains id, last4, and card type
-                    var token = response['id'];
-                    // insert the token into the form so it gets submitted to the server
-                    form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
-                    // and submit
-                    form$.get(0).submit();
-                }
-            }
-
-            $(document).ready(function() {
-                $("#payment-form").submit(function(event) {
-                    // disable the submit button to prevent repeated clicks
-                    $('.submit-button').attr("disabled", "disabled");
-                    // createToken returns immediately - the supplied callback submits the form if there are no errors
-                    Stripe.createToken({
-                        number: $('.card-number').val(),
-                        cvc: $('.card-cvc').val(),
-                        exp_month: $('.card-expiry-month').val(),
-                        exp_year: $('.card-expiry-year').val()
-                    }, stripeResponseHandler);
-                    return false; // submit from callback
-                });
-            });
-
-        </script>
-
+    <div class="span6">
         <!-- to display errors returned by createToken -->
         <span class="payment-errors"></span>
         <form action="" method="POST" id="payment-form">
+            <legend>Payment</legend>
             <div class="form-row">
                 <label>Card Number</label>
                 <input type="text" size="20" autocomplete="off" class="card-number" />
@@ -64,7 +30,53 @@
             </div>
             <button type="submit" class="submit-button">Submit</button>
         </form>
-
-      </div>
     </div>
+    <div class="span6">
+
+
+    <form action="buyer_information" method="get" class="fancy-form">
+
+        <legend>Address</legend>
+        <p class="instructions">
+            <% if @user.address %>
+                Your current address is : <br><%= @user_address_line1 %> <%= @user_address_line2  %>, <%= @user_address_city  %>, <%= @user_address_state  %>  <%= @user_address_zip  %>
+                <br>If you want to change it please start by entering your zipcode.
+            <% else %>
+                You have no address yet. Start by entering your zipcode.
+            <% end %>
+        </p>
+        <div>
+          <div>
+            <input type="text" name="line1" id="address-line-1" placeholder="Address line 1">
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="text" name="line2" id="address-line-2" placeholder="Address line 2">
+          </div>
+        </div>
+        <div>
+          <div class="city-wrap">
+            <input type="text" name="city" id="city"  placeholder="City">
+          </div>
+          <div class="state-wrap">
+            <input type="text" name="state" id="state" placeholder="State">
+          </div>
+          <div class="zip-wrap">
+            <input type="text" pattern="[0-9]*" maxlength="5" required name="zip" id="zip" placeholder="Zipcode">
+            <p class="zip-error">Not a real zip code.</p>
+          </div>
+        </div>
+
+        <div class="submit-wrap">
+         <input type="hidden" name="sub_value" value="new">
+          <input type="submit" value="Submit">
+        </div>
+
+
+    </form> 
+
+    </div>
+   </div>
+</div>
 

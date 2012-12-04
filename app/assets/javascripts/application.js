@@ -17,4 +17,5 @@
 //= require search
 //= require rails
 //= require highcharts
+//= require address_form
 //= require_tree .
