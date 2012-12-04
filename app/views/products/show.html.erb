@@ -93,7 +93,7 @@
       </div>
       <div id="purchase">
         <div class="stripes stripes_top"></div>
-        <div class="product_price_display">$ <span class="p_price"><%= '%.0f' % @product.price %></span></div>
+        <div class="product_price_display"><%= number_to_currency(@product.price) %></div>
 			
 			
 			<% if @user_id != @seller_id && @product.active = true && @product.quantity > 0 %>
