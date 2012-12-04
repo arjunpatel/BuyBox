@@ -23,7 +23,7 @@
           <%= f.password_field :password_confirmation, :placeholder =>"Password Confirmation" %>
 
           <div><%= f.submit "Sign up", :class=> "btn btn-primary pull-left" %></div><br><br>
-          <%#= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
 
       <% end %>
     </div>
