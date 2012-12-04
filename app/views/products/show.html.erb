@@ -8,14 +8,16 @@
 </head>
 <body id="product_layout">
 
-    <% fb_link = "http://buybox.herokuapp.com/" %>
     <% product_img = @product.digital_link %>
     <% product_title = "Check out " + @product.product_name + " at BuyBox" %>
     <% product_description = @product.description %>
-    <% product_url = fb_link %>
+    <% product_url = "http://buybox.herokuapp.com/products/show/" +  @product.id.to_s %>
+    <% fb_link = product_url %>
     <% product_caption = "$ " + @product.price.to_s %>
 
     <% facebook_share = "https://www.facebook.com/dialog/feed? app_id=389269574483702& link=" + fb_link + "& picture=" + product_img + "& caption=" + product_caption + "& name=" + product_title + "& description=" + product_description +"& redirect_uri=" + product_url %>
+
+    <%= facebook_share %>
 <div id="header" style="background-image: url('/assets/top_bg.png');">
   <div id="header_container">
     <div id="main_navigation">
