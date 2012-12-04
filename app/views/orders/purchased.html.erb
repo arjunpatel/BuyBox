@@ -15,7 +15,9 @@
   <% else %>
     <% @orders.each do |order| %>
  	<% product = order.product %>
-	  <% seller = product.user %>
+	  <% if product != nil %>
+		<% seller = product.user %>
+	  <% end %>
 	  <% if product != nil && seller != nil %>    
 		<table class="inventory_table">
 		    <tr>
