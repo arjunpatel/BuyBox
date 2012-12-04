@@ -1,5 +1,5 @@
 <a href="/users/sign_up"><%= image_tag('buy_sell_banner.png', :height => 225) %></a>
-<%= image_tag('top_banner.png', :class => "pull-right") %>
+<a href="http://localhost:3000/product?utf8=%E2%9C%93&search%5Bproduct_name_or_brand_or_description_contains%5D=phone"><%= image_tag('top_banner.png', :class => "pull-right") %></a>
 <ul id="products" class="product_list search_product_list list_on_index" style="width: auto; padding-left: 5px; margin-top: 10px">
     <%= render :partial => "partials/product", :collection => @products %>
 </ul>

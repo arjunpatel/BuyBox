@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 		@user_id = current_user.id
 	end
     @product = Product.find(params[:id])
-    @products = Product.where(:category_id => @product.category_id)
+    @products = Product.where(:category_id => @product.category_id, :active => true).where("quantity > 0").limit(4)
     @seller= User.find(@product.user_id)   
 	@seller_id = @seller.id
 
@@ -39,6 +39,9 @@ class ProductsController < ApplicationController
 
     @product = Product.new(params[:product])
     @product.user_id = current_user.id
+	if @product.digital_link == ""
+		@product.digital_link = "/assets/product_no_image.png"
+	end
     if @product.save
       redirect_to(:action => 'list')
     else

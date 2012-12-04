@@ -36,7 +36,9 @@ class OrdersController < ApplicationController
   def purchased
 	@orders = Order.where(:user_id => current_user.id)
   end
-  
+  def overview
+	@user_id = current_user.id
+  end
   def changeStatus
     @order = Order.find(params[:id])
 	@order.order_status = "Shipped"
