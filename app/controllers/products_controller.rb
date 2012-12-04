@@ -39,6 +39,9 @@ class ProductsController < ApplicationController
 
     @product = Product.new(params[:product])
     @product.user_id = current_user.id
+	if @product.digital_link == ""
+		@product.digital_link = "/assets/product_no_image.png"
+	end
     if @product.save
       redirect_to(:action => 'list')
     else
