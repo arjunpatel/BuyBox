@@ -40,7 +40,11 @@
 
             </div>
             <div class="inventory_status_right">
-              <div class="status_instock"> QTY : <%= product.quantity %> </div>
+			  <% if product.active == true %>
+                <div class="status_instock"> QTY : <%= product.quantity %> </div>
+			  <% else %>
+			    <div class="status_notinstock">Not Active</div>
+			  <% end %>
               <div class="status_price"><%= number_to_currency(product.price) %></div>
 
 
