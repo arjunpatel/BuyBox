@@ -42,5 +42,18 @@ $(document).ready(function() {
 
 
     });
+	
+	$('#new_review').submit(function(e) {
+
+		if($('#review_area').val() == "" || $('#review_area').val().length < 10 ){
+            $('#error_modal').modal('show');
+			e.preventDefault();
+			}
+		if(!$("#new_review input[type='radio']:checked").val()){
+            $('#error_modal').modal('show');
+			e.preventDefault();
+			}
+
+    });
 
 });

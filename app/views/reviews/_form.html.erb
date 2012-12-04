@@ -1,3 +1,16 @@
+<div class="modal hide" id="error_modal" style="margin-top: 0px;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Error</h3>
+  </div>
+  <div class="modal-body">
+    <p>To have a valid rating, you must pick a rating and your comment must be greater than 10 characters</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>
+
 <%= form_for([@user, @user.reviews.build]) do |f| %>
 
     <%= f.hidden_field :reviewer_id, :value => current_user.id %>
