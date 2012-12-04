@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129021343) do
+ActiveRecord::Schema.define(:version => 20121204043920) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -143,10 +144,10 @@ ActiveRecord::Schema.define(:version => 20121129021343) do
     t.integer  "number_of_ratings"
     t.string   "facebook_link"
     t.string   "twitter_link"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
+    t.string   "email",                  :default => "",                         :null => false
+    t.string   "encrypted_password",     :default => "",                         :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -161,11 +162,11 @@ ActiveRecord::Schema.define(:version => 20121129021343) do
     t.string   "unconfirmed_email"
     t.string   "provider"
     t.string   "uid"
-    t.string   "image"
     t.string   "fb_token"
     t.string   "location"
     t.string   "fb_url"
     t.string   "username"
+    t.string   "image",                  :default => "/assets/user_default.png", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

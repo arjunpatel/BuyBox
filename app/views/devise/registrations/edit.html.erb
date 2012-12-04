@@ -1,3 +1,4 @@
+
 <div id="sub_navigation_links">
   <div class="navigation_item"><a href="/users/show">ACCOUNT INFORMATION</a></div>
   <div class="navigation_item current_page"><a href="/users/edit">ACCOUNT SETTINGS</a></div>
@@ -46,7 +47,10 @@
               <td><b>Current Password: </b></td>
               <td><%= f.password_field :current_password %></td>
             </tr>
-
+			<tr>
+		      <td>Upload Image</td>
+			  <td><%= f.filepicker_field :image, :button_class => "m-btn purple"%></td>
+			</tr>
             </tbody>
           </table>
 
