@@ -3,23 +3,28 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   def buy
-  	order = Order.new
-	order.product_id = params[:product_id]
-	order.user_id = current_user.id
-	order.price = params[:price]
-	order.quantity = params[:quantity]
-	order.date_of_purchase = Time.now - 8.hours
-	order.order_status = "Not Shipped"
-	product = Product.find(params[:product_id])
-	if order.save && product.quantity >= Integer(params[:quantity])
-	  product.quantity = product.quantity - Integer(params[:quantity])
-	  if product.quantity == 0
-		product.active = false
-	  end
-	  product.save
-	  redirect_to(:controller => "orders", :action => "confirmation", :id => order.id)
+	if current_user.address
+		order = Order.new
+		order.product_id = params[:product_id]
+		order.user_id = current_user.id
+		order.price = params[:price]
+		order.quantity = params[:quantity]
+		order.date_of_purchase = Time.now - 8.hours
+		order.order_status = "Not Shipped"
+		product = Product.find(params[:product_id])
+		if order.save && product.quantity >= Integer(params[:quantity])
+			product.quantity = product.quantity - Integer(params[:quantity])
+			if product.quantity == 0
+				product.active = false
+			end
+			product.save
+			redirect_to(:controller => "orders", :action => "confirmation", :id => order.id)
+		else
+			render :file => File.join(Rails.root, 'public', '500.html')
+		end
 	else
-	  render :file => File.join(Rails.root, 'public', '500.html')
+		flash[:notice] = "You need to fill in your address information before purchasing a product"
+		redirect_to(:controller => "users", :action => "buyer_information")
 	end
 
   end
