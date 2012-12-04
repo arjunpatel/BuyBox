@@ -16,7 +16,7 @@
 		<table class="inventory_table">
 		    <tr>
 		        <td class="inventory_left"><div class="inv_pic_left" style="background: url('<%= product.digital_link %>')"></div>
-</td>
+</td>			
 		        <td class="inventory_middle">
 		        	<p class="inventory_product_name"><%= product.product_name %> </p>
 		        	Category : <%= product.category.category %><br/>
@@ -24,12 +24,17 @@
 		        	Seller: <%= seller.first_name + " " + seller.last_name %><br/>
 		        	Description:  <%= product.description.truncate(100)  %><br/>
 
+
+<%= email_subject = "?subject=Question about " + product.product_name %>
+<%= email_body = "&body=Hey " + seller.first_name + " " + seller.last_name + ", " %>
+<% email_link = "mailto:" + seller.email + email_subject + email_body %>
+
+
 		        </td>
 		        <td class="inventory_right">
 					<div class="inventory_status_left">
-						<p class="user_list_button">Ask Seller</p>
-						<p class="user_list_button">Rate Seller</p>
-						<p class="user_list_button">Track Item</p>
+						<p class="user_list_button"><%= link_to "Contact Seller", email_link%></p>
+						<p class="user_list_button"><%= link_to "Rate Seller", "/users/profile/" + seller.id.to_s + "#review"%></p>
 
 					</div> 
 					<div class="inventory_status_right">
