@@ -11,7 +11,7 @@
 <div class="product_list_display">
 <div class="product_list_display">
   <% if @orders == [] %>
-	<p>You are not selling any products</p>
+	<p>You have not purchased any products yet</p>
   <% else %>
     <% @orders.each do |order| %>
  	<% product = order.product %>
