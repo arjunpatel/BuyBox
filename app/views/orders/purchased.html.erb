@@ -24,9 +24,9 @@
 		        <td class="inventory_middle">
 		        	<p class="inventory_product_name"><%= product.product_name %> </p>
 		        	Category : <%= product.category.category %><br/>
-		        	Order Number: <%= order.id + 11392 %><br/>
-		        	Seller: <%= seller.first_name + " " + seller.last_name %><br/>
-		        	Description:  <%= product.description.truncate(100)  %><br/>
+		        	Order ID : <%= order.id + 11392 %><br/>
+		        	Seller : <%= seller.first_name + " " + seller.last_name %><br/>
+		        	Description :  <%= product.description.truncate(100)  %><br/>
 
 
 <%= email_subject = "?subject=Question about " + product.product_name %>

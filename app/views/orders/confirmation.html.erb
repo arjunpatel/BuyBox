@@ -1,0 +1,11 @@
+<h2>Confirmation Page</h2>
+<p>Your order was successful!</p>
+<p>Here are the details for your order:</p>
+<p>
+	Order ID: <%= @order.id + 11392 %><br/>
+	Product Name: <%= link_to @product.product_name, :controller => "products", :action => "show", :id => @product.id %><br/>
+	Price: <%= number_to_currency(@product.price) %><br/>
+	Buyer: <%= link_to @buyer.first_name + " " + @buyer.last_name, :controller => "users", :action => "profile", :id => @buyer.id %><br/>
+	Seller: <%= link_to @seller.first_name + " " + @seller.last_name, :controller => "users", :action => "profile", :id => @seller.id %><br/>	
+</p>
+
