@@ -9,3 +9,12 @@
 	Seller: <%= link_to @seller.first_name + " " + @seller.last_name, :controller => "users", :action => "profile", :id => @seller.id %><br/>	
 </p>
 
+<p>
+Shipping Address:<br/>
+<%= @address.line1 %><br/>
+<% if @address.line2 != "" %>
+	<%= @address.line2 %><br/>
+<% end %>
+<%= @address.city %>, <%= @address.state %>. <%= @address.zip %><br/>
+</p>
+

@@ -58,6 +58,8 @@ class OrdersController < ApplicationController
 	@product = @order.product
 	@buyer = current_user
 	@seller = @product.user
+	@creditCard = @buyer.credit_card
+	@address = @buyer.address
   end
   
 end
