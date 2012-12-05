@@ -1,6 +1,34 @@
 <div id="sub_nav_links">
-  <div class="navigation_item"><a href="/products/"><%= image_tag('location.png') %></a></div>
+
+<% if current_user %>
+  <% if current_user.address %>
+  	<div class="navigation_item"><a href="/product?utf8=%E2%9C%93&search%5Bzip_equals%5D=<%= current_user.address.zip %>&commit=Search"><%= image_tag('location.png') %></a></div>
+  <% else %>
+  	<div class="navigation_item"><a href="#myModal"  data-toggle="modal"><%= image_tag('location.png') %></a></div>
+  <% end %>
+<% else %>
+    <div class="navigation_item"><a href="#myModal"  data-toggle="modal"><%= image_tag('location.png') %></a></div>
+
+<% end %>
+
+
+
    <% Category.all.each do |cat| %>
       <div class="navigation_item"><a href="/product?utf8=✓&search%5Bcategory_id_equals%5D=<%= cat.id %>"><%= cat.category %></a></div>
   <% end %>
+</div>
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">No Address found.</h3>
+  </div>
+  <div class="modal-body">
+    <p>Sorry you don't have a valid address for us to search or need to be login.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
