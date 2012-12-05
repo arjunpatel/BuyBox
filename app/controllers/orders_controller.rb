@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   def buy
-	if current_user.address and current_user.credit_card
+	if current_user.address
 		order = Order.new
 		order.product_id = params[:product_id]
 		order.user_id = current_user.id
