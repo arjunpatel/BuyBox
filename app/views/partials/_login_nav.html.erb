@@ -3,6 +3,7 @@
 
     <div class="m-btn-group">
       <a class="m-btn red dropdown-toggle" data-toggle="dropdown" href="#">
+        <% profile_image = current_user.image.present? ? current_user.image : "user_default.png" %>
           <div id="profile_img_wrap" style="background-image: url('<%= current_user.image %>');"></div>
           <div id="name"><%= current_user.first_name %></div>
         <i class="icon-cog icon"></i>

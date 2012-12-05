@@ -1,0 +1,203 @@
+.credit_card_operation{
+a {
+  color: #1177dd;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid #1177dd;
+}
+a.button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#3290ef), to(#1177dd));
+  background: -webkit-linear-gradient(#3290ef, #1177dd);
+  background: -moz-linear-gradient(#3290ef, #1177dd);
+  background: -ms-linear-gradient(#3290ef, #1177dd);
+  background: -o-linear-gradient(#3290ef, #1177dd);
+  background: linear-gradient(#3290ef, #1177dd);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #0f6ac5;
+  color: #ffffff;
+  display: block;
+  border-bottom: 2px solid #0d5dae;
+  font-size: 24px;
+  line-height: 62px;
+  padding: 0 30px;
+  text-align: center;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+}
+a.button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#499df1), to(#1a84ed));
+  background: -webkit-linear-gradient(#499df1, #1a84ed);
+  background: -moz-linear-gradient(#499df1, #1a84ed);
+  background: -ms-linear-gradient(#499df1, #1a84ed);
+  background: -o-linear-gradient(#499df1, #1a84ed);
+  background: linear-gradient(#499df1, #1a84ed);
+  border-bottom-color: #0f6ac5;
+  color: #ffffff;
+}
+a.button:active {
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4);
+  border-bottom: none;
+  margin-top: 2px;
+}
+h1 {
+  font-size: 56px;
+  font-weight: 200;
+  line-height: 64px;
+}
+h2 {
+  color: #888;
+  font-family: serif;
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+h3 {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+p {
+  color: #707070;
+  margin-bottom: 32px;
+}
+.list {
+  color: #707070;
+  font-size: 14px;
+  list-style: disc;
+  margin-bottom: 32px;
+  margin-left: 25px;
+}
+.list .list {
+  margin-bottom: 0;
+}
+code {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #555;
+  font-family: monospace;
+  font-size: 14px;
+}
+pre code {
+  display: block;
+  line-height: 20px;
+  overflow: scroll;
+  padding: 14px 20px;
+}
+.demo .numbers {
+  background-color: #ffd;
+  border: 1px solid #eec;
+  margin-bottom: 32px;
+  padding: 16px 20px;
+}
+.demo .numbers p {
+  margin-bottom: 0;
+}
+.demo .numbers .list {
+  margin-bottom: 0;
+}
+.example {
+  clear: both;
+  margin-bottom: 32px;
+}
+.cards {
+  overflow: hidden;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url(card_logos.png);
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards li:last-child {
+  margin-right: 0;
+}
+.cards .visa_electron {
+  background-position: 204px 0;
+}
+.cards .mastercard {
+  background-position: 153px 0;
+}
+.cards .maestro {
+  background-position: 102px 0;
+}
+.cards .discover {
+  background-position: 51px 0;
+}
+.cards .visa.off {
+  background-position: 0 32px;
+}
+.cards .visa_electron.off {
+  background-position: 204px 32px;
+}
+.cards .mastercard.off {
+  background-position: 153px 32px;
+}
+.cards .maestro.off {
+  background-position: 102px 32px;
+}
+.cards .discover.off {
+  background-position: 51px 32px;
+}
+form h2 {
+  color: #555;
+  font-family: "Helvetica Neue", Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  margin-bottom: 0;
+}
+form li {
+  margin: 8px 0;
+}
+form label {
+  color: #555;
+  display: block;
+  font-size: 14px;
+}
+form label small {
+  color: #aaa;
+  font-size: 11px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+form input.valid {
+  background: url(tick.png) 260px center no-repeat;
+}
+.vertical {
+  overflow: hidden;
+}
+.vertical li {
+  float: left;
+  width: 140px;
+}
+.vertical li .or {
+  color: #aaa;
+  float: left;
+  font-size: 12px;
+  margin-left: -8px;
+  margin-top: 32px;
+}
+.vertical li:last-child {
+  float: right;
+  text-align: right;
+}
+.vertical li:last-child input {
+  float: right;
+}
+.vertical input {
+  width: 68px;
+}
+
+
+}

@@ -1,5 +1,3 @@
-
-
 <div id="sub_navigation_links">
   <div class="navigation_item"><a href="/users/show">ACCOUNT INFORMATION</a></div>
   <div class="navigation_item"><a href="/users/edit">ACCOUNT SETTINGS</a></div>
@@ -7,44 +5,91 @@
   <div class="navigation_item"><a href="/users/connection">CONNECTION</a></div>
 </div>
 
-<div class="container-fluid content_padding">
+<div class="container-fluid content_padding ">
   <div class="row-fluid">
     <div class="span6">
-        <!-- to display errors returned by createToken -->
-        <span class="payment-errors"></span>
-        <form action="" method="POST" id="payment-form">
-            <legend>Payment</legend>
-            <div class="form-row">
-                <label>Card Number</label>
-                <input type="text" size="20" autocomplete="off" class="card-number" />
-            </div>
-            <div class="form-row">
-                <label>CVC</label>
-                <input type="text" size="4" autocomplete="off" class="card-cvc" />
-            </div>
-            <div class="form-row">
-                <label>Expiration (MM/YYYY)</label>
-                <input type="text" size="2" class="card-expiry-month"/>
-                <span> / </span>
-                <input type="text" size="4" class="card-expiry-year"/>
-            </div>
-            <button type="submit" class="submit-button">Submit</button>
+      <!-- to display errors returned by createToken -->
+      <div class="credit_card_operation">
+        <form>
+          <legend>Credit Card</legend>
+
+          <ul>
+            <li>
+              <ul class="cards">
+                <li class="visa off">Visa</li>
+                <li class="visa_electron off">Visa Electron</li>
+                <li class="mastercard">MasterCard</li>
+                <li class="maestro off">Maestro</li>
+                <li class="discover off">Discover</li>
+              </ul>
+            </li>
+
+            <li>
+              <label for="card_number">Card number</label>
+              <input type="text" name="card_number" id="card_number" class="valid">
+
+              <div class="hidden visa">4000000000000002</div>
+              <div class="hidden master">5100000000000008</div>
+            </li>
+
+            <li class="vertical">
+              <ul>
+                <li style="margin-left: -25px;">
+                  <label for="expiry_date">Expiry date
+                    <small>mm/yy</small>
+                  </label>
+                  <input type="text" name="expiry_date" id="expiry_date" maxlength="5">
+                </li>
+
+                <li style="float: left;">
+                  <label for="cvv">CVV</label>
+                  <input type="text" name="cvv" id="cvv" maxlength="3">
+                </li>
+              </ul>
+            </li>
+
+            <li class="vertical maestro" style="display: none; opacity: 0;">
+              <ul>
+                <li>
+                  <label for="issue_date">Issue date
+                    <small>mm/yy</small>
+                  </label>
+                  <input type="text" name="issue_date" id="issue_date" maxlength="5">
+                </li>
+
+                <li>
+                  <span class="or">or</span>
+                  <label for="issue_number">Issue number</label>
+                  <input type="text" name="issue_number" id="issue_number" maxlength="2">
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <label for="name_on_card">Name on card</label>
+              <input type="text" name="name_on_card" id="name_on_card">
+            </li>
+          </ul>
+          <input type="submit" class="m-btn purple rnd" style="margin-left: 25px;" value="Submit Credit Card">
         </form>
+      </div>
     </div>
     <div class="span6">
 
 
-    <form action="buyer_information" method="get" class="fancy-form">
+      <form action="buyer_information" method="get" class="fancy-form">
 
         <legend>Address</legend>
         <p class="instructions">
-            <% if @user.address %>
-                Your current address is : <br><%= @user_address_line1 %> <%= @user_address_line2  %>, <%= @user_address_city  %>, <%= @user_address_state  %>  <%= @user_address_zip  %>
-                <br>If you want to change it please start by entering your zipcode.
-            <% else %>
-                You have no address yet. Start by entering your zipcode.
-            <% end %>
+          <% if @user.address %>
+              Your current address is : <br><%= @user_address_line1 %> <%= @user_address_line2 %>
+              , <%= @user_address_city %>, <%= @user_address_state %>  <%= @user_address_zip %>
+              <br>If you want to change it please start by entering your zipcode.
+          <% else %>
+              You have no address yet. Start by entering your zipcode.
+          <% end %>
         </p>
+
         <div>
           <div>
             <input type="text" name="line1" id="address-line-1" placeholder="Address line 1">
@@ -57,26 +102,27 @@
         </div>
         <div>
           <div class="city-wrap">
-            <input type="text" name="city" id="city"  placeholder="City">
+            <input type="text" name="city" id="city" placeholder="City">
           </div>
           <div class="state-wrap">
             <input type="text" name="state" id="state" placeholder="State">
           </div>
           <div class="zip-wrap">
             <input type="text" pattern="[0-9]*" maxlength="5" required name="zip" id="zip" placeholder="Zipcode">
+
             <p class="zip-error">Not a real zip code.</p>
           </div>
         </div>
 
         <div class="submit-wrap">
-         <input type="hidden" name="sub_value" value="new">
-          <input type="submit" value="Submit">
+          <input type="hidden" name="sub_value" value="new">
+          <input type="submit" class="m-btn purple rnd" value="Submit Address">
         </div>
 
 
-    </form> 
+      </form>
 
     </div>
-   </div>
+  </div>
 </div>
 
