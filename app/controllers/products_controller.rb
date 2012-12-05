@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
 
     @product = Product.new(params[:product])
     @product.user_id = current_user.id
+	@product.price = (@product.price).to_i
 	if @product.digital_link == ""
 		@product.digital_link = "/assets/product_no_image.png"
 	end
@@ -74,6 +75,8 @@ class ProductsController < ApplicationController
 	  render :file => File.join(Rails.root, 'public', '500.html')
     end
     if @product.update_attributes(params[:product])
+	  @product.price = (@product.price).to_i
+	  @product.save
       redirect_to(:action => 'list')
     else
       render('edit')
