@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
 Category.create(:category => "Books")
-Category.create(:category => "Online")
+Category.create(:category => "Games")
 Category.create(:category => "Electronics")
 Category.create(:category => "Sports")
 Category.create(:category => "Home")
