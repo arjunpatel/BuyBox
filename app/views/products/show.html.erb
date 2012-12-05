@@ -179,7 +179,7 @@ $(document).ready(function() {
 
     <div id="product_left">
       <div class="image"><%= image_tag(image_url) %></div>
-      <div class="description"><%= @product.description %></div>
+      <div class="description"><%= raw sanitize(simple_format(@product.description.gsub(/\n/, '<br>')), :tags => %w(br p) ) %></div>
     </div>
     <div id="product_right">
       <div id="user_banner">
