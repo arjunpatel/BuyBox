@@ -469,6 +469,8 @@
                 a {
                     color: #333333;
                     font-size: 14px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                     line-height: 16px;
                 }
             }
