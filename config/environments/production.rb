@@ -1,4 +1,9 @@
 BuyBox::Application.configure do
+
+  config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Production") do |u, p|
+    [u, p] == [ENV['BUYBOX_USERNAME'], ENV['BUYBOX_PASSWORD']]
+  end
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
