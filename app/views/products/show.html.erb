@@ -5,8 +5,114 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+
+<style>
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:350px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog1 {
+  width:400px; 
+  height:240px;
+  padding:10px;
+  background-color:#ffffff;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script>
+
+$(document).ready(function() {  
+
+  //select all the a tag with name equal to modal
+  $('a[name=modal]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
+    
+    //Get the A tag
+    var id = $(this).attr('href');
+  
+    //Get the screen height and width
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+  
+    //Set heigth and width to mask to fill up the whole screen
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    
+    //transition effect   
+    $('#mask').fadeIn(1000);  
+    $('#mask').fadeTo("slow",0.8);  
+  
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+              
+    //Set the popup window to center
+    $(id).css('top',  winH/2-$(id).height()/2);
+    $(id).css('left', winW/2-$(id).width()/2);
+  
+    //transition effect
+    $(id).fadeIn(2000); 
+  
+  });
+  
+  //if close button is clicked
+  $('.window .close').click(function (e) {
+    //Cancel the link behavior
+    e.preventDefault();
+    
+    $('#mask').hide();
+    $('.window').hide();
+  });   
+  
+  //if mask is clicked
+  $('#mask').click(function () {
+    $(this).hide();
+    $('.window').hide();
+  });     
+
+  $(window).resize(function () {
+   
+    var box = $('#boxes .window');
+ 
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+      
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+               
+        //Get the window height and width
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        box.css('top',  winH/2 - box.height()/2);
+        box.css('left', winW/2 - box.width()/2);
+   
+  });
+  
+});
+
+</script>
 </head>
 <body id="product_layout">
+      <% image_url = @product.digital_link.present? ? @product.digital_link : 'product_no_image.png' %>
 
     <% product_img = @product.digital_link %>
     <% product_title = "Check out " + @product.product_name + " at BuyBox" %>
@@ -56,9 +162,22 @@
     <%= render "partials/notice_alert" %>
 
 
+<div id="boxes">
+<div id="dialog1" class="window">
+  <div id="confirm_display">
+            <div id="pe_header"> Are you sure you want to buy  </div>
+            <div id="pe_content">
+              <div class="confirm_image pull-left" style="background-image: url('<%= image_url %>')"></div>
+              <div class="confirm_display_price pull-right"> <%= @product.product_name %> <br>for $ <%= '%.0f' % @product.price %> ?</div>
+            </div>
+  </div><br>
+  <div id="confirm_button"><%= link_to "I want to Buy !", {:controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1} ,:class=>" m-btn green close_btn" %></div>
+<a href="#" class="close m-btn black close_btn"/>Cancel </a>
+</div>
+</div>
+ 
 
     <div id="product_left">
-      <% image_url = @product.digital_link.present? ? @product.digital_link : 'product_no_image.png' %>
       <div class="image"><%= image_tag(image_url) %></div>
       <div class="description"><%= @product.description %></div>
     </div>
@@ -95,19 +214,20 @@
       <div id="purchase">
         <div class="stripes stripes_top"></div>
         <div class="product_price_display"><%= number_to_currency(@product.price) %></div>
-			
-			
-			<% if @user_id != @seller_id && @product.active = true && @product.quantity > 0 %>
-				<span class="pull-right m-btn green rnd product_buy_button"> 
-				<%= link_to "Buy", :controller => "orders", :action => "buy", :product_id => @product.id, :price => @product.price, :quantity => 1 %> 
-				</span>
-			<% elsif @user_id == @seller_id %>
-				<span class="pull-right m-btn green rnd product_buy_button"> 
-				<%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
-				</span>
-			
-			<% end %>
-			
+      
+      
+      <% if @user_id != @seller_id && @product.active = true && @product.quantity > 0 %>
+        <span class="pull-right m-btn green rnd product_buy_button"> 
+
+        <div class="confirm_display"><a href="#dialog1" name="modal">Buy</a></div>
+        </span>
+      <% elsif @user_id == @seller_id %>
+        <span class="pull-right m-btn green rnd product_buy_button"> 
+        <%= link_to "Edit", :controller => "products", :action => "edit", :id => @product.id %>
+        </span>
+      
+      <% end %>
+      
 
 
         <div class="stripes"></div>
@@ -118,11 +238,11 @@
         <div class="product_divider"></div>
         <div class="product_additional_information"><span class="space_right"><%= image_tag('zip.png') %></span><%= @product.zip %></div>
         <div class="product_divider"></div>
-		<% if @product.quantity > 0 %>
-			<div class="product_additional_information"> <%= @product.quantity %> in stock</div>
-		<% else %>
-			<div class="product_additional_information">Sold Out</div>
-		<% end %>
+    <% if @product.quantity > 0 %>
+      <div class="product_additional_information"> <%= @product.quantity %> in stock</div>
+    <% else %>
+      <div class="product_additional_information">Sold Out</div>
+    <% end %>
         <div class="product_divider"></div>
         <div class="product_additional_information"> Made by <%= @product.brand %></div>
         <div class="product_divider"></div>
@@ -145,6 +265,7 @@
 
 
 
+  <div id="mask"></div>
 
 
 <%= render "partials/footer" %>

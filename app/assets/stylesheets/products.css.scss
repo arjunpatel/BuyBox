@@ -2,6 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.confirm_image
+{
+    height: 130px;
+    width: 130px;
+    background-position: center center;
+    background-size: 100%;
+    background-size: cover;
+    margin: 10px;
+}
+.confirm_display_price{
+    width: 200px;
+    padding-top: 30px;
+    color: #FFFFFF;
+    font-size: 25px;
+    line-height: 30px;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+#confirm_display {
+    width: 400px;
+    #pe_header {
+        widht: 630px;
+        font-size: 24px;
+        line-height: 50px;
+        color: #FFFFFF;
+        font-weight: 300;
+        height: 50px;
+        background-color: #83CC4D;
+        padding-left: 20px;
+        .bold{
+            font-weight: 700;
+        }
+    }
+    #pe_content {
+        height: 150px;
+        width: 100%;
+        background-color: #666666;
+        input#pe_price{
+            margin: 60px 0 0 40px;
+            float: left;
+            color: #FFFFFF;
+        }
+        #confirm_container{
+            width: 300px;
+            float: right;
+        }
+
+    }
+}
+
+
 .price_estimate
 {
     font-size: 20px;
@@ -242,7 +294,7 @@
 .inventory_status_left
 {
 
-	width:100px;
+    width:100px;
     display: inline-table;
     margin: 0px;
 }
