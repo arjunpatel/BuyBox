@@ -10,7 +10,7 @@
     <div class="span6">
       <!-- to display errors returned by createToken -->
       <div class="credit_card_operation">
-        <form>
+        <form action="/credit_cards/new" method="get">
           <legend>Credit Card</legend>
 
           <ul>
@@ -25,7 +25,7 @@
             </li>
 
             <li>
-              <label for="card_number">Card number</label>
+              <label for="card_number">Card Number</label>
               <input type="text" name="card_number" id="card_number" class="valid">
 
               <div class="hidden visa">4000000000000002</div>
@@ -35,15 +35,17 @@
             <li class="vertical">
               <ul>
                 <li style="margin-left: -25px;">
-                  <label for="expiry_date">Expiry date
-                    <small>mm/yy</small>
-                  </label>
-                  <input type="text" name="expiry_date" id="expiry_date" maxlength="5">
+                  <label for="exp_month">Exp Month</label>
+                  <input type="text" name="exp_month" id="exp_month" maxlength="2">
+                </li>
+				<li style="margin-left: -25px;">
+                  <label for="exp_year">Exp Year</label>
+                  <input type="text" name="exp_year" id="exp_year" maxlength="2">
                 </li>
 
-                <li style="float: left;">
-                  <label for="cvv">CVV</label>
-                  <input type="text" name="cvv" id="cvv" maxlength="3">
+                <li style="margin-left: -25px;">
+                  <label for="cvc">CVC</label>
+                  <input type="text" name="cvc" id="cvc" maxlength="3">
                 </li>
               </ul>
             </li>
