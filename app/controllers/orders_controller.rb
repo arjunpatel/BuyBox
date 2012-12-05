@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   def buy
-	if current_user.address
+	if current_user.address and current_user.credit_card
 		order = Order.new
 		order.product_id = params[:product_id]
 		order.user_id = current_user.id
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 			render :file => File.join(Rails.root, 'public', '500.html')
 		end
 	else
-		flash[:notice] = "You need to fill in your address information before purchasing a product"
+		flash[:notice] = "You need to fill in your address/credit card information before purchasing a product"
 		redirect_to(:controller => "users", :action => "buyer_information")
 	end
 
