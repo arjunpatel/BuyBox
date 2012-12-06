@@ -3,6 +3,7 @@
 <head>
   <title>Buybox - <%= @user.first_name %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= render "partials/tracking" %>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
