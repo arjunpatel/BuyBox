@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 			render :file => File.join(Rails.root, 'public', '500.html')
 		end
 	else
-		flash[:notice] = "You need to fill in your address/credit card information before purchasing a product"
+		flash[:notice] = "You need to fill in your address before purchasing a product."
 		redirect_to(:controller => "users", :action => "buyer_information")
 	end
 
