@@ -12,7 +12,7 @@ Buybox was a project by 9 University of California, San Diego students. We set o
 
 <hr>
 
-<h4>Contributors</h4>
+<h4><a href="https://github.com/arjunpatel/BuyBox/graphs/contributors">Contributors</a></h4>
 <a href="https://github.com/arjunpatel">arjunpatel</a> - Product Manager <br>
 <a href="#">Alok Singh</a> - Deputy Manager <br>
 <a href="https://github.com/dongjunam23">dongjunam23</a> - Database Specialist <br>
