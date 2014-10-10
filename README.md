@@ -8,7 +8,7 @@ Buybox was a project by 9 University of California, San Diego students. We set o
 <hr>
 
 <h3>Home</h3>
-<img src="https://dl.dropboxusercontent.com/u/132110/buybox-home-git.png">
+<img src="https://dl.dropboxusercontent.com/u/132110/BuyBox%20Git/buybox-home-git.png">
 
 <hr>
 
